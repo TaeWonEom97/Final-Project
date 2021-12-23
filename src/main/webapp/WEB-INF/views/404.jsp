@@ -1,6 +1,10 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
-    <head>
+<html>
+<head>
+<meta charset="UTF-8">
+ <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -8,9 +12,13 @@
         <meta name="author" content="" />
         <title>404 Error - SB Admin</title>
         <link href="css/styles.css" rel="stylesheet" />
+        <link rel="stylesheet" href="resources/css/styles.css" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
     </head>
-    <body>
+<title>Insert title here</title>
+</head>
+<body>
+<body>
         <div id="layoutError">
             <div id="layoutError_content">
                 <main>
@@ -18,8 +26,8 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-6">
                                 <div class="text-center mt-4">
-                                    <h1 class="display-1">500</h1>
-                                    <p class="lead">Internal Server Error</p>
+                                    <img class="mb-4 img-error" src="assets/img/error-404-monochrome.svg" />
+                                    <p class="lead">This requested URL was not found on this server.</p>
                                     <a href="index.html">
                                         <i class="fas fa-arrow-left me-1"></i>
                                         Return to Dashboard
@@ -46,6 +54,7 @@
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="js/scripts.js"></script>
+        <script src="/resources/js/scripts.js"></script>
     </body>
+</body>
 </html>
