@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class sellItemDTO {
+public class SellItemDTO {
 	private String sellcode;
 	private int sellnum;
 	private String selldate;
@@ -15,6 +15,6 @@ public class sellItemDTO {
 	private String selluser;
 	
 	private ItemDTO itemDto;
-	private customerDTO customerDto;
+	private CustomerDTO customerDto;
 	
 }
