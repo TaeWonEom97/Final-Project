@@ -4,6 +4,7 @@ import javax.servlet.Filter;
 
 import org.springframework.context.annotation.Configuration;
 
+
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
@@ -33,4 +34,5 @@ public class WebConfig extends AbstractAnnotationConfigDispatcherServletInitiali
 	 * new CharacterEncodingFilter("utf-8",true); return new Filter[]
 	 * {encodingFilter}; }
 	 */
+
 }

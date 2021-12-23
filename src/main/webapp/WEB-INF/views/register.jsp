@@ -10,6 +10,7 @@
         <meta name="author" content="" />
         <title>Register - SB Admin</title>
         <link rel="stylesheet" href="/resources/css/styles.css" />
+        <link href="css/styles.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
     </head>
     <body class="bg-primary">
@@ -22,7 +23,6 @@
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Create Account</h3></div>
                                     <div class="card-body">
-                      
                                         <form method="post" action="">
                                             <div class="row mb-3">
                                                 <div class="form-floating mb-3">
@@ -57,7 +57,9 @@
                                         </form>
                                     </div>
                                     <div class="card-footer text-center py-3">
-                                        <div class="small"><a href="/login">Have an account? Go to login</a></div>
+                                    </div>
+                                    <div class="card-footer text-center py-3">
+                                        <div class="small"><a href="login.html">Have an account? Go to login</a></div>
                                     </div>
                                 </div>
                             </div>

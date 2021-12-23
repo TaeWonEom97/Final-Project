@@ -11,8 +11,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>404 Error - SB Admin</title>
-        <link href="css/styles.css" rel="stylesheet" />
-        <link rel="stylesheet" href="resources/css/styles.css" />
+        <link rel="stylesheet" href="/resources/css/styles.css" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
     </head>
 <title>Insert title here</title>
@@ -26,7 +25,7 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-6">
                                 <div class="text-center mt-4">
-                                    <img class="mb-4 img-error" src="assets/img/error-404-monochrome.svg" />
+                                    <img class="mb-4 img-error" src="/resources/assets/img/error-404-monochrome.svg" />
                                     <p class="lead">This requested URL was not found on this server.</p>
                                     <a href="index.html">
                                         <i class="fas fa-arrow-left me-1"></i>
