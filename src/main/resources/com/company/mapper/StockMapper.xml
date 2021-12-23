@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.mapper.StockMapper">
+	
+	<resultMap type="com.company.domain.sellItemDTO" id="sellItemMap">
+		<id property="sellid" column="sellid"/>
+		<result property="sellnum" column="sellnum"/>
+		<result property="selldate" column="selldate"/>
+		<result property="sellcode" column="sellcode"/>
+		<result property="selluser" column="selluser"/>
+		
+		<collection property="itemDto" resultMap="itemMap"/>
+		<collection property="customerDto" resultMap="customerMap"/>
+	</resultMap>
+	
+	<resultMap type="com.company.domain.ItemDTO" id="itemMap">
+		<result property="itemcode" column="itemcode"/>
+		<result property="itemtitle" column="itemtitle"/>
+		<result property="itemprice" column="itemprice"/>
+		<result property="supplier" column="supplier"/>
+		<result property="itemsize" column="itemsize"/>
+		<result property="color" column="color"/>
+	</resultMap>
+	
+	<resultMap type="com.company.domain.customerDTO" id="customerMap">
+		<result property="userid" column="userid"/>
+		<result property="password" column="password"/>
+		<result property="company" column="company"/>
+	</resultMap>
+	
+	
+	<select id="sellList" resultMap="sellItemMap">
+		select * from sellitem left outer join item on sellcode = itemcode left outer join customer on selluser = userid
+	</select>
+</mapper>

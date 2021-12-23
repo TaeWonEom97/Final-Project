@@ -26,7 +26,7 @@ public class HomeController {
 	public String home(Locale locale, Model model) {
 		log.info("index 요청");
 		
-		return "home";
+		return "main";
 	}
 	
 }
