@@ -6,28 +6,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.company.domain.SalesListDTO;
-import com.company.service.SalesService;
-
+import com.company.domain.ItemDTO;
+import com.company.domain.SellItemDTO;
+import com.company.service.StockService;
 
 @Controller
-public class SalesController {
+public class StockController {
 	
 	@Autowired
-	public SalesService service;
+	public StockService service;
 	
-	@GetMapping("/salesList")
+	@GetMapping("/tables-2")
 	public void list(Model model) {
-		
-		List<SalesListDTO> list = service.getList();
-		
-		model.addAttribute("list",list);
+
+		List<SellItemDTO> list = service.sellAll();
+
+		model.addAttribute("list", list);
 	}
-	
-	
-	
-	
-	
 }

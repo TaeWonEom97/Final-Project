@@ -48,97 +48,97 @@
                                     </div>
                                      <div>
 
-                           <div>
-                              <canvas id="canvas" height="50%" width="99%"></canvas>
-                     
-                           </div>
-                     
-                        </div>
-                     
-                        <script
-                           src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-                     
-                        <script
-                           src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.js"></script>
-                     
-                        <script>
-                           var chartLabels = [];
-                     
-                           var chartData = [];
-                     
-                           $.getJSON("incomeList", function(data) {
-                              
-                              console.log(data);
-                     
-                              $.each(data, function(inx, obj) {
-                     
-                                 chartLabels.push(obj.selldate);
-                     
-                                 chartData.push(obj.sellnum);
-                     
-                              });
-                     
-                              createChart();
-                     
-                              console.log("create Chart")
-                     
-                           });
-                     
-                           var lineChartData = {
-                     
-                              labels : chartLabels,
-                     
-                              datasets : [
-                     
-                              {
-                     
-                                 label : "일별 판매",
-                     
-                                 backgroundColor:"#bfdaf9",
-                                     borderColor: "#80b6f4",
-                                     pointBorderColor: "#80b6f4",
-                                     pointBackgroundColor: "#80b6f4",
-                                     pointHoverBackgroundColor: "#80b6f4",
-                                     pointHoverBorderColor: "#80b6f4",
-                     
-                                 data : chartData
-                     
-                              }
-                     
-                              ]
-                     
-                           }
-                     
-                           function createChart() {
-                     
-                              var ctx = document.getElementById("canvas").getContext("2d");
-                     
-                              LineChartDemo = Chart.Line(ctx, {
-                     
-                                 data : lineChartData,
-                     
-                                 options : {
-                     
-                                    scales : {
-                     
-                                       yAxes : [ {
-                     
-                                          ticks : {
-                     
-                                             beginAtZero : true
-                     
-                                          }
-                     
-                                       } ]
-                     
-                                    }
-                     
-                                 }
-                     
-                              })
-                     
-                           }
-                        </script>
+									<div>
+										<canvas id="canvas" height="50%" width="99%"></canvas>
+							
+									</div>
+							
+								</div>
+							
+								<script
+									src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+							
+								<script
+									src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.js"></script>
+							
+								<script>
+									var chartLabels = [];
+							
+									var chartData = [];
+							
+									$.getJSON("incomeList", function(data) {
+										
+										console.log(data);
+							
+										$.each(data, function(inx, obj) {
+							
+											chartLabels.push(obj.selldate);
+							
+											chartData.push(obj.sellnum);
+							
+										});
+							
+										createChart();
+							
+										console.log("create Chart")
+							
+									});
+							
+									var lineChartData = {
+							
+										labels : chartLabels,
+							
+										datasets : [
+							
+										{
+							
+											label : "일별 판매",
+							
+											backgroundColor:"#bfdaf9",
+							                borderColor: "#80b6f4",
+							                pointBorderColor: "#80b6f4",
+							                pointBackgroundColor: "#80b6f4",
+							                pointHoverBackgroundColor: "#80b6f4",
+							                pointHoverBorderColor: "#80b6f4",
+							
+											data : chartData
+							
+										}
+							
+										]
+							
+									}
+							
+									function createChart() {
+							
+										var ctx = document.getElementById("canvas").getContext("2d");
+							
+										LineChartDemo = Chart.Line(ctx, {
+							
+											data : lineChartData,
+							
+											options : {
+							
+												scales : {
+							
+													yAxes : [ {
+							
+														ticks : {
+							
+															beginAtZero : true
+							
+														}
+							
+													} ]
+							
+												}
+							
+											}
+							
+										})
+							
+									}
+								</script>
                                 </div>
                             </div>
                             <div class="col-xl-6">

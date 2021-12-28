@@ -1,10 +1,10 @@
-package com.company.mapper;
+package com.company.service;
 
 import java.util.List;
 
 import com.company.domain.ItemDTO;
 import com.company.domain.SellItemDTO;
 
-public interface StockMapper {
-	public List<SellItemDTO> sellList();
+public interface StockService {
+	public List<SellItemDTO> sellAll();
 }

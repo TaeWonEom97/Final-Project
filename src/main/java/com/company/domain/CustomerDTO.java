@@ -1,5 +1,7 @@
 package com.company.domain;
 
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
@@ -7,17 +9,16 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-
 @Getter
 @Setter
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-public class ItemDTO {
-	private String itemcode;
-	private String itemtitle;
-	private int itemprice;
-	private String supplier;
-	private String itemsize;
-	private String color;
+public class CustomerDTO {
+	private String userid;
+	private String password;
+	private String company;
+	private boolean enabled;
+	
+	private List<AuthDTO> authList;
 }

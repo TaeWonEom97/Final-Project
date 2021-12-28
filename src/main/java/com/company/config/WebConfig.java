@@ -4,6 +4,8 @@ import javax.servlet.Filter;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.access.SecurityConfig;
+
+
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
@@ -14,6 +16,7 @@ public class WebConfig extends AbstractAnnotationConfigDispatcherServletInitiali
    protected Class<?>[] getRootConfigClasses() {
       return new Class[] {RootConfig.class};
    }
+
 
    @Override
    protected Class<?>[] getServletConfigClasses() {
@@ -26,12 +29,15 @@ public class WebConfig extends AbstractAnnotationConfigDispatcherServletInitiali
       // TODO Auto-generated method stub
       return new String[] {"/"};
    }
-   
-   /*
-    * @Override protected Filter[] getServletFilters() { //boolean forceEncoding :
-    * true(기존 인코딩 설정값이 있어도 현재 설정값으로 나옴) CharacterEncodingFilter encodingFilter =
-    * new CharacterEncodingFilter("utf-8",true); return new Filter[]
-    * {encodingFilter}; }
-    */
-
 }
+
+
+	
+	/*
+	 * @Override protected Filter[] getServletFilters() { //boolean forceEncoding :
+	 * true(기존 인코딩 설정값이 있어도 현재 설정값으로 나옴) CharacterEncodingFilter encodingFilter =
+	 * new CharacterEncodingFilter("utf-8",true); return new Filter[]
+	 * {encodingFilter}; }
+	 */
+
+
