@@ -15,7 +15,6 @@
 	
 	<Logger name="org.springframework.web" level="debug"/>
 	<Logger name="org.springframework.jdbc" level="debug"/>
-	
 	<Logger name="com.company.controller" level="info"/>
 	<Logger name="com.company.mapper" level="debug"/>
 	<Logger name="com.company.task" level="info"/>
