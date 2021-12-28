@@ -26,7 +26,12 @@ public class CustomerController {
 		return "/login";
 	}
 	
-	
+	@GetMapping("/main2")
+	public String chart1() {
+		log.info("판매차트 요청");
+		return "/main2";
+	}
+
 	@GetMapping("/register")
 	public String register() {
 		log.info("회원가입 폼 요청");

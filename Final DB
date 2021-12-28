@@ -1,4 +1,4 @@
---아이템 상품코드(primary key), 상품명, 가격, 제조사,  사이즈,색상
+--아이템 상품코드(primary key), 상품명, 가격, 제조사,  사이즈,색상 -> 거래처
 create table item(
 	itemcode varchar2(200) constraint pk_item primary key,
 	itemtitle varchar2(200) not null,
@@ -8,7 +8,7 @@ create table item(
 	color varchar2(10) not null
 );
 create sequence seqid;
---입고 상품코드(foreign key), 입고수량,  입고 날짜,시퀀스(primary)
+--입고 상품코드(foreign key), 입고수량,  입고 날짜,시퀀스(primary) -> 거래처에서 입고
 create table insertitem(
 	code varchar2(50) not null,
 	constraint fk_item foreign key(code) references item(itemcode),
@@ -17,7 +17,7 @@ create table insertitem(
 	seqid number(10) constraint pk_seqid primary key
 );
 create sequence sellid;
---판매, 조회 : 코드(foreign key), 판매수량,  판매 날짜,시퀀스(primary)
+--판매, 조회 : 코드(foreign key), 판매수량,  판매 날짜,시퀀스(primary) -> 입고 된거를 판매
 create table sellitem(
 	sellcode varchar2(50) not null,
 	constraint fk_sellitem foreign key(sellcode) references item(itemcode),
@@ -29,6 +29,13 @@ delete from sellitem;
 drop table salescheck;
 alter table sellitem add selluser varchar2(50) not null;
 alter table sellitem add constraint fk_selluser foreign key(selluser) references customer(userid);
+
+
+insert into item(itemcode, itemtitle, itemprice, supplier, itemsize, color) values('P004', '에어포스', 150000, '나이키', '250cm', 'White');
+
+insert into sellitem(sellcode, sellnum, sellid, selluser) values('P004', 30, sellid.nextval, 'user1');
+insert into sellitem(sellcode, sellnum, sellid, selluser) values('P004', 3, sellid.nextval, 'user1');
+select * from sellitem;
 --판매조회 userid(foreign key), 상품 코드(foreign key), 시퀀스(primary) 
 --create table salescheck(
 --	salesid varchar2(50) not null,
