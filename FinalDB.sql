@@ -72,3 +72,7 @@ delete from sellitem;
 drop table salescheck;
 alter table sellitem add selluser varchar2(50) not null;
 alter table sellitem add constraint fk_selluser foreign key(selluser) references customer(userid);
+
+select * from customer;
+
+
