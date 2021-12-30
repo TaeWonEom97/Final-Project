@@ -1,5 +1,7 @@
 package com.company.domain;
 
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
@@ -16,4 +18,12 @@ public class CustomerDTO {
 	private String userid;
 	private String password;
 	private String company;
+	private boolean enabled;
+	
+	private List<AuthDTO> authList;
+
 }
+
+
+
+

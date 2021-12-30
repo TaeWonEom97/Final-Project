@@ -2,6 +2,7 @@ package com.company.mapper;
 
 import java.util.List;
 
+
 import org.apache.ibatis.annotations.Mapper;
 
 
@@ -18,4 +19,5 @@ public interface StockMapper<StockDTO> {
 		public List<StockDTO> stocklist();
 	 
 }
+
 

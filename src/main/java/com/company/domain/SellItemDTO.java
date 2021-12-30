@@ -22,4 +22,9 @@ public class SellItemDTO {
 	
 	private List<ItemDTO> itemDto;
 	private List<CustomerDTO> customerDto;
+
+	
+
+	
+
 }

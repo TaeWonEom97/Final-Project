@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
+
 @EnableScheduling //@scheduled활성화 시키기 위한 어노테이션
 @EnableTransactionManagement //@Transactional 활성화 시키기 위한 어노테이션
 @ComponentScan({"com.company.service","com.company.task"})
@@ -48,3 +49,4 @@ public class RootConfig {
       return new DataSourceTransactionManager(dataSource());      
    }
 }
+

@@ -11,8 +11,12 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>404 Error - SB Admin</title>
+
         <link href="css/styles.css" rel="stylesheet" />
         <link rel="stylesheet" href="resources/css/styles.css" />
+
+        <link rel="stylesheet" href="/resources/css/styles.css" />
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
     </head>
 <title>Insert title here</title>
