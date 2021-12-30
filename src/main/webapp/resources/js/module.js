@@ -5,14 +5,14 @@
 // 자바스크립트 모듈화
 let replyService = (function(){
 	
-	function add(reply,callback){
+	function add(newinsert,callback,error){
 		console.log("add method 실행");		
 		
 		$.ajax({
-			url:'/putin',
+			url:'/putinnew',
 			type:'post',
 			contentType:'application/json',
-			data:JSON.stringify(reply),
+			data:JSON.stringify(newinsert),
 			success:function(result){
 				if(callback){
 					callback(result);
@@ -35,11 +35,11 @@ let replyService = (function(){
 					callback(result);					
 				}
 			},
-			error:function(xhr,status,err){
-				if(error){
-					error(xhr.responseText);
-				}
-			}
+			//error:function(xhr,status,err){
+			//	if(error){
+					//error(xhr.responseText);
+				//}
+			//}
 		})	
 	}//remove end
 	
@@ -105,7 +105,6 @@ let replyService = (function(){
 	
 	return {
 		add:add,
-		getList:getList,
 		remove:remove,
 		update:update,
 		get:get,

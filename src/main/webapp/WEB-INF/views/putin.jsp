@@ -18,7 +18,6 @@
    		<!-- 달력 -->
 		<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-		<link rel="stylesheet" href="/resources/css/style.css">
 		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 		<style>
@@ -54,7 +53,7 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">MAIN</div>
-                            <a class="nav-link" href="index.html">
+                            <a class="nav-link" href="/">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 메인으로
                             </a>
@@ -149,6 +148,9 @@
                                 	    <thead>
                                         <tr>
                                         	<th>
+                                			<input id="check" type="checkbox">
+                                        	</th>
+                                        	<th>
                                         	제품코드
                                         	</th>
                                         	
@@ -209,14 +211,6 @@
 					        	<input type="text" name="code" class="form-control" value=""/>
 					        </div>
 					        <div class="form-group">
-					        	<label for="">입고 순번</label>
-					        	<input type="text" name="seq" class="form-control" value=""/>
-					        </div>
-					        <div class="form-group">
-					        	<label for="">입고 일자</label>
-					        	<input type="text" name="date" class="form-control" value=""/>
-					        </div> 
-					        <div class="form-group">
 					        	<label for="">입고 수량</label>
 					        	<input type="text" name="num" class="form-control" value=""/>
 					        </div>        
@@ -245,12 +239,16 @@
                 </footer>
             </div>
         </div>
+        <script>
+      	//ajax 동작 시 헤더 값에 포함해서 보낼 csrf 토큰 값 설정
+    	let csrfHeaderName = "${_csrf.headerName}";
+    	let csrfTokenValue = "${_csrf.token}";
+        </script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="/resources/js/putin.js"></script>
         <script src="/resources/js/scripts.js"></script>
         <script src="/resources/js/modal.js"></script>
         <script src="/resources/js/module.js"></script>  
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
-       <script src="/resources/js/datatables-simple-demo.js"></script>
     </body>
 </html>

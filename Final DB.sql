@@ -16,6 +16,12 @@ create table insertitem(
 	insertdate date default sysdate,
 	seqid number(10) constraint pk_seqid primary key
 );
+
+insert into insertitem(code, insertnum, insertdate, seqid) values('P004', 30, sysdate, seqid.nextval);
+insert into insertitem(code, insertnum, insertdate, seqid) values('P003', 20, sysdate, seqid.nextval);
+
+select * from insertitem;
+
 create sequence sellid;
 --판매, 조회 : 코드(foreign key), 판매수량,  판매 날짜,시퀀스(primary) -> 입고 된거를 판매
 create table sellitem(
@@ -32,6 +38,7 @@ alter table sellitem add constraint fk_selluser foreign key(selluser) references
 
 
 insert into item(itemcode, itemtitle, itemprice, supplier, itemsize, color) values('P004', '에어포스', 150000, '나이키', '250cm', 'White');
+insert into item(itemcode, itemtitle, itemprice, supplier, itemsize, color) values('P003', '에어포스', 150000, '나이키', '250cm', 'White');
 
 insert into sellitem(sellcode, sellnum, sellid, selluser) values('P004', 30, sellid.nextval, 'user1');
 insert into sellitem(sellcode, sellnum, sellid, selluser) values('P004', 3, sellid.nextval, 'user1');

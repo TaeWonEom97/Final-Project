@@ -8,7 +8,7 @@ create table item(
    color varchar2(10) not null
 );
 create sequence seqid;
-<<<<<<< HEAD
+
 --입고 상품코드(foreign key), 입고수량,  입고 날짜,시퀀스(primary)
 create table insertitem(
    code varchar2(50) not null,

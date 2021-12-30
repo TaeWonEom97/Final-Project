@@ -29,7 +29,7 @@ public class StockController {
 	private StockService service;
 	
 	
-	//     /tables-4 =StockList.jsp
+	//tables-4 =StockList.jsp
 	@GetMapping("/tables-4")
 	public void StockListGet(Model model) throws Exception {
 		log.info("재고현황 폼 요청");

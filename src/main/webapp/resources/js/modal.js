@@ -4,12 +4,16 @@
 
 $(function(){
 	
+	//beforeSend : ajax 구문 안에 추가해서 header 값으로 보내야 하는 값들을 전송(ajax 코드 안에 해당 코드가 존재해야 함)
+	//ajaxSend() : ajax 호출되면 무조건 이 값을 헤더로 전송
+	$(document).ajaxSend(function(e,xhr,options){
+		xhr.setRequestHeader(csrfHeaderName,csrfTokenValue);
+	});
+
 	let modal = $('#newModal');
 	
 	// 모달 창 영역 안의 요소 가져오기
 	let modalCode = modal.find("input[name='code']");
-	let modalSeq = modal.find("input[name='seq']");
-	let modalDate = modal.find("input[name='date']");
 	let modalNum = modal.find("input[name='num']");
 	
 	let modalRegisterBtn = modal.find("#modalRegisterBtn");
@@ -25,12 +29,10 @@ $(function(){
 		
 		var newinsert = {
 			code:modalCode.val(),
-			seqid:modalSeq.val(),
-			insertdate:modalDate.val(),
 			insertnum:modalNum.val()
 			
 		};
-		
+	
 		replyService.add(newinsert,
 			function(result){
 				if(result) {
@@ -41,6 +43,8 @@ $(function(){
 					modal.modal("hide");
 					showList(-1);
 				}
+		},function(msg){
+				alert(msg);
 		}); // add end
 	}) // modalRegister end
 	

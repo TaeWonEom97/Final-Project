@@ -41,4 +41,4 @@ insert into CUSTOMER(userid, password, company)
 values('test1','12345','테스트');
 
 
-
+select * from insertitem;

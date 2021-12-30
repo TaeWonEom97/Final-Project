@@ -28,7 +28,12 @@
 
 	<!-- 신규 내역 등록 -->
 	<insert id="insert">
-		insert into INSERTITEM(code,insertnum,insertdate,seqid) values(#{code},#{insertdate},pk_seqid.nextval,#{insertnum})
+		insert into INSERTITEM(code, insertnum, insertdate, seqid)
+		values(#{code},#{insertnum},sysdate,seqid.nextval)
 	</insert>
 
+	<!-- 내역 삭제 -->
+	<delete id="delete">
+		delete from INSERTITEM where insertdate=#{insertdate}
+	</delete>
 </mapper>

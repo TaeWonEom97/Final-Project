@@ -31,6 +31,7 @@ $(function(){
 				
 			for(var i=0,len=data.length||0;i<len;i++){
 				str += "<tr>";	
+				str += "<td>"+"<input id='check' type='checkbox'>"+"</td>";
 				str += "<td>"+data[i].code+"</td>";
 				str += "<td>"+data[i].insertnum+"</td>";
 				str += "<td>"+displayTime(data[i].insertdate)+"</td>";

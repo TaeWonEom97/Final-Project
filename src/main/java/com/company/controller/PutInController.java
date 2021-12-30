@@ -33,21 +33,17 @@ public class PutInController {
 
 	@PostMapping("/putin")
 	public ResponseEntity<List<PutInDTO>> getRow(String insertDate,Model model) {
-		log.info("³¯Â¥"+insertDate);
+		log.info("ë‚ ì§œ"+insertDate);
 		
 		List<PutInDTO> dto = service.getRow(insertDate);
 		
 		return new ResponseEntity<List<PutInDTO>>(dto,HttpStatus.OK);
 	}
-	
-	@GetMapping("/putin2")
-	public void insertNew(PutInDTO insertnewDto) {
-	}
-	
+
 	// @PreAuthorize("isAuthenticaed()")
-	@PostMapping("/putin2")
+	@PostMapping("/putinnew")
 	public ResponseEntity<String> create(@RequestBody PutInDTO newPutinDto){
-		log.info("½Å±Ô µî·Ï"+newPutinDto);
+		log.info("ì‹ ê·œ ë“±ë¡"+newPutinDto);
 		
 		return service.insertNew(newPutinDto)?
 				new ResponseEntity<String>("success",HttpStatus.OK):
@@ -58,7 +54,7 @@ public class PutInController {
 //	@PreAuthorize("isAuthenticaed()")
 //	@PostMapping("/new")
 //	public ResponseEntity<String> create(@RequestBody ReplyDTO insertDto){
-//		log.info("´ñ±Û ÀÔ·Â "+insertDto);
+//		log.info("ëŒ“ê¸€ ì…ë ¥ "+insertDto);
 //		
 //		return service.insertReply(insertDto)?
 //				new ResponseEntity<String>("success",HttpStatus.OK):
@@ -69,7 +65,7 @@ public class PutInController {
 	
 //	@PostMapping("/new")
 //	public ResponseEntity<String> create(@RequestBody ReplyDTO insertDto){
-//		log.info("´ñ±Û ÀÔ·Â "+insertDto);
+//		log.info("ëŒ“ê¸€ ì…ë ¥ "+insertDto);
 //		
 //		return service.insertReply(insertDto)?
 //				new ResponseEntity<String>("success",HttpStatus.OK):
@@ -79,7 +75,7 @@ public class PutInController {
 //	
 //	@PostMapping("/putin")
 //	public String updatePost(PutInDTO putinDto) {
-//		log.info("DTO °¡Á®¿À±â"+putinDto);
+//		log.info("DTO ê°€ì ¸ì˜¤ê¸°"+putinDto);
 //		
 //		service.update(putinDto);
 //		
