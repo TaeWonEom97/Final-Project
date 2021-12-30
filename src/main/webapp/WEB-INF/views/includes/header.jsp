@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,10 +30,16 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">Settings</a></li>
-                        <li><a class="dropdown-item" href="#!">Activity Log</a></li>
-                        <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="#!">Logout</a></li>
+                        <sec:authorize access="isAnonymous()" >                     
+                              <li><a class="dropdown-item" href="#!">Settings</a></li>
+                           <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+                           <li><hr class="dropdown-divider" /></li>
+                           <li><a class="dropdown-item" href="/login">Login</a></li>     
+                           </sec:authorize>
+                           
+                           <sec:authorize access="isAuthenticated()" >
+                     <li><a class="dropdown-item" href="/">Logout</a></li>           
+                     </sec:authorize>               
                     </ul>
                 </li>
             </ul>
@@ -43,7 +50,7 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Core</div>
-                            <a class="nav-link" href="index.html">
+                            <a class="nav-link" href="/">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 메인으로
                             </a>
@@ -56,7 +63,7 @@
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
 
-                                    <a class="nav-link" href="/tables-1">입고관리</a>
+                                    <a class="nav-link" href="/putin">입고관리</a>
                                     <a class="nav-link" href="/tables-2">판매관리</a>
                                     <a class="nav-link" href="/tables-3">판매내역조회</a>
                                     <a class="nav-link" href="/tables-4">재고현황</a>
@@ -69,9 +76,14 @@
                             </a>
                             <div class="collapse" id="collapsePages" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                     <a class="nav-link" href="login.html">로그인</a>
-                                     <a class="nav-link" href="register.html">신규등록</a>
+                                    <sec:authorize access="isAnonymous()" >   
+                                     <a class="nav-link" href="/login">로그인</a>
+                                     <a class="nav-link" href="/register">신규등록</a>
                                      <a class="nav-link" href="password.html">비밀번호 찾기</a>
+                                     </sec:authorize>
+                                     <sec:authorize access="isAuthenticated()" >
+                            <a class="nav-link" href="password.html">로그아웃</a>
+                            </sec:authorize>
                                 </nav>
                             </div>
                             <div class="sb-sidenav-menu-heading">Addons</div>

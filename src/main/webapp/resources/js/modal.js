@@ -23,6 +23,10 @@ $(function(){
 	let modalRemoveBtn = modal.find("#modalRemoveBtn");
 	let modalCloseBtn = modal.find("#modalCloseBtn");
 	
+	$(document).ajaxSend(function(e, xhr, options){
+		xhr.setRequestHeader(csrfHeaderName, csrfTokenValue);
+	});
+	
 	$("#insertSell").click(function(){
 		
 		// 타이틀 변경
@@ -76,7 +80,10 @@ $(function(){
 					modal.find("input").val("");
 					location.reload();
 					modal.modal("hide");
-				}
+					}
+				}, function(msg) {
+					alert(msg);
+				
 		}); // add end
 	}) // 등록버튼 end
 	

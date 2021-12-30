@@ -99,6 +99,10 @@
     </div>
   </div>
 </div>
+<script>
+	let csrfHeaderName = "${_csrf.headerName}";
+	let csrfTokenValue = "${_csrf.token}";
+</script>
 <script src="/resources/js/sell.js"></script>
 <script src="/resources/js/modal.js"></script>
 <%@include file="includes/footer.jsp" %>

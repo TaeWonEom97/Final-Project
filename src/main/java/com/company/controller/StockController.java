@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-
 import com.company.domain.SellItemDTO;
 import com.company.service.StockService;
 
@@ -24,7 +23,7 @@ import lombok.extern.log4j.Log4j2;
 public class StockController {
 	
 	@Autowired
-	public StockService service;
+	private StockService service;
 	
 	@GetMapping("/tables-2")
 	public void list(Model model) {
@@ -34,6 +33,14 @@ public class StockController {
 		List<SellItemDTO> list = service.sellAll();
 
 		model.addAttribute("list", list);
+	}
+	//tables-4 =StockList.jsp
+	@GetMapping("/tables-4")
+	public void StockListGet()  {
+		log.info("재고현황 폼 요청");
+//		List<StockDTO> list = service.stockDto();
+//		
+//		model.addAttribute("list",list);
 	}
 	
 	@PostMapping("/insertSell")
@@ -69,4 +76,23 @@ public class StockController {
 				new ResponseEntity<String>("success", HttpStatus.OK):
 					new ResponseEntity<String>("fail", HttpStatus.BAD_REQUEST);
 	}
+
+
+
+	@GetMapping("/tables-3")//판매내역조회
+	public void table3Get() {
+		log.info("폼 요청");
+		
+		
+	}
+
+	
+//	@GetMapping("/getSearchList")
+//	@ResponseBody
+//	private List<StockDTO> getSearchList(@RequestParam)
+//	@PostMapping("/StockList")
+//	public String StockId(BoardDTO insertDto) {
+//		log.info("StockList 가져오기 "+insertDto);
+//		
+//	}
 }

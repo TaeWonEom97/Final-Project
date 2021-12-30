@@ -3,7 +3,7 @@
  */
 let sellService = (function(){
 	
-	function add(sellinsert, callback) {
+	function add(sellinsert, callback, error) {
 		console.log("add method 실행");
 		
 		$.ajax({
