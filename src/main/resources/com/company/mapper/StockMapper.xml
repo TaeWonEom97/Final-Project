@@ -28,8 +28,28 @@
 		<result property="company" column="company"/>
 	</resultMap>
 	
-	
+	<!-- 판매 목록 조회 -->
 	<select id="sellList" resultMap="sellItemMap">
 		select * from sellitem left outer join item on sellcode = itemcode left outer join customer on selluser = userid
 	</select>
+	
+	<!-- 판매 등록 -->
+	<insert id="sellInsert">
+		insert into sellitem(sellcode, sellnum, sellid, selluser) values(#{sellcode}, #{sellnum}, sellid.nextval, #{selluser})
+	</insert>
+	
+	<!-- 하나 가져오기 -->
+	<select id="sellGet" resultMap="sellItemMap">
+		select * from sellitem left outer join item on sellcode = itemcode left outer join customer on selluser = userid where sellid = #{sellid}
+	</select>
+	
+	<!-- 삭제하기 -->
+	<delete id="remove">
+		delete from sellitem where sellid = #{sellid}
+	</delete>
+	
+	<!-- 수정하기 -->
+	<update id="update">
+		update sellitem set sellnum = #{sellnum} where sellid = #{sellid}
+	</update>
 </mapper>

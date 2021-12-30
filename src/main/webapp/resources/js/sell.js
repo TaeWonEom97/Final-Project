@@ -1,39 +1,84 @@
 /**
- * insertSell 모달 창 띄우기
+ * 
  */
-
-$(function(){
+let sellService = (function(){
 	
-	let modal = $('#sellModal');
-	
-	// 모달 창 영역 안의 요소 가져오기
-	let modalsellcode = modal.find("input[name='sellcode']");
-	let modalsellnum = modal.find("input[name='sellnum']");
-
-	let modalRegisterBtn = modal.find("#modalRegisterBtn");
-	
-	$("#insertSell").click(function(){
+	function add(sellinsert, callback) {
+		console.log("add method 실행");
 		
-		modal.modal('show');
-	})
-	
-	modalRegisterBtn.click(function(){
-		
-		var sellinsert = {
-			sellcode:modalsellcode.val(),
-			sellnum:modalsellnum.val()
-		};
-		
-		replyService.add(sellinsert,
-			function(result){
-				if(result) {
-					if(result == 'success') {
-						alert("판매 등록 성공");
-					}
-					modal.find("input").val("");
-					modal.modal("hide");
-					showList(-1);
+		$.ajax({
+			url:'/insertSell',
+			type:'post',
+			contentType:'application/json',
+			data:JSON.stringify(sellinsert),
+			success:function(result) {
+				if(callback) {
+					callback(result);
 				}
-		}); // add end
-	})
-})
+			},
+			error:function(xhr, status, error) {
+				error(err);
+			}
+		})
+	} // add end
+	
+	function get(sellid, callback) {
+			
+		$.ajax({
+			url:'/'+sellid,
+			type:'post',
+			contentType:'application/json',
+			data:JSON.stringify(sellid),
+			success:function(data) {
+				if(callback) {
+					callback(data);
+				}	
+			}
+		})
+	} // get end
+	
+	function remove(sellid, callback, error) {
+		
+		$.ajax({
+			url:'/'+sellid,
+			type:'delete',
+			success:function(result){
+				if(callback) {
+					callback(result);
+				}
+			},
+			error:function(xhr, status, error) {
+				if(error) {
+					error(xhr.responseText);
+				}
+			}
+		})
+	} // remove end
+	
+	function update(sellupdate, callback, error) {
+		
+		$.ajax({
+			url:'/sellid',
+			type:'put',
+			contentType:'application/json',
+			data:JSON.stringify(sellupdate),
+			success:function(data){
+				if(callback) {
+					callback(data);
+				}
+			},
+			error:function(xhr, status, error) {
+				if(error) {
+					error(xhr.responseText);
+				}
+			}
+		})
+	} // update end
+	
+	return {
+		add:add,
+		get:get,
+		remove:remove,
+		update:update
+	};
+})();

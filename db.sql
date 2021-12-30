@@ -83,11 +83,20 @@ insert into customer(userid, password, company) values('user1', 'user1', '나이
 insert into sellitem(sellcode, sellnum, sellid, selluser) values('P001', 12, sellid.nextval, 'user1');
 insert into sellitem(sellcode, sellnum, sellid, selluser) values('P001', 10, sellid.nextval, 'user1');
 
-select * from sellitem full outer join item on sellcode = itemcode;
+select * from sellitem;
 
 delete from sellitem;
 drop table salescheck;
 alter table sellitem add selluser varchar2(50) not null;
-alter table sellitem add constraint fk_selluser foreign key(selluser) references customer(userid);
+alter table sellitem add constraint fk_selluser foreign key(selluser) references customer(company);
+
+alter table customer add enabled char(1) default '1';
+alter table customer modify password varchar2(100);
+create table customer_auth(
+   userid varchar(50) not null,
+   auth varchar2(50) not null,
+   constraint fk_customer_auth foreign key(userid) references customer(userid)
+);
 
 select * from sellitem left outer join item on sellcode = itemcode left outer join customer on selluser = userid;
+select * from sellitem left outer join item on sellcode = itemcode left outer join customer on selluser = userid where sellid = 42;

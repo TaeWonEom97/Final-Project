@@ -20,4 +20,24 @@ public class StockServiceImpl implements StockService {
 		return mapper.sellList();
 	}
 
+	@Override
+	public boolean sellInsert(SellItemDTO insetDto) {
+		return mapper.sellInsert(insetDto) > 0 ? true : false;
+	}
+
+	@Override
+	public SellItemDTO sellGet(String sellid) {
+		return mapper.sellGet(sellid);
+	}
+
+	@Override
+	public boolean sellRemove(String sellid) {
+		return mapper.remove(sellid) > 0 ? true : false;
+	}
+
+	@Override
+	public boolean sellUpdate(SellItemDTO updateDto) {
+		return mapper.update(updateDto) > 0 ? true : false;
+	}
+
 }
