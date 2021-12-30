@@ -22,6 +22,8 @@ insert into insertitem(code, insertnum, insertdate, seqid) values('P003', 20, sy
 
 select * from insertitem;
 
+select * from customer;
+
 create sequence sellid;
 --판매, 조회 : 코드(foreign key), 판매수량,  판매 날짜,시퀀스(primary) -> 입고 된거를 판매
 create table sellitem(
