@@ -84,7 +84,7 @@
                                      <a class="nav-link" href="password.html">비밀번호 찾기</a>
                                      </sec:authorize>
                                      <sec:authorize access="isAuthenticated()" >
-									 <a class="nav-link" href="password.html">로그아웃</a>
+									 <a class="nav-link" href="/logout">로그아웃</a>
 									 </sec:authorize>
                                 </nav>
                             </div>
