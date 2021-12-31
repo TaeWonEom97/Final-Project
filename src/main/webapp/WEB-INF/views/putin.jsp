@@ -122,8 +122,7 @@
 	                   <button type="button" class="btn btn-secondary btn-sm" id="new">신규</button>
 	                   <button type="button" class="btn btn-secondary btn-sm" id="select">조회</button>
 	                   <button type="button" class="btn btn-secondary btn-sm" id="delete">삭제</button>
-	                   <button type="button" class="btn btn-secondary btn-sm" id="save">저장</button>
-                        
+	              
                         <div class="container">
 						  <div class="row">
 						    <div class="col">
@@ -138,117 +137,63 @@
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                                [ 입고 관리 ]
-                            </div>                            
+                                입고 관리
+                            </div>
                             <div class="card-body">
-                            	<div class="dataTable-top">
-                            	
-                                <table id="datatablesSimple" class="dataTable-table">
-                                	<input type="hidden" name="insertdate" value="${PutinDTO.insertdate}"/>
-                                	    <thead>
+                                <table id="datatablesSimple">
+                                    <thead>
                                         <tr>
-                                        	<th>
-                                			<input id="check" type="checkbox">
-                                        	</th>
-                                        	<th>
-                                        	제품코드
-                                        	</th>
-                                        	
-                                        	<th>
-                                        	입고수량
-                                        	</th>
-                                        	
-                                            <th>
-                                            입고날짜
-                                            </th>
-                                            
-                                            <th>
-                                            입고순번
-                                            </th>
-                                            
-                                            <th>
-                                            제품명
-                                            </th>
-                                            
-                                            <th>
-                                            제품가격
-                                            </th>
-                                            
-                                            <th>
-                                            공급처
-                                            </th>
-                                            
-                                            <th>
-                                            사이즈
-                                            </th>
-                                            
-                                            <th>
-                                            색상
-                                            </th>
+                                        	<th><input id="deleteCheck" type="checkbox"></th>
+                                            <th>제품코드</th>
+                                            <th>입고수량</th>
+                                            <th>입고날짜</th>
+                                            <th>입고순번</th>
+                                            <th>제품명</th>
+                                            <th>제품가격</th>
+                                            <th>공급처</th>
+                                            <th>사이즈</th>
+                                            <th>색상</th>
                                         </tr>
-                                    </thead> 
-                                <tbody>
+                                    </thead>
+                                    <tbody>
 								</tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
-                    
-                    <%-- 신규 입고내역 작성 폼 --%>
-					<div class="modal" tabindex="-1" id="newModal">
-					  <div class="modal-dialog">
-					    <div class="modal-content">
-					      <div class="modal-header">
-					        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					          <span aria-hidden="true">&times;</span>
-					        </button>
-					        <h5 class="modal-title">신규 
-					        입고 내역 등록</h5>
-					      </div>
-					      <div class="modal-body">
-					        <div class="form-group">
-					        	<label for="">제품 코드</label>
-					        	<input type="text" name="code" class="form-control" value=""/>
-					        </div>
-					        <div class="form-group">
-					        	<label for="">입고 수량</label>
-					        	<input type="text" name="num" class="form-control" value=""/>
-					        </div>        
-					      </div>
-					      <div class="modal-footer">
-					        <button type="button" class="btn btn-secondary" id="modalRegisterBtn">등록</button>
-					        <button type="button" class="btn btn-secondary" id="modalRemoveBtn">삭제</button>
-					        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="modalCloseBtn">종료</button>
-					      </div>
-					    </div>
-					  </div>
-					</div>
-					
                 </main>
-                <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid px-4">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2021</div>
-                            <div>
-                                <a href="#">Privacy Policy</a>
-                                &middot;
-                                <a href="#">Terms &amp; Conditions</a>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
-            </div>
-        </div>
-        <script>
-      	//ajax 동작 시 헤더 값에 포함해서 보낼 csrf 토큰 값 설정
-    	let csrfHeaderName = "${_csrf.headerName}";
-    	let csrfTokenValue = "${_csrf.token}";
-        </script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="/resources/js/putin.js"></script>
-        <script src="/resources/js/scripts.js"></script>
-        <script src="/resources/js/newmodal.js"></script>
-        <script src="/resources/js/module.js"></script>  
-        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
-    </body>
-</html>
+   <%-- 신규 입고내역 작성 폼 --%>
+	<div class="modal" tabindex="-1" id="newModal">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	        <h5 class="modal-title">신규 
+	        입고 내역 등록</h5>
+	      </div>
+	      <div class="modal-body">
+	        <div class="form-group">
+	        	<label for="">제품 코드</label>
+	        	<input type="text" name="code" class="form-control" value=""/>
+	        </div>
+	        <div class="form-group">
+	        	<label for="">입고 수량</label>
+	        	<input type="text" name="num" class="form-control" value=""/>
+	        </div>        
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" id="modalRegisterBtn">등록</button>
+	         <button type="button" class="btn btn-warning" id="modalModifyBtn">수정</button>
+	        <button type="button" class="btn btn-secondary" id="modalRemoveBtn">삭제</button>
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="modalCloseBtn">종료</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+<script>
+	let csrfHeaderName = "${_csrf.headerName}";
+	let csrfTokenValue = "${_csrf.token}";
+</script>					
+<%@include file="includes/footer.jsp" %>

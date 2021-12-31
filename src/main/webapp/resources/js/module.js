@@ -3,7 +3,7 @@
  */
 
 // 자바스크립트 모듈화
-let replyService = (function(){
+let putinService = (function(){
 	
 	function add(newinsert,callback,error){
 		console.log("add method 실행");		
@@ -24,32 +24,49 @@ let replyService = (function(){
 		})	
 	}//add end
 
+
+	function get(code, callback) {
+			
+		$.ajax({
+			url:'/'+code,
+			type:'post',
+			contentType:'application/json',
+			data:JSON.stringify(code),
+			success:function(data) {
+				if(callback) {
+					callback(data);
+				}	
+			}
+		})
+	} // get end
 	
-	function remove(rno,callback,error){
+	
+	function remove(code,callback,error){
 		
 		$.ajax({
-			url:'/replies/' +rno,
+			url:'/' +code,
 			type: 'delete', 
 			success:function(result){
 				if(callback){
 					callback(result);					
 				}
 			},
-			//error:function(xhr,status,err){
-			//	if(error){
-					//error(xhr.responseText);
-				//}
-			//}
+			error:function(xhr,status,err){
+				if(error){
+					error(xhr.responseText);
+				}
+			}
 		})	
 	}//remove end
 	
-	function update(reply,callback,error){
+	
+	function update(update,callback,error){
 		
 		$.ajax({
-			url:'/replies/'+reply.rno,
+			url:'/'+code,
 			type:'put',
 			contentType:'applicationjson',
-			data:JSON.stringify(reply),
+			data:JSON.stringify(update),
 			success:function(data){
 				if(callback){
 					callback(data);
@@ -62,18 +79,6 @@ let replyService = (function(){
 			}
 		})
 	}//update end
-	
-	function get(rno,callback){
-		
-		$.getJSON({
-			url:'/replies/'+rno,
-			succes:function(data){
-				if(callback){
-					callback(data);
-				}
-			}
-		})
-	}//get end
 	
 	function displayTime(timeValue){
 		
@@ -105,9 +110,9 @@ let replyService = (function(){
 	
 	return {
 		add:add,
+		get:get,
 		remove:remove,
 		update:update,
-		get:get,
 		displayTime:displayTime
 		};
 	

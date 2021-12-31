@@ -9,13 +9,17 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.company.domain.ItemDTO;
 import com.company.domain.PutInDTO;
 import com.company.domain.ReplyDTO;
+import com.company.domain.SellItemDTO;
 import com.company.service.PutInService;
 
 import lombok.extern.log4j.Log4j2;
@@ -40,7 +44,6 @@ public class PutInController {
 		return new ResponseEntity<List<PutInDTO>>(dto,HttpStatus.OK);
 	}
 
-	// @PreAuthorize("isAuthenticaed()")
 	@PostMapping("/putinnew")
 	public ResponseEntity<String> create(@RequestBody PutInDTO newPutinDto){
 		log.info("신규 등록"+newPutinDto);
@@ -50,37 +53,32 @@ public class PutInController {
 					new ResponseEntity<String>("fail",HttpStatus.BAD_REQUEST);
 	}
 	
+	
 
-//	@PreAuthorize("isAuthenticaed()")
-//	@PostMapping("/new")
-//	public ResponseEntity<String> create(@RequestBody ReplyDTO insertDto){
-//		log.info("댓글 입력 "+insertDto);
-//		
-//		return service.insertReply(insertDto)?
-//				new ResponseEntity<String>("success",HttpStatus.OK):
-//					new ResponseEntity<String>("fail",HttpStatus.BAD_REQUEST);
-//	}
+	@PostMapping("/{code}")
+	public ResponseEntity<PutInDTO> read(@PathVariable String code) {
+		log.info("하나 가져오기 " + code);
+		
+		return new ResponseEntity<PutInDTO>(service.get(code), HttpStatus.OK);
+	}
 	
+	@DeleteMapping("/{code}")
+	public ResponseEntity<String> remove(@PathVariable String code) {
+		log.info("내역 삭제 " + code);
+		
+		return service.remove(code)?
+				new ResponseEntity<String>("success", HttpStatus.OK):
+					new ResponseEntity<String>("fail", HttpStatus.BAD_REQUEST);
+	}
 	
-	
-//	@PostMapping("/new")
-//	public ResponseEntity<String> create(@RequestBody ReplyDTO insertDto){
-//		log.info("댓글 입력 "+insertDto);
-//		
-//		return service.insertReply(insertDto)?
-//				new ResponseEntity<String>("success",HttpStatus.OK):
-//					new ResponseEntity<String>("fail",HttpStatus.BAD_REQUEST);
-//	}
-	
-//	
-//	@PostMapping("/putin")
-//	public String updatePost(PutInDTO putinDto) {
-//		log.info("DTO 가져오기"+putinDto);
-//		
-//		service.update(putinDto);
-//		
-//		return "/putin";
-//	}
+	@PutMapping("/{code}")
+	public ResponseEntity<String> modify(@RequestBody PutInDTO updateDto) {
+		log.info("내역 수정 " + updateDto);
+		
+		return service.update(updateDto)?
+				new ResponseEntity<String>("success", HttpStatus.OK):
+					new ResponseEntity<String>("fail", HttpStatus.BAD_REQUEST);
+	}
 	
 	
 }

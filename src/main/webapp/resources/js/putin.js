@@ -48,9 +48,17 @@ $(function(){
 		}) //ajax end
 
 	}) //select end
+	
 		
 }) // 첫 function
 	
+	$("#delete").click(function(){
+		if($("#deleteCheck").prop("checked")){
+			$("input[type=checkbox]").prop("checked",true);
+		} else {
+			$("input[type=checkbox]").prop("checked",false);
+		}
+	}); // delete end
 	
 	
 function displayTime(timeValue){	

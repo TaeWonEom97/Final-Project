@@ -25,6 +25,21 @@ public class PutInServiceImpl implements PutInService {
 		return mapper.insert(insertnewDto) > 0? true:false;
 	}
 
+	@Override
+	public PutInDTO get(String code) {
+		return mapper.get(code);
+	}
+
+	@Override
+	public boolean remove(String code) {
+		return mapper.remove(code) > 0 ? true : false;
+	}
+
+	@Override
+	public boolean update(PutInDTO updateDto) {
+		return mapper.update(updateDto) > 0 ? true : false;
+	}
+
 	
 
 }
