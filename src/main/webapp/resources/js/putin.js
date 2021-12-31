@@ -62,6 +62,7 @@ $(function(){
 			$("input[type=checkbox]").prop("checked",false);
 		}
 	}); // delete end*/
+
 	
 	
 function displayTime(timeValue){	
