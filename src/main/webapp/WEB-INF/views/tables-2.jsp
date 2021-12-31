@@ -30,25 +30,25 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-									<c:forEach var="dto" items="${list}">
-										<tr>
-											<td>${dto.customerDto.company}</td>
-											<td>${dto.sellcode}</td>
-											<td>${dto.itemDto.itemtitle}</td>
-											<td>${dto.sellnum}</td>
-											<td>${dto.itemDto.itemprice}</td>
-											<td>${(dto.itemDto.itemprice) * (dto.sellnum)}</td>
-											<td>${dto.itemDto.supplier}</td>
-											<td>${dto.selldate}</td>
-										</tr>
-									</c:forEach>
-								</tbody>
+                           <c:forEach var="dto" items="${list}">
+                              <tr>
+                                 <td>${dto.customerDto.company}</td>
+                                 <td>${dto.sellcode}</td>
+                                 <td>${dto.itemDto.itemtitle}</td>
+                                 <td>${dto.sellnum}</td>
+                                 <td>${dto.itemDto.itemprice}</td>
+                                 <td>${(dto.itemDto.itemprice) * (dto.sellnum)}</td>
+                                 <td>${dto.itemDto.supplier}</td>
+                                 <td>${dto.selldate}</td>
+                              </tr>
+                           </c:forEach>
+                        </tbody>
                                 </table>
                             </div>
                         </div>
-		                  <div>
-		                     <button type="button" class="btn btn-success" id="insertSell">추가</button>
-		                  </div>
+                        <div>
+                           <button type="button" class="btn btn-success" id="insertSell">추가</button>
+                        </div>
                     </div>
                 </main>
                 
@@ -57,27 +57,51 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
         <h5 class="modal-title">판매 추가</h5>
       </div>
       <div class="modal-body">
         <div class="form-group">
-        	<label for="">상품 코드</label>
-			<input type="text" name="sellcode" class="form-control" placeholder="상품 코드"/>
+           <label for="">거래처 ID</label>
+         <input type="text" name="selluser" class="form-control" placeholder="거래처 ID"/>
         </div>
         <div class="form-group">
-        	<label for="">수량</label>
-        	<input type="text" name="sellnum" class="form-control" placeholder="수량"/>
+           <label for="">상품 코드</label>
+           <input type="text" name="sellcode" class="form-control" placeholder="상품 코드"/>
+        </div>      
+        <div class="form-group">
+           <label for="">상품명</label>
+           <input type="text" name="itemtitle" class="form-control" placeholder="상품명"/>
+        </div>      
+        <div class="form-group">
+           <label for="">수량</label>
+           <input type="text" name="sellnum" class="form-control" placeholder="수량"/>
+        </div>      
+        <div class="form-group">
+           <label for="">가격</label>
+           <input type="text" name="itemprice" class="form-control" placeholder="가격"/>
+        </div>      
+        <div class="form-group">
+           <label for="">제조사</label>
+           <input type="text" name="supplier" class="form-control" placeholder="제조사"/>
+        </div>      
+        <div class="form-group">
+           <label for="">판매일</label>
+           <input type="text" name="selldate" class="form-control" placeholder="판매일"/>
         </div>      
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-success" id="modalRegisterBtn">추가</button>
-        <button type="button" class="btn btn-primary" data-dismiss="modal" id="modalCloseBtn">종료</button>
+        <button type="button" class="btn btn-warning" id="modalModifyBtn">수정</button>
+        <button type="button" class="btn btn-danger" id="modalRemoveBtn">삭제</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" id="modalCloseBtn">취소</button>
       </div>
     </div>
   </div>
 </div>
+<script>
+   // 현재 글 번호 가져오기
+   let bno = ${dto.sellid};
+</script>
 <script src="/resources/js/sell.js"></script>
+<script src="/resources/js/modal.js"></script>
 <%@include file="includes/footer.jsp" %>

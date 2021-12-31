@@ -26,10 +26,22 @@ public class CustomerController {
 		return "/login";
 	}
 	
-	@GetMapping("/main2")
+	@GetMapping("/main")
 	public String chart1() {
 		log.info("판매차트 요청");
-		return "/main2";
+		return "/main";
+	}
+	
+	@GetMapping("/insertmain")
+	public String chart2() {
+		log.info("입고차트 요청");
+		return "/insertmain";
+	}
+	
+	@GetMapping("/allmain")
+	public String chart3() {
+		log.info("재고차트 요청");
+		return "/allmain";
 	}
 
 	@GetMapping("/register")

@@ -11,11 +11,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.company.domain.ChartDTO;
 import com.company.domain.SellItemDTO;
 import com.company.service.StockService;
 
 import lombok.Setter;
+import lombok.extern.log4j.Log4j2;
 
+@Log4j2
 @Controller
 public class ChartController {
 	
@@ -37,14 +40,21 @@ public class ChartController {
 	}
 	
 
+	 	@RequestMapping(value = "/chartex", method = RequestMethod.GET)
+	 	public void dataOutcome(Locale locale, Model model) {
 
-	@GetMapping(value = "outcomeList")
-	public @ResponseBody List<SellItemDTO> outcomeList(Locale locale, Model model) {
-
-
-		List<SellItemDTO> list = stockService.sellAll();
-
-		return list;
-	}
+	 		
+	 	}
+	 	
+	 	
+	 	@GetMapping(value = "OutcomeList")
+		public @ResponseBody List<ChartDTO> OutcomeList(Locale locale, Model model) {
+	 		List<ChartDTO> sellnum = stockService.sellnum();
+	 		
+	 		log.info("월별차트"+sellnum);
+	  
+	  		return sellnum;
+		}
+	
 	
 }

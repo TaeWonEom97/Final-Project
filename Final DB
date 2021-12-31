@@ -105,3 +105,6 @@ create table customerboard_reply(
 	updatereplydate date default sysdate
 );
 
+select TO_CHAR(SYSDATE,'MM') as 월,sellnum FROM sellitem;
+
+select TO_CHAR(SYSDATE,'MM') as 월,sum(sellnum) from sellitem group by  TO_CHAR(SYSDATE,'MM');

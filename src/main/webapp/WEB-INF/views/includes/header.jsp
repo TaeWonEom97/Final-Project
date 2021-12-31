@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,11 +29,17 @@
             <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">Settings</a></li>
-                        <li><a class="dropdown-item" href="#!">Activity Log</a></li>
-                        <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="#!">Logout</a></li>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown"> 
+                    		<sec:authorize access="isAnonymous()" >                  	
+                       	 	<li><a class="dropdown-item" href="#!">Settings</a></li>
+                        	<li><a class="dropdown-item" href="#!">Activity Log</a></li>
+                        	<li><hr class="dropdown-divider" /></li>
+                        	<li><a class="dropdown-item" href="/login">Login</a></li>     
+                        	</sec:authorize>
+                        	
+                        	<sec:authorize access="isAuthenticated()" >
+							<li><a class="dropdown-item" href="/">Logout</a></li>           
+							</sec:authorize>                  
                     </ul>
                 </li>
             </ul>
@@ -67,11 +74,19 @@
                                 계정관리
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
+                            
+                            
                             <div class="collapse" id="collapsePages" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
+                                     <sec:authorize access="isAnonymous()" >	
                                      <a class="nav-link" href="/login">로그인</a>
                                      <a class="nav-link" href="/register">신규등록</a>
                                      <a class="nav-link" href="password.html">비밀번호 찾기</a>
+                                     </sec:authorize>
+                                     <sec:authorize access="isAuthenticated()" >
+									 <a class="nav-link" href="password.html">로그아웃</a>
+									 </sec:authorize>
+
                                 </nav>
                             </div>
                             <div class="sb-sidenav-menu-heading">Addons</div>

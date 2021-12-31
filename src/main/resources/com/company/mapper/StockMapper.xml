@@ -32,4 +32,10 @@
 	<select id="sellList" resultMap="sellItemMap">
 		select * from sellitem left outer join item on sellcode = itemcode left outer join customer on selluser = userid
 	</select>
+	
+	
+	
+	<select id="sellchart" resultType="com.company.domain.ChartDTO">
+		select TO_CHAR(SYSDATE,'MM') as selldate,sum(sellnum) as sellnum from sellitem group by TO_CHAR(SYSDATE,'MM')
+	</select>
 </mapper>
