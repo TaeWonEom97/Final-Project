@@ -11,6 +11,9 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Tables - SB Admin</title>
+		<!-- 수정 삭제 -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
         <link rel="stylesheet" href="/resources/css/styles.css"/>
@@ -20,6 +23,8 @@
 		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
+		
 		<style>
 			div.col{
 			padding: 5px;
@@ -121,8 +126,7 @@
                       
 	                   <button type="button" class="btn btn-secondary btn-sm" id="new">신규</button>
 	                   <button type="button" class="btn btn-secondary btn-sm" id="select">조회</button>
-	                   <button type="button" class="btn btn-secondary btn-sm" id="delete">삭제</button>
-	              
+                        
                         <div class="container">
 						  <div class="row">
 						    <div class="col">
@@ -139,11 +143,10 @@
                                 <i class="fas fa-table me-1"></i>
                                 입고 관리
                             </div>
-                            <div class="card-body">
-                                <table id="datatablesSimple">
+                           <div class="card-body contents">
+                                <!-- <table id="datatablesSimple">
                                     <thead>
                                         <tr>
-                                        	<th><input id="deleteCheck" type="checkbox"></th>
                                             <th>제품코드</th>
                                             <th>입고수량</th>
                                             <th>입고날짜</th>
@@ -156,9 +159,10 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    
 								</tbody>
-                                </table>
-                            </div>
+                                </table> -->
+                            </div> 
                         </div>
                     </div>
                 </main>
@@ -186,6 +190,55 @@
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-secondary" id="modalRegisterBtn">등록</button>
 	        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="modalCloseBtn">종료</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	
+   <%-- 수정 및 삭제 폼 --%>
+	<div class="modal" tabindex="-1" id="newModal2">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	        <h5 class="modal-title">입고 내역 수정 및 삭제</h5>
+	      </div>
+	      <div class="modal-body">
+	        <div class="form-group">
+	        	<label for="">제품 코드</label>
+	        	<input type="text" name="code" class="form-control" value=""/>
+	        </div>	        
+	        <div class="form-group">
+	        	<label for="">입고 수량</label>
+	        	<input type="text" name="num" class="form-control" value=""/>
+	        </div>	        
+	        <div class="form-group">
+	        	<label for="">입고 날짜</label>
+	        	<input type="text" name="insertdate" class="form-control" value="" readonly/>
+	        </div>	        <div class="form-group">
+	        	<label for="">입고 순번</label>
+	        	<input type="text" name="seqid" class="form-control" value="" readonly/>
+	        </div>	        <div class="form-group">
+	        	<label for="">제품명</label>
+	        	<input type="text" name="itemtitle" class="form-control" value=""/>
+	        </div>	        <div class="form-group">
+	        	<label for="">가격</label>
+	        	<input type="text" name="itmeprice" class="form-control" value=""/>
+	        </div>	        <div class="form-group">
+	        	<label for="">사이즈</label>
+	        	<input type="text" name="size" class="form-control" value=""/>
+	        </div>
+	        <div class="form-group">
+	        	<label for="">컬러</label>
+	        	<input type="text" name="color" class="form-control" value=""/>
+	        </div>	        	               
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" id="modalModifyBtn2">수정</button>
+	        <button type="button" class="btn btn-secondary" id="modalRemoveBtn2">삭제</button>
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="modalCloseBtn">취소</button>
 	      </div>
 	    </div>
 	  </div>

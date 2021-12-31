@@ -20,7 +20,7 @@ create table insertitem(
 insert into insertitem(code, insertnum, insertdate, seqid) values('P004', 30, sysdate, seqid.nextval);
 insert into insertitem(code, insertnum, insertdate, seqid) values('P003', 20, sysdate, seqid.nextval);
 
-select * from insertitem;
+select * from item;
 
 select * from customer;
 
@@ -40,7 +40,7 @@ alter table sellitem add constraint fk_selluser foreign key(selluser) references
 
 
 insert into item(itemcode, itemtitle, itemprice, supplier, itemsize, color) values('P004', '에어포스', 150000, '나이키', '250cm', 'White');
-insert into item(itemcode, itemtitle, itemprice, supplier, itemsize, color) values('P003', '에어포스', 150000, '나이키', '250cm', 'White');
+insert into item(itemcode, itemtitle, itemprice, supplier, itemsize, color) values('P007', '이름', 7000, '나키', '250cm', 'Wh');
 
 insert into sellitem(sellcode, sellnum, sellid, selluser) values('P004', 30, sellid.nextval, 'user1');
 insert into sellitem(sellcode, sellnum, sellid, selluser) values('P004', 3, sellid.nextval, 'user1');
