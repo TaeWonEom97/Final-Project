@@ -52,13 +52,16 @@ $(function(){
 		
 }) // 첫 function
 	
-	$("#delete").click(function(){
-		if($("#deleteCheck").prop("checked")){
+/*	$("#delete").click(function(){
+		let deleteCode = $("#check").prop("checked");
+		alert(deleteCode)
+		
+		/*if($("#deleteCheck").prop("checked")){
 			$("input[type=checkbox]").prop("checked",true);
 		} else {
 			$("input[type=checkbox]").prop("checked",false);
 		}
-	}); // delete end
+	}); // delete end*/
 	
 	
 function displayTime(timeValue){	

@@ -57,45 +57,10 @@ $(function(){
                // showList(-1);
                }
       		},function(msg){
-            alert(msg);
+            alert("제품 코드를 확인하세요");
 
      }); // add end
   }) // modalRegister end
-
-	
-	$(".get").on("click", function(){
-		
-		let code = $(this).attr('href');
-		
-		putinService.get(code, function(data){
-			
-			// 타이틀 변경
-			modaltitle.text("입고 관리");
-			
-			// 요소 보여주기
-			modalCode.closest("div").show();
-			modalNum.closest("div").show();
-
-			modalModifyBtn.show();
-			modalRemoveBtn.show();
-			
-			// 내용 보여주기
-			modalCode.val(data.code);
-			modalNum.val(data.insertnum).attr("readonly", true);
-			modalsellnum.val(data.insertdate);
-			modalitemprice.val(data.itemDto.itemtitle).attr("readonly", true);
-			modalsupplier.val(data.itemDto.itemprice).attr("readonly", true);
-			modalsupplier.val(data.itemDto.supplier).attr("readonly", true);
-			modalsupplier.val(data.itemDto.itemsize).attr("readonly", true);
-			modalsupplier.val(data.itemDto.color).attr("readonly", true);
-			
-			// 버튼 숨기기
-			modal.find("button[id = 'modalRegisterBtn']").hide();
-			
-			
-			modal.modal('show');
-		}); // 하나 가져오기 end
-	}) // 리스트 클릭 end
 
 		modalModifyBtn.click(function(){
 
