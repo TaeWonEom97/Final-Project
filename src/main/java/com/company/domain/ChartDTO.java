@@ -14,4 +14,6 @@ import lombok.ToString;
 public class ChartDTO {
 	private String selldate;
 	private int sellnum;
+	private String insertnum;
+	private String insertdate;
 }

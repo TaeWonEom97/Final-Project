@@ -13,8 +13,8 @@
         <meta name="author" content="" />
         <title>Dashboard - SB Admin</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
-        <link href="css/styles.css" rel="stylesheet" />
         <link rel="stylesheet" href="/resources/css/styles.css" />
+        <!-- <link rel="stylesheet" href="/resources/css/modal.css" /> -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
 <title>Insert title here</title>
 </head>
@@ -50,7 +50,7 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Core</div>
-                            <a class="nav-link" href="index.html">
+                            <a class="nav-link" href="/">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 메인으로
                             </a>
@@ -63,7 +63,7 @@
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
 
-                                    <a class="nav-link" href="/tables-1">입고관리</a>
+                                    <a class="nav-link" href="/putin">입고관리</a>
                                     <a class="nav-link" href="/tables-2">판매관리</a>
                                     <a class="nav-link" href="/tables-3">판매내역조회</a>
                                     <a class="nav-link" href="/tables-4">재고현황</a>
@@ -78,7 +78,7 @@
                             
                             <div class="collapse" id="collapsePages" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                     <sec:authorize access="isAnonymous()" >	
+                                    <sec:authorize access="isAnonymous()" >   
                                      <a class="nav-link" href="/login">로그인</a>
                                      <a class="nav-link" href="/register">신규등록</a>
                                      <a class="nav-link" href="password.html">비밀번호 찾기</a>
@@ -86,7 +86,6 @@
                                      <sec:authorize access="isAuthenticated()" >
 									 <a class="nav-link" href="password.html">로그아웃</a>
 									 </sec:authorize>
-
                                 </nav>
                             </div>
                             <div class="sb-sidenav-menu-heading">Addons</div>

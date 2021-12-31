@@ -73,7 +73,7 @@
 							
 										$.each(data, function(inx, obj) {
 							
-											chartLabels.push(obj.selldate);
+											chartLabels.push(displayTime(obj.selldate));
 							
 											chartData.push(obj.sellnum);
 							
@@ -140,6 +140,7 @@
 							
 									}
 								</script>
+
                                 </div>
                             </div>
                          
@@ -157,7 +158,7 @@
 										<div style="width: 80%">
 										<div>
 										<div>
-
+                             
 													<canvas id="canvas2" height="63%" width="80%"></canvas>
 										
 												</div>
@@ -255,6 +256,20 @@
                         
 								</div>
 							</div>
-					</div>
+				
+                                      
    </main>
+<script>
+ function displayTime(timeValue){	
+		
+		var dateObj = new Date(timeValue);
+		
+		var yy = dateObj.getFullYear();
+		var mm = dateObj.getMonth()+1;
+		var dd = dateObj.getDate();
+		
+		return [yy,'/',(mm>9?'':'0')+mm,'/',(dd>9?'':'0')+dd].join('');			
+		
+	}//displayTime end
+ </script>  
 <%@include file="includes/footer.jsp" %>

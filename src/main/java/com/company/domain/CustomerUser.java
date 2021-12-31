@@ -22,6 +22,6 @@ public class CustomerUser extends User {
 	public CustomerUser(CustomerDTO customer) {
 		super(customer.getUserid(),customer.getPassword(),customer.getAuthList().stream().map(auth -> new SimpleGrantedAuthority(auth.getAuth())).collect(Collectors.toList()));
 		this.customer = customer;
-		// TODO Auto-generated constructor stub
+		
 	}
 }

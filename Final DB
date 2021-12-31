@@ -16,6 +16,9 @@ create table insertitem(
 	insertdate date default sysdate,
 	seqid number(10) constraint pk_seqid primary key
 );
+
+insert into insertitem (code,insertnum,insertdate,seqid) values('P001', 20, '2021-11-29',seqid.nextval);
+
 create sequence sellid;
 --판매, 조회 : 코드(foreign key), 판매수량,  판매 날짜,시퀀스(primary) -> 입고 된거를 판매
 create table sellitem(
