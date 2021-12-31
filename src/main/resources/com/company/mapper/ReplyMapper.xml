@@ -18,7 +18,7 @@
 	<!-- 댓글 수정 rno 일치시 댓글내용,update -->
 	<update id="update">
 		update customerboard_reply
-		set reply=#{reply}, updatedate = sysdate
+		set reply=#{reply}, updatereplydate = sysdate
 		where rno = #{rno}
 	</update>
 

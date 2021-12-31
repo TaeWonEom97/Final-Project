@@ -66,7 +66,12 @@ public class BoardController {
 		// 페이지 나누기를 위한 정보 얻기
 		int totalCnt = service.getTotalCount(cri);
 		
-		model.addAttribute("pageDto", new PageDTO(cri, totalCnt));
+		log.info("totalCnt "+totalCnt);
+		PageDTO pageDto = new PageDTO(cri, totalCnt);
+		
+		log.info("pageDto "+pageDto);
+		
+		model.addAttribute("pageDto",pageDto);
 		model.addAttribute("list", list);
 	}
 		

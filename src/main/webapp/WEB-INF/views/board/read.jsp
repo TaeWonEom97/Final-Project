@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    <%@taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
  <%@include file="../includes/header2.jsp" %>
  
 <main>
@@ -34,59 +35,72 @@
          </div>
       </div>
    	
-   <%-- 댓글 리스트 --%>
+  <%-- 댓글 리스트 --%>            
 <div class="row">
    <div class="col-lg-12">
       <div class="panel panel-default">
          <div class="panel-heading">
-            <i class="fa fa-comments fa-fw"></i> Reply
-            <button id="addReplyBtn" class="btn btn-primary btn-xs pull-right">New
-               Reply</button>
-         </div>
+            <i class="fa fa-comments fa-fw"></i>
+            Reply
+            <sec:authorize access="isAuthenticated()">  
+               <button id="addReplyBtn" class="btn btn-primary btn-xs pull-right">New Reply</button>
+            </sec:authorize>
+          </div>
          <div class="panel-body">
             <ul class="chat">
-            
+               <li class="left clearfix" data-rno='1'>
+                  <div>
+                     <div class="header">
+                        <strong class="primary-font">user00</strong>
+                        <small class="pull-right text-muted">2021-06-15 14:25</small>
+                        <p>Good Job!!</p>
+                     </div>
+                  </div>
+               </li>
             </ul>
          </div>
-         <div class="panel-footer"></div>
          <!-- 댓글 페이지 나누기 -->
-      </div>
+         <div class="panel-footer">
+         
+         </div>
+      </div><!-- panel-default close -->
+   </div><!-- col-lg-12 close -->
+</div><!-- row close -->  
       <!-- panel-default close -->
    </div>
    <!-- col-lg-12 close -->
    <%-- 댓글 작성 폼 --%>
 <div class="modal" tabindex="-1" id="replyModal">
-   <div class="modal-dialog">
-      <div class="modal-content">
-         <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal"
-               aria-label="Close">
-               
-            </button>
-         </div>
-         <div class="modal-body">
-            <div class="form-group">
-               <label for="">댓글 내용</label> <input type="text" name="reply"
-                  class="form-control" value="댓글내용" />
-            </div>
-            <div class="form-group">
-               <label for="">작성자</label> <input type="text" name="replyer"
-                  class="form-control" value="작성자" />
-            </div>
-            <div class="form-group">
-               <label for="">작성일</label> <input type="text" name="replyDate"
-                  class="form-control" value="작성일" />
-            </div>
-         </div>
-         <div class="modal-footer">
-            <button type="button" class="btn btn-success" id="modalRegisterBtn">등록</button>
-            <button type="button" class="btn btn-warning" id="modalModifyBtn">수정</button>
-            <button type="button" class="btn btn-danger" id="modalRemoveBtn">삭제</button>
-            <button type="button" class="btn btn-primary" data-dismiss="modal"
-               id="modalCloseBtn">종료</button>
-         </div>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h5 class="modal-title">Reply</h5>
       </div>
-   </div>
+      <div class="modal-body">
+        <div class="form-group">
+           <label for="">댓글 내용</label>
+           <input type="text" name="reply" class="form-control" value="댓글내용"/>
+        </div>
+        <div class="form-group">
+           <label for="">작성자</label>
+           <input type="text" name="replyer" class="form-control" value="작성자"/>
+        </div>
+        <div class="form-group">
+           <label for="">작성일</label>
+           <input type="text" name="replyDate" class="form-control" value="작성일"/>
+        </div>        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" id="modalRegisterBtn">등록</button>
+        <button type="button" class="btn btn-warning" id="modalModifyBtn">수정</button>
+        <button type="button" class="btn btn-danger" id="modalRemoveBtn">삭제</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" id="modalCloseBtn">종료</button>
+      </div>
+    </div>
+  </div>
 </div>
 </main>
 <%-- 페이지를 나누기 위한 폼 --%>
