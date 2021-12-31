@@ -1,12 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
- <%@include file="../includes/header.jsp" %>
- 
-<main>
-	<div class="container-fluid px-4">
-		<h1 class="mt-4">사내 게시판</h1>
-		<div class="panel panel-default">
+   pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<link rel="stylesheet" href="/resources/css/upload.css" />
+<%@include file="../includes/header.jsp"%>
+<div class="row">
+   <div class="col-lg-12">
+      <h1 class="page-header">Board Read</h1>
+   </div>
+   <!-- /.col-lg-12 -->
+</div>
+<div class="container row" style="float: none; margin:100 auto;"> 
+<div class="col-md-3" style="float: none; margin:0 auto;">
+      <div class="panel panel-default">
          <div class="panel-heading">Board Read Page</div>
          <!-- /.panel-heading -->
          <div class="panel-body">
@@ -33,8 +38,25 @@
             </form>
          </div>
       </div>
-   	
-   <%-- 댓글 리스트 --%>
+   </div>
+</div>
+<!--첨부파일 영역 -->
+<div class="bigPictureWrapper">
+	<div class="bigPicture"></div>
+</div>
+<div class="row">
+	<div class="col-lg-12">
+		<div class="panel panel-default">
+			<div class="panel-heading"><i class="fa fa-files-o"></i>파일 첨부</div>
+			<div class="panel-body">
+				<div class="uploadResult">
+					<ul></ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<%-- 댓글 리스트 --%>
 <div class="row">
    <div class="col-lg-12">
       <div class="panel panel-default">
@@ -54,15 +76,19 @@
       <!-- panel-default close -->
    </div>
    <!-- col-lg-12 close -->
-   <%-- 댓글 작성 폼 --%>
+</div>
+<!-- row close -->
+
+<%-- 댓글 작성 폼 --%>
 <div class="modal" tabindex="-1" id="replyModal">
    <div class="modal-dialog">
       <div class="modal-content">
          <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal"
                aria-label="Close">
-               
+               <span aria-hidden="true">&times;</span>
             </button>
+            <h5 class="modal-title">Reply</h5>
          </div>
          <div class="modal-body">
             <div class="form-group">
@@ -88,7 +114,7 @@
       </div>
    </div>
 </div>
-</main>
+
 <%-- 페이지를 나누기 위한 폼 --%>
 <form action="" id="actionForm">
    <input type="hidden" name="pageNum" value="${cri.pageNum}" /> <input
@@ -97,15 +123,10 @@
       name="keyword" value="${cri.keyword}" /> <input type="hidden"
       name="bno" value="${dto.bno}" />
 </form>
-
 <script>
    // 현재 글번호 가져오기
    let bno = ${dto.bno}; // 다음 페이지(read.js)에서 데이터를 부를 때 이 데이터 값을 가져올 수가 없기때문에 jsp에서 담고 보내는 형식
-   
-   //ajax 동작 시 헤더 값에 포함해서 보낼 csrf 토큰 값 설정
-   let csrfHeaderName = "${_csrf.headerName}";
-   let csrfTokenValue = "${_csrf.token}";
 </script>
 <script src="/resources/js/reply.js"></script>
 <script src="/resources/js/read.js"></script>
-<%@include file="../includes/footer.jsp" %>			
+<%@include file="../includes/footer.jsp"%>

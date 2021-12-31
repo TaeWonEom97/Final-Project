@@ -9,6 +9,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,14 +34,16 @@ public class BoardController {
 	@Autowired // 객체생성
 	private BoardService service;
 	
+	@PreAuthorize("isAuthenticated()")
 	@GetMapping("/register")
 	public void registerGet() {
-		log.info("register 요청");
+		log.info("register 폼 요청");
 	}
-		
+	
+	@PreAuthorize("isAuthenticated()")
 	@PostMapping("/register")
-	public String registerPost(BoardDTO insertDto, RedirectAttributes rttr) {
-		log.info("register 가져오기 " + insertDto);
+	public String registerPost(BoardDTO insertDto,RedirectAttributes rttr) {
+		log.info("register 가져오기 "+insertDto);
 		
 		
 

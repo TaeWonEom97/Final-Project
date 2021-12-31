@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<link rel="stylesheet" href="/resources/css/upload.css" />
+
 <%@include file="../includes/header.jsp"%>
 <div class="row">
 	<div class="col-lg-12">
@@ -41,7 +41,7 @@
 	</div>
 </div>
 <!--첨부파일 영역 -->
-<div class="bigPictureWrapper">
+<!-- <div class="bigPictureWrapper">
 	<div class="bigPicture"></div>
 </div>
 <div class="row">
@@ -58,7 +58,7 @@
 			</div>
 		</div>
 	</div>
-</div>	
+</div> -->	
 
 <%-- remove와 list를 위한 폼--%>
 <form action="" id="actionForm">
@@ -70,8 +70,12 @@
 </form>
 <%-- 스크립트 --%>
 <script>
-   // 현재 글번호 가져오기
-   let bno = ${dto.bno}; // 다음 페이지(read.js)에서 데이터를 부를 때 이 데이터 값을 가져올 수가 없기때문에 jsp에서 담고 보내는 형식
+	   // 현재 글번호 가져오기
+	   let bno = ${dto.bno}; // 다음 페이지(read.js)에서 데이터를 부를 때 이 데이터 값을 가져올 수가 없기때문에 jsp에서 담고 보내는 형식
+   
+		//ajax 동작 시 헤더 값에 포함해서 보낼 csrf 토큰 값 설정
+		let csrfHeaderName = "${_csrf.headerName}";
+		let csrfTokenValue = "${_csrf.token}";
 </script>
 <script src="/resources/js/modify.js"></script>
 <%@include file="../includes/footer.jsp"%>

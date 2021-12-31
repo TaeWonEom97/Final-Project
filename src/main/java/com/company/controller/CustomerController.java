@@ -38,6 +38,13 @@ public class CustomerController {
 		return "/register";
 	}
 	
+	@GetMapping("/list")
+	public String board() {
+		log.info("게시판 폼 요청");
+		return "/list";
+	}
+	
+	
 	@PostMapping("/register")
 	public String registerlogin(CustomerDTO customerDto) {
 		log.info("회원가입 요청"+customerDto);
