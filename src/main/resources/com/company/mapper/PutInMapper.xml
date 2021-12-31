@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.mapper.PutInMapper">
+
+	<!-- 입고 내역 조회 -->
+	
+	<resultMap type="com.company.domain.PutInDTO" id="putinDto">
+      <result property="code" column="code"/>
+      <result property="insertnum" column="insertnum"/>
+      <result property="insertdate" column="insertdate"/>
+      <result property="seqid" column="seqid"/>
+     <collection property="itemDto" resultMap="item"/>
+   </resultMap>
+   
+	<resultMap type="com.company.domain.ItemDTO" id="item">
+      <result property="itemcode" column="itemcode"/>
+      <result property="itemtitle" column="itemtitle"/>
+      <result property="itemprice" column="itemprice"/>
+      <result property="supplier" column="supplier"/>
+      <result property="itemsize" column="itemsize"/>
+      <result property="color" column="color"/>
+   </resultMap>
+	
+	<select id="select" resultMap="putinDto">
+		select * from insertitem s1 left outer join item s2 on s1.code = s2.itemcode where to_char(insertdate,'yyyy-mm-dd')=#{insertDate}
+	</select>
+	
+	<select id="select2" resultMap="putinDto">
+		select * from insertitem s1 left outer join item s2 on s1.code = s2.itemcode order by insertdate asc
+	</select>
+
+	<!-- 신규 내역 등록 -->
+	<insert id="insert">
+		insert into INSERTITEM(code, insertnum, insertdate, seqid)
+		values(#{code},#{insertnum},sysdate,seqid.nextval)
+	</insert>
+
+	<!-- 내역 삭제 -->
+	<delete id="delete">
+		delete from INSERTITEM where insertdate=#{insertdate}
+	</delete>
+</mapper>

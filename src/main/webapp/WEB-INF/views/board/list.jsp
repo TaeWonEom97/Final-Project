@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
- <%@include file="../includes/header.jsp" %>
+ <%@include file="../includes/header2.jsp" %>
 			<main>
 				<div class="container-fluid px-4">
 					<h1 class="mt-4">사내 게시판</h1>
@@ -128,4 +128,4 @@
    <input type="hidden" name="bno" value="" />
 </form>
 <script src="/resources/js/list.js"></script>
-<%@include file="../includes/footer.jsp" %>			
+<%@include file="../includes/footer2.jsp" %>			

@@ -31,7 +31,7 @@
                                     </thead>
                                     <tbody>
                            <c:forEach var="dto" items="${list}">
-                              <tr>
+                              <tr class="get" style = "cursor:pointer;" href="${dto.sellid}">
                                  <td>${dto.customerDto.company}</td>
                                  <td>${dto.sellcode}</td>
                                  <td>${dto.itemDto.itemtitle}</td>
@@ -60,6 +60,7 @@
         <h5 class="modal-title">판매 추가</h5>
       </div>
       <div class="modal-body">
+         <input type="hidden" name="sellid" value="" readonly="readonly" />
         <div class="form-group">
            <label for="">거래처 ID</label>
          <input type="text" name="selluser" class="form-control" placeholder="거래처 ID"/>
@@ -99,8 +100,8 @@
   </div>
 </div>
 <script>
-   // 현재 글 번호 가져오기
-   let bno = ${dto.sellid};
+   let csrfHeaderName = "${_csrf.headerName}";
+   let csrfTokenValue = "${_csrf.token}";
 </script>
 <script src="/resources/js/sell.js"></script>
 <script src="/resources/js/modal.js"></script>

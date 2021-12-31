@@ -43,4 +43,8 @@ values('test1','12345','테스트');
 insert into customerboard(bno,title,content,writer)
 (select bno.nextval,title,content,writer from customerboard);
 
+<<<<<<< HEAD
 select count(*) from CUSTOMERBOARD;
+=======
+select * from insertitem;
+>>>>>>> branch 'master' of https://github.com/TaeWonEom97/Final-Project.git

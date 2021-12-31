@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<%@include file="../includes/header.jsp"%>
+<%@include file="../includes/header2.jsp"%>
 <div class="row">
 	<div class="col-lg-12">
 		<h1 class="page-header">Board Modify</h1>
@@ -78,7 +78,7 @@
 		let csrfTokenValue = "${_csrf.token}";
 </script>
 <script src="/resources/js/modify.js"></script>
-<%@include file="../includes/footer.jsp"%>
+<%@include file="../includes/footer2.jsp"%>
 
 
 

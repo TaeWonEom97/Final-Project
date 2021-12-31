@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
- <%@include file="../includes/header.jsp" %>
+ <%@include file="../includes/header2.jsp" %>
  
 <main>
 	<div class="container-fluid px-4">
@@ -108,4 +108,4 @@
 </script>
 <script src="/resources/js/reply.js"></script>
 <script src="/resources/js/read.js"></script>
-<%@include file="../includes/footer.jsp" %>			
+<%@include file="../includes/footer2.jsp" %>			
