@@ -138,16 +138,7 @@
 						            $("#putindate").datepicker({dateFormat:'yy-mm-dd'});
 						        });
 						    </script>
-                    <!--     <div class="card mb-4">
-                            <div class="card-header">
-                                <i class="fas fa-table me-1"></i>
-                                입고 관리
-                            </div>
-                            
-                           <div class="card-body contents">
-                               
-                            </div>  
-                        </div> -->
+
                     </div>
                 
 				 <div class="panel panel-default">
@@ -163,12 +154,11 @@
 					</div>
 					
 					 
-					
+					<!-- 나중에 hidden으로 숨기기 -->
 					<div class="panel panel-default">
 					  <div class="panel-heading"><b>HTML Table Edits/Upates</b> </div>
 					
 					  <div class="panel-body">
-						
 						<p>All the changes will be displayed below</p>
 						<div class="post_msg"> </div>
 					
@@ -206,54 +196,6 @@
 	  </div>
 	</div>
 	
-   <%-- 수정 및 삭제 폼 --%>
-	<div class="modal" tabindex="-1" id="newModal2">
-	  <div class="modal-dialog">
-	    <div class="modal-content">
-	      <div class="modal-header">
-	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-	          <span aria-hidden="true">&times;</span>
-	        </button>
-	        <h5 class="modal-title">입고 내역 수정 및 삭제</h5>
-	      </div>
-	      <div class="modal-body">
-	        <div class="form-group">
-	        	<label for="">제품 코드</label>
-	        	<input type="text" name="code" class="form-control" value=""/>
-	        </div>	        
-	        <div class="form-group">
-	        	<label for="">입고 수량</label>
-	        	<input type="text" name="num" class="form-control" value=""/>
-	        </div>	        
-	        <div class="form-group">
-	        	<label for="">입고 날짜</label>
-	        	<input type="text" name="insertdate" class="form-control" value="" readonly/>
-	        </div>	        <div class="form-group">
-	        	<label for="">입고 순번</label>
-	        	<input type="text" name="seqid" class="form-control" value="" readonly/>
-	        </div>	        <div class="form-group">
-	        	<label for="">제품명</label>
-	        	<input type="text" name="itemtitle" class="form-control" value=""/>
-	        </div>	        <div class="form-group">
-	        	<label for="">가격</label>
-	        	<input type="text" name="itmeprice" class="form-control" value=""/>
-	        </div>	        <div class="form-group">
-	        	<label for="">사이즈</label>
-	        	<input type="text" name="size" class="form-control" value=""/>
-	        </div>
-	        <div class="form-group">
-	        	<label for="">컬러</label>
-	        	<input type="text" name="color" class="form-control" value=""/>
-	        </div>	        	               
-	      </div>
-	      <div class="modal-footer">
-	        <button type="button" class="btn btn-secondary" id="modalModifyBtn2">수정</button>
-	        <button type="button" class="btn btn-secondary" id="modalRemoveBtn2">삭제</button>
-	        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="modalCloseBtn">취소</button>
-	      </div>
-	    </div>
-	  </div>
-	</div>
 <script>
 	let csrfHeaderName = "${_csrf.headerName}";
 	let csrfTokenValue = "${_csrf.token}";

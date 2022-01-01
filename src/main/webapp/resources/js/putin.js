@@ -64,11 +64,8 @@ $(function(){
 		tbl +='<tbody>';
 
 			//--->create table body rows > start
-			$.each(data, function(i,item) 
+			$.each(data, function(i,item,val) 
 			{
-				
-				console.log(item.itemtitle);
-				
 				//you can replace with your database row id
 				var row_id = random_id();
 
@@ -98,6 +95,7 @@ $(function(){
 					//--->edit options > end
 					
 				tbl +='</tr>';
+
 			});
 
 			//--->create table body rows > end
@@ -107,7 +105,7 @@ $(function(){
 
 	tbl +='</table>'	
 	
-	console.log(tbl);
+	//console.log(tbl);
 	//--->create data table > end
 	tbody.html(tbl);		
 			
@@ -192,7 +190,7 @@ $(function(){
 		.css('padding','3px')
 
 		//--->add the original entry > start
-		tbl_row.find('.row_data').each(function(index, val) 
+		tbl_row.find('.row_data').each(function(i, val) 
 		{  
 			//this will help in case user decided to click on cancel button
 			$(this).attr('original_entry', $(this).html());
@@ -225,7 +223,7 @@ $(function(){
 		.removeClass('bg-warning')
 		.css('padding','') 
 
-		tbl_row.find('.row_data').each(function(index, val) 
+		tbl_row.find('.row_data').each(function(i, val) 
 		{   
 			$(this).html( $(this).attr('original_entry') ); 
 		});  
@@ -258,7 +256,7 @@ $(function(){
 
 		//--->get row data > start
 		var arr = {}; 
-		tbl_row.find('.row_data').each(function(index, val) 
+		tbl_row.find('.row_data').each(function(i, val) 
 		{   
 			var col_name = $(this).attr('col_name');  
 			var col_val  =  $(this).html();
@@ -271,16 +269,18 @@ $(function(){
 
 		//out put to show
 		$('.post_msg').html( '<pre class="bg-success">'+JSON.stringify(arr, null, 2) +'</pre>')
+		
+		// 내 추가 부분
+		let edit = $(".post_msg");
+		console.log(edit);
+		
 	});
 	//--->save whole row entery > end
 	}
 	}) //ajax end
 }) //select end
 
-	$(document).on('click', '#btn_save', function() 
-	{
-		console.log("테이블");
-	});
+
 
 }) // 첫 function
 
