@@ -138,33 +138,44 @@
 						            $("#putindate").datepicker({dateFormat:'yy-mm-dd'});
 						        });
 						    </script>
-                        <div class="card mb-4">
+                    <!--     <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
                                 입고 관리
                             </div>
+                            
                            <div class="card-body contents">
-                                <!-- <table id="datatablesSimple">
-                                    <thead>
-                                        <tr>
-                                            <th>제품코드</th>
-                                            <th>입고수량</th>
-                                            <th>입고날짜</th>
-                                            <th>입고순번</th>
-                                            <th>제품명</th>
-                                            <th>제품가격</th>
-                                            <th>공급처</th>
-                                            <th>사이즈</th>
-                                            <th>색상</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    
-								</tbody>
-                                </table> -->
-                            </div> 
-                        </div>
+                               
+                            </div>  
+                        </div> -->
                     </div>
+                
+				 <div class="panel panel-default">
+					  <div class="panel-heading"><b> <i class="fas fa-table me-1"></i>
+                                입고 관리 </b> </div>
+					
+					  <div class="panel-body contents">
+						
+						<div class="tbl_user_data"></div>
+					
+					  </div>
+					
+					</div>
+					
+					 
+					
+					<div class="panel panel-default">
+					  <div class="panel-heading"><b>HTML Table Edits/Upates</b> </div>
+					
+					  <div class="panel-body">
+						
+						<p>All the changes will be displayed below</p>
+						<div class="post_msg"> </div>
+					
+					  </div>
+					</div>
+
+
                 </main>
    <%-- 신규 입고내역 작성 폼 --%>
 	<div class="modal" tabindex="-1" id="newModal">

@@ -9,7 +9,8 @@ $(function(){
 		let date1 = $("#putindate").datepicker().val();
 		//alert(date1);
 		
-		let tbody = $(".card.mb-4 .contents");
+		//let tbody = $(".card.mb-4 .contents");
+		let tbody = $(".panel-body .contents");
 		
 		// type 값이 들어 있는지 확인
 		// 값이 없는 경우 메시지 띄우고 돌아가기
@@ -73,15 +74,15 @@ $(function(){
 
 				//loop through ajax row data
 				tbl +='<tr row_id="'+row_id+'">';
-					tbl +='<td><div class="row_data" edit_type="click" col_name="fname">'+item.code+'</div></td>';
-					tbl +='<td><div class="row_data" edit_type="click" col_name="lname">'+item.insertnum+'</div></td>';
-					tbl +='<td ><div class="row_data" edit_type="click" col_name="email">'+displayTime(item.insertdate)+'</div></td>';
-					tbl +='<td ><div class="row_data" edit_type="click" col_name="email2">'+item.seqid+'</div></td>';
-					tbl +='<td ><div class="row_data" edit_type="click" col_name="email3">'+item.itemDto[0].itemtitle+'</div></td>';
-					tbl +='<td ><div class="row_data" edit_type="click" col_name="email4">'+item.itemDto[0].itemprice+'</div></td>';
-					tbl +='<td ><div class="row_data" edit_type="click" col_name="email5">'+item.itemDto[0].supplier+'</div></td>';
-					tbl +='<td ><div class="row_data" edit_type="click" col_name="email6">'+item.itemDto[0].itemsize+'</div></td>';
-					tbl +='<td ><div class="row_data" edit_type="click" col_name="email7">'+item.itemDto[0].color+'</div></td>';
+					tbl +='<td><div class="row_data" edit_type="click" col_name="code">'+item.code+'</div></td>';
+					tbl +='<td><div class="row_data" edit_type="click" col_name="insertnum">'+item.insertnum+'</div></td>';
+					tbl +='<td><div class="row_data" edit_type="click" col_name="insertdate">'+displayTime(item.insertdate)+'</div></td>';
+					tbl +='<td><div class="row_data" edit_type="click" col_name="seqid">'+item.seqid+'</div></td>';
+					tbl +='<td><div class="row_data" edit_type="click" col_name="itemtitle">'+item.itemDto[0].itemtitle+'</div></td>';
+					tbl +='<td><div class="row_data" edit_type="click" col_name="itemprice">'+item.itemDto[0].itemprice+'</div></td>';
+					tbl +='<td><div class="row_data" edit_type="click" col_name="supplier">'+item.itemDto[0].supplier+'</div></td>';
+					tbl +='<td><div class="row_data" edit_type="click" col_name="itemsize">'+item.itemDto[0].itemsize+'</div></td>';
+					tbl +='<td><div class="row_data" edit_type="click" col_name="color">'+item.itemDto[0].color+'</div></td>';
 
 
 					//--->edit options > start
@@ -90,8 +91,8 @@ $(function(){
 						tbl +='<span class="btn_edit" > <a href="#" class="btn btn-link " row_id="'+row_id+'" > Edit</a> </span>';
 
 						//only show this button if edit button is clicked
-						tbl +='<span class="btn_save"> <a href="#" class="btn btn-link"  row_id="'+row_id+'"> <i class="far fa-save"></i></a> | </span>';
-						tbl +='<span class="btn_cancel"> <a href="#" class="btn btn-link" row_id="'+row_id+'"><i class="fas fa-times"></i></a> | </span>';
+						tbl +='<span class="btn_save"> <button id="btn_save" type="button" class="btn btn-secondary btn-sm"  row_id="'+row_id+'"> <i class="far fa-save"></i></button> | </span>';
+						tbl +='<span class="btn_cancel"> <button id="btn_cancel" type="button" class="btn btn-secondary btn-sm" row_id="'+row_id+'"><i class="fas fa-times"></i></button> | </span>';
 
 					tbl +='</td>';
 					//--->edit options > end
@@ -270,90 +271,17 @@ $(function(){
 
 		//out put to show
 		$('.post_msg').html( '<pre class="bg-success">'+JSON.stringify(arr, null, 2) +'</pre>')
-		 
-
 	});
 	//--->save whole row entery > end
+	}
+	}) //ajax end
+}) //select end
 
+	$(document).on('click', '#btn_save', function() 
+	{
+		console.log("테이블");
+	});
 
-		
-		
-		
-			// 원래 화면에 띄우던 코드
-			/*let str="";
-				
-			for(var i=0,len=data.length||0;i<len;i++){
-				str += "<tr>";	
-				str += "<td>"+data[i].code+"</td>";
-				str += "<td>"+data[i].insertnum+"</td>";
-				str += "<td>"+displayTime(data[i].insertdate)+"</td>";
-				str += "<td>"+data[i].seqid+"</td>";
-				str += "<td>"+data[i].itemDto[0].itemtitle+"</td>";
-				str += "<td>"+data[i].itemDto[0].itemprice+"</td>";
-				str += "<td>"+data[i].itemDto[0].supplier+"</td>";
-				str += "<td>"+data[i].itemDto[0].itemsize+"</td>";
-				str += "<td>"+data[i].itemDto[0].color+"</td>";
-				str += "</tr>";	
-			}
-			tbody.html(str);
-			}*/
-			
-			
-			
-			
-			
-			}
-		}) //ajax end
-	}) //select end
-
-
-	
-	
-	
-/*	$("#datatablesSimple").on("click", function(){
-		let modal2 = $("#newModal2");
-		
-		// 모달 창 영역 안의 요소 가져오기
-		let modalcode = modal2.find("input[name='code']")
-		let modalnum = modal2.find("input[name='num']");
-		let modalinsertdate = modal2.find("input[name='insertdate']");
-		let modalseqid = modal2.find("input[name='seqid']");
-		let modalitemtitle = modal2.find("input[name='itemtitle']");
-		let modalitemprice = modal2.find("input[name='itmeprice']");
-		let modalsize = modal2.find("input[name='size']");
-		let modalcolor = modal2.find("input[name='color']");
-		
-		let modalModifyBtn2 = modal2.find("#modalModifyBtn2");
-		let modalRemoveBtn2 = modal2.find("#modalRemoveBtn2");
-		let modalCloseBtn2 = modal2.find("#modalCloseBtn2");
-			
-		let code = $(this).attr('href');
-
-		putinService.get(code, function(data){
-			
-			// 요소 보여주기
-			modalcode.closest("div").show();
-			modalnum.closest("div").show();
-			modalinsertdate.closest("div").show();
-			modalitemprice.closest("div").show();
-			modalseqid.closest("div").show();
-			modalitemtitle.closest("div").show();
-			modalitemprice.closest("div").show();
-			modalsize.closest("div").show();
-			modalcolor.closest("div").show();
-			
-			modalModifyBtn2.show();
-			modalRemoveBtn2.show();
-			modalCloseBtn2.show();
-		
-			modal2.modal('show');
-		});
-		
-	}) //delete 클릭 end*/
-	
-	
-	
-		
 }) // 첫 function
 
 	
