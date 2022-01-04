@@ -183,7 +183,7 @@ $(function(){
 		tbl_row.find('.btn_edit').hide(); 
 
 		//make the whole row editable
-		tbl_row.find('.row_data')
+		tbl_row.find('row_data')
 		.attr('contenteditable', 'true')
 		.attr('edit_type', 'button')
 		.addClass('bg-warning')
@@ -270,17 +270,40 @@ $(function(){
 		//out put to show
 		$('.post_msg').html( '<pre class="bg-success">'+JSON.stringify(arr, null, 2) +'</pre>')
 		
-		// 내 추가 부분
-		let edit = $(".post_msg");
-		console.log(edit);
+	
+		//console.log(arr);
+		let amount = tbl_row.find('td:nth-child(2)').text();
+		let seqid = tbl_row.find('td:nth-child(4)').text();
 		
+		console.log(amount+"   "+seqid);
+		
+		let data={
+			insertnum:amount,
+			seqid:seqid
+		}
+		
+		$.ajax({
+			url:'/'+seqid,
+			data:JSON.stringify(seqid),
+			success:function(data){
+				if(callback) {
+					callback(data);
+				}
+			},
+			error:function(xhr, status, error) {
+				if(error) {
+					error(xhr.responseText);
+				}
+			}
+		})
+
 	});
 	//--->save whole row entery > end
 	}
 	}) //ajax end
 }) //select end
 
-
+	
 
 }) // 첫 function
 

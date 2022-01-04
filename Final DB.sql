@@ -20,7 +20,8 @@ create table insertitem(
 insert into insertitem(code, insertnum, insertdate, seqid) values('P004', 30, sysdate, seqid.nextval);
 insert into insertitem(code, insertnum, insertdate, seqid) values('P003', 20, sysdate, seqid.nextval);
 
-select * from item;
+select * from insertitem;
+update INSERTITEM set insertnum = 789 where seqid = 363;
 
 select * from customer;
 
