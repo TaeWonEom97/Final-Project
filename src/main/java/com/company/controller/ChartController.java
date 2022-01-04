@@ -16,6 +16,7 @@ import com.company.domain.ChartDTO;
 import com.company.domain.PutInDTO;
 import com.company.domain.SellItemDTO;
 import com.company.service.PutInService;
+import com.company.service.SellService;
 import com.company.service.StockService;
 
 import lombok.Setter;
@@ -26,20 +27,21 @@ import lombok.extern.log4j.Log4j2;
 public class ChartController {
 	
 	@Autowired
-	private StockService stockService;
+	private SellService sellService; 
+	
 	@Autowired
 	private PutInService putinService;
 
 
 	@GetMapping(value = "incomeList")
 	public @ResponseBody List<SellItemDTO> incomeList(Locale locale, Model model) {
-		List<SellItemDTO> list = stockService.sellAll();
+		List<SellItemDTO> list = sellService.sellAll();
 		return list;
 	}
 		 	
 	@GetMapping(value = "OutcomeList")
 	public @ResponseBody List<ChartDTO> OutcomeList(Locale locale, Model model) {
-	 	List<ChartDTO> sellnum = stockService.sellnum();	 		
+	 	List<ChartDTO> sellnum = sellService.sellnum();	 		
 	 	log.info("월별차트"+sellnum);	 
 	  	return sellnum;
 	}
@@ -53,7 +55,7 @@ public class ChartController {
 	
 	@GetMapping(value = "insertbarList")
 	public @ResponseBody List<PutInDTO> insertbarList(Locale locale, Model model) {
-	 	List<PutInDTO> insertnum = stockService.insertnum();	 		
+	 	List<PutInDTO> insertnum = sellService.insertnum();	 		
 	 	log.info("월별차트"+insertnum);	 
 	  	return insertnum;
 	}
