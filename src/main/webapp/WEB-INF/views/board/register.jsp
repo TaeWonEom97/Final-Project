@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <%@include file="../includes/header2.jsp"%>
@@ -35,12 +35,11 @@
                 </div>
             </div>
 <script>
-	//ajax 동작 시 헤더 값에 포함해서 보낼 csrf 토큰 값 설정
-	let csrfHeaderName = "${_csrf.headerName}";
-	let csrfTokenValue = "${_csrf.token}";
+   //ajax 동작 시 헤더 값에 포함해서 보낼 csrf 토큰 값 설정
+   let csrfHeaderName = "${_csrf.headerName}";
+   let csrfTokenValue = "${_csrf.token}";
 </script>
 <script src="/resources/js/upload.js"></script>
 <%@include file="../includes/footer2.jsp"%>
 </div>
 </main>
-
