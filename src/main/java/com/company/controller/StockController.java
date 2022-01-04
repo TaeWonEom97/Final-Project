@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.company.domain.ItemDTO;
 import com.company.domain.StockDTO;
 import com.company.service.StockService;
 
@@ -27,15 +29,17 @@ public class StockController {
 	
 	@Autowired
 	private StockService service;
+
 	
 	
 	//     /tables-4 =StockList.jsp
 	@GetMapping("/tables-4")
-	public void StockListGet(Model model) throws Exception {
+	public void StockListGet(Model model,ItemDTO itemDto) {
 		log.info("재고현황 폼 요청");
-		List<StockDTO> list = service.stockDto();
+		List<ItemDTO> list = service.stockDto();
 		
 		model.addAttribute("list",list);
+		
 	}
 
 	
@@ -50,12 +54,7 @@ public class StockController {
 	public void table2Get() {
 		log.info("폼 요청");
 	}
-	@GetMapping("/tables-3")//판매내역조회
-	public void table3Get() {
-		log.info("폼 요청");
-		
-		
-	}
+	
 	
 	}
 	

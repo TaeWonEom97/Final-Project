@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.company.domain.ItemDTO;
 import com.company.domain.SellItemDTO;
 import com.company.domain.StockDTO;
 import com.company.mapper.StockMapper;
@@ -14,19 +15,12 @@ import com.company.mapper.StockMapper;
 @Service
 public class StockServiceImpl implements StockService {
 	@Autowired
-	private StockMapper<StockDTO> mapper;
+	private StockMapper mapper;
 	
 	@Override
-	public List<StockDTO> stockDto() {
+	public List<ItemDTO> stockDto() {
 	
 		return mapper.stocklist();
-	}
-
-	@Override
-
-	public List<SellItemDTO> sellAll1() {
-		
-		return null;
 	}
 
 	@Override
@@ -34,6 +28,12 @@ public class StockServiceImpl implements StockService {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public boolean stocknum(StockDTO stockDto) {
+		return mapper.Stocknum(stockDto)> 0? true : false ;
+	}
+
 }
 
 

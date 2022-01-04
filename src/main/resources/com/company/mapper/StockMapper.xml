@@ -9,8 +9,6 @@ insert into stock(stockcode,stocknum,stockid)
 
 </insert>
 
-
-
    <resultMap type="com.company.domain.SellItemDTO" id="SellItemMap">
       <id property="sellid" column="sellid"/>
       <result property="sellnum" column="sellnum"/>
@@ -18,8 +16,8 @@ insert into stock(stockcode,stocknum,stockid)
       <result property="sellcode" column="sellcode"/>
       <result property="selluser" column="selluser"/>
       
-      <collection property="itemDto" resultMap="ItemMap"/>
-      <collection property="customerDto" resultMap="CustomerMap"/>
+      <!--  <collection property="itemDto" resultMap="ItemMap"/>
+      <collection property="customerDto" resultMap="CustomerMap"/>-->
    </resultMap>
    
    <resultMap type="com.company.domain.ItemDTO" id="ItemMap">
@@ -29,7 +27,20 @@ insert into stock(stockcode,stocknum,stockid)
       <result property="supplier" column="supplier"/>
       <result property="itemsize" column="itemsize"/>
       <result property="color" column="color"/>
+      <result property="stock" column="stock"/>
+      <collection property="sellItemDto" resultMap="SellItemMap"/>
+     
+      <collection property="insertItemDto" resultMap="insertItemMap"/>
+      
    </resultMap>
+   
+   <resultMap type="com.company.domain.InsertItemDTO" id="insertItemMap">
+   		     <result property="code" column="code"/>
+   		     <result property="insertnum" column="insertnum"/>
+   		     <result property="insertdate" column="insertdate"/>
+   		     <result property="seqid" column="seqid"/>  
+   </resultMap>
+   
    
    <resultMap type="com.company.domain.CustomerDTO" id="CustomerMap">
       <result property="userid" column="userid"/>
@@ -38,13 +49,23 @@ insert into stock(stockcode,stocknum,stockid)
    </resultMap>
    
    
+   <!-- 쿼리문 대로라면 stocklist2 없이 select 문이 하나만 있어도 되는거 아님? -->
    
-   
-  <select id="stocklist" resultType="com.company.domain.StockDTO">
-  	select * from stock  
+  <select id="stocklist" resultMap="ItemMap">
+	select itemcode,itemtitle,itemprice,supplier,itemsize,color, NVL(s,0) as stock
+	from item left join (select code, putin-out as s
+	    from(select code, sum(insertnum) putin, 
+	           (SELECT SUM(sellnum) FROM sellitem where sellcode = code GROUP BY sellcode) out
+	        from insertitem
+	        group by code)
+	    ) on itemcode = code
   </select>
-   
-  
-   
+
+  <!-- 재고수량 조회 -->
+  <select  id="Stocknum" resultType="com.company.domain.StockDTO">
+  insert into stock(stockcode,stocknum,stockid)
+		values(#{stockcode},#{stocknum},stockid.nextval)
+</select>
+
 </mapper>
     
