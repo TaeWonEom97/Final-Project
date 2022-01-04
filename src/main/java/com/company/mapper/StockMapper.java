@@ -1,6 +1,9 @@
 package com.company.mapper;
 
 import java.util.List;
+import com.company.domain.ChartDTO;
+import com.company.domain.PutInDTO;
+import com.company.domain.SellItemDTO;
 
 
 import org.apache.ibatis.annotations.Mapper;
@@ -17,6 +20,5 @@ public interface StockMapper {
 		public int Stocknum(StockDTO insertDto);			 
 		public List<ItemDTO> stocklist();
 	    
+
 }
-
-

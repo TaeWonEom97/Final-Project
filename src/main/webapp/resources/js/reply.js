@@ -1,11 +1,9 @@
-/**
- * reply 와 관련된 스크립트
- */
+
 
 // 자바스크립트 모듈화
 let replyService = (function() {
 
-	function add(reply, callback) {
+	function add(reply, callback , error) {
 		console.log("add method 실행");
 
 

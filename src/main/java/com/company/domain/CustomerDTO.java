@@ -23,7 +23,3 @@ public class CustomerDTO {
 	private List<AuthDTO> authList;
 
 }
-
-
-
-
