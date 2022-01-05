@@ -1,3 +1,4 @@
+--mj
 --아이템 상품코드(primary key), 상품명, 가격, 제조사,  사이즈,색상
 create table item(
    itemcode varchar2(200) constraint pk_item primary key,
@@ -38,7 +39,7 @@ create table stock(
    constraint fk_stockitem foreign key(stockcode) references item(itemcode),
 );
 
-select * from stock;
+select * from item;
 
 --고객 userid(primary), password, 회사명=name
 create table customer(
@@ -64,7 +65,8 @@ alter table salescheck modify custsell varchar2(50)
 
 insert into item(itemcode, itemtitle, itemprice, supplier, itemsize, color) values('P001', '에어포스', 150000, '나이키', '250cm', 'White');
 insert into stock(stockcode,stocknum,stockid) values('P001',30,stockid.nextval); -- 더미테이블 생성
-insert into stock(stockcode,stocknum,stockid) values('P001',30,stockid.nextval); 	
+insert into stock(stockcode,stocknum,stockid) values('P001',30,stockid.nextval); 
+insert into 
 ----------------------------------------------------------------------------------------------------------------------
 create sequence bno;
 --게시판, 글번호(primary key), 제목, 내용, 작성자(userid = fk), 작성날짜, 수정날짜
@@ -114,7 +116,16 @@ create table customer_auth(
 insert into item(itemcode, itemtitle, itemprice, supplier, itemsize, color) values('P001', '에어포스', 150000, '나이키', '250cm', 'White');
 insert into sellitem(sellcode, sellnum, sellid) values('P001', 12, sellid.nextval);
 insert into sellitem(sellcode, sellnum, sellid) values('P001', 10, sellid.nextval);
+insert into item(itemcode, itemtitle, itemprice, supplier, itemsize, color) values('P008', '플라이니트',160000,'나이키','230cm','black');
+insert into item(itemcode, itemtitle, itemprice, supplier, itemsize, color) values('P007', '데이브레이',140000,'나이키','210cm','gray');
+insert into item(itemcode, itemtitle, itemprice, supplier, itemsize, color) values('P004', '에어조던',50000, '나이키','240cm','charcol');
+insert into item(itemcode, itemtitle, itemprice, supplier, itemsize, color) values('P003', '에어포스', 150000, '나이키','230cm','pink');
+insert into item(itemcode, itemtitle, itemprice, supplier, itemsize, color) values('P002', '베이퍼맥스',180000,'나이키','230cm','blue');
 
+insert into insertitem(insertnum) values (30);
+insert into sellitem(sellnum) values (10);
+
+insert into item()
 select * from item;
 
 
@@ -176,5 +187,22 @@ alter table sellitem add constraint fk_selluser foreign key(selluser) references
 
 select * from customer;
 
+insert into stock(stockcode,stocknum,stockid) values ('P004',40,stockid.nextval);
 
->>>>>>> branch 'master' of https://github.com/TaeWonEom97/Final-Project.git
+insert into item(itemcode, itemtitle, itemprice, supplier, itemsize, color) values('P004', '에어포스', 150000, '나이키', '250cm', 'White');
+insert into sellitem(sellcode, sellnum, sellid, selluser) values('P004', 30, sellid.nextval, 'isenring');
+insert into insertitem (code,insertnum,insertdate,seqid) values('P004', 80, '2021-11-29',seqid.nextval);
+
+select (select sum(insertnum) from INSERTITEM where code = 'P004') - (select sum(sellnum) from sellitem where sellcode = 'P004') from dual;
+
+select * from insertitem;
+select * from sellitem;
+
+select itemcode,itemtitle,itemprice,supplier,itemsize,color, NVL(s,0) as stock
+from item left join (select code, (putin-out) as s
+    from(select i.code, sum(i.insertnum) putin, 
+           (SELECT SUM(b.sellnum) FROM sellitem b where b.sellcode = i.code GROUP BY b.sellcode) out
+        from insertitem i group by i.code)
+    ) on itemcode = code;
+--stock table delete 후 item 테이블에 stock 추가 후 dto생성하는 방법은?
+--delete table ???

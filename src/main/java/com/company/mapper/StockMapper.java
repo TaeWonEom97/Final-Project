@@ -5,12 +5,20 @@ import com.company.domain.ChartDTO;
 import com.company.domain.PutInDTO;
 import com.company.domain.SellItemDTO;
 
+
+import org.apache.ibatis.annotations.Mapper;
+
+import com.company.domain.ItemDTO;
+import com.company.domain.StockDTO;
+
+
 public interface StockMapper {
-	public List<SellItemDTO> sellList();
-	public List<ChartDTO> sellchart();
-	public List<PutInDTO> insertchart();
-	public int sellInsert(SellItemDTO insertDto);
-	public SellItemDTO sellGet(String sellid);
-	public int remove(String sellid);
-	public int update(SellItemDTO updateDto);
+
+	//public int insert(ItemDTO insertDto); 
+		
+		public String insert1(StockDTO insertDto); 
+		public int Stocknum(StockDTO insertDto);			 
+		public List<ItemDTO> stocklist();
+	    
+
 }

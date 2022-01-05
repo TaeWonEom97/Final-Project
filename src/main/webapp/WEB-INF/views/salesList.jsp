@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-	<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -157,6 +157,9 @@
 											<option value="25">25</option>
 									</select> entries per page</label>
 								</div>
+								<form action="/excel/download" method="get">
+									<button type="submit">Excel</button>
+								</form>
 								<div class="dataTable-search">
 									<input class="dataTable-input" placeholder="Search..."
 										type="text" />
@@ -176,18 +179,18 @@
 									</tr>
 								</thead>
 								<tbody>
-								<c:forEach var="dto" items="${list}">
-									<tr>
-										<td>${dto.sellid}</td>
-										<td>${dto.sellcode}</td>
-										<td>${dto.itemDto.itemtitle}</td>
-										<td>${dto.sellnum}</td>
-										<td>${dto.itemDto.itemprice}</td>
-										<td>${(dto.itemDto.itemprice) * (dto.sellnum)}</td>
-										<td>${dto.itemDto.supplier}</td>
-										<td>${dto.selldate}</td>
-									</tr>
-								</c:forEach>
+									<c:forEach var="dto" items="${list}">
+										<tr>
+											<td>${dto.sellid}</td>
+											<td>${dto.sellcode}</td>
+											<td>${dto.itemDto.itemtitle}</td>
+											<td>${dto.sellnum}</td>
+											<td>${dto.itemDto.itemprice}</td>
+											<td>${(dto.itemDto.itemprice) * (dto.sellnum)}</td>
+											<td>${dto.itemDto.supplier}</td>
+											<td>${dto.selldate}</td>
+										</tr>
+									</c:forEach>
 								</tbody>
 							</table>
 						</div>
