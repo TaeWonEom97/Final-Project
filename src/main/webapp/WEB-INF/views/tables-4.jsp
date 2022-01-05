@@ -181,7 +181,7 @@
 							조회</button>
 						<button type="button" class="btn btn-secondary" id="savebtn">저장</button>
 						<form action="/excel/download" method="get">
-							<button type="submit">Excel</button>
+							<button type="submit" class="btn btn-success">Excel</button>
 						</form>
 					</div>
 				</div>
