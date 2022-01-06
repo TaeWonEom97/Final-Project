@@ -29,7 +29,6 @@
 								</div>
 								<button id='regBtn' type='button' class='btn btn-info'
 									onclick="location.href='/board/register'">새 게시글 작성</button>
-									
 								<div class="dataTable-search">
 									
 								</div>
@@ -107,8 +106,7 @@
 	               </ul>
 	            </div>
 	            <!-- end Pagination -->
-		               		                
-			                             	
+	            
                   </div><!-- row close -->
 				</div>		
 			</main>

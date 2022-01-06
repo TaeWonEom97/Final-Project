@@ -2186,6 +2186,7 @@ progress {
 }
 
 .form-control, .dataTable-input {
+  
   display: block;
   width: 100%;
   padding: 0.375rem 0.75rem;
@@ -3147,6 +3148,7 @@ textarea.form-control-lg {
   color: #000;
   background-color: #31d2f2;
   border-color: #25cff2;
+  
 }
 .btn-check:focus + .btn-info, .btn-info:focus {
   color: #000;
@@ -8659,6 +8661,7 @@ textarea.form-control-lg {
 
   .d-md-inline {
     display: inline !important;
+    margin: 2px;
   }
 
   .d-md-inline-block {
