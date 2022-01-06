@@ -22,4 +22,5 @@ public class PutInDTO {
 	private int seqid;
 	
 	private List<ItemDTO> itemDto;
+	private CustomerDTO customerDto;
 }

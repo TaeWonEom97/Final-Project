@@ -10,7 +10,9 @@
       <result property="insertdate" column="insertdate"/>
       <result property="seqid" column="seqid"/>
      <collection property="itemDto" resultMap="item"/>
-   </resultMap>
+     
+     <collection property="itemDto" resultMap="item"/>
+    </resultMap>
    
 	<resultMap type="com.company.domain.ItemDTO" id="item">
       <result property="itemcode" column="itemcode"/>
@@ -21,6 +23,7 @@
       <result property="color" column="color"/>
    </resultMap>
 	
+	<!-- 입고 내역 조회 -->
 	<select id="select" resultMap="putinDto">
 		select * from insertitem s1 left outer join item s2 on s1.code = s2.itemcode where to_char(insertdate,'yyyy-mm-dd')=#{insertDate}
 	</select>
@@ -34,9 +37,14 @@
 		insert into INSERTITEM(code, insertnum, insertdate, seqid)
 		values(#{code},#{insertnum},sysdate,seqid.nextval)
 	</insert>
-
-	<!-- 내역 삭제 -->
-	<delete id="delete">
-		delete from INSERTITEM where insertdate=#{insertdate}
+	
+	<!-- 삭제하기 -->
+	<delete id="remove">
+		delete from insertitem where code = #{code}
 	</delete>
+	
+	<!-- 수정하기 -->
+	<update id="update">
+		update INSERTITEM set insertnum = #{insertnum} where seqid = #{seqid}
+	</update>
 </mapper>

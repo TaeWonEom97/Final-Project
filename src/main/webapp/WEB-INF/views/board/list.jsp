@@ -18,19 +18,18 @@
 						<div class="card-body">
 							<div class="dataTable-top">
 								<div class="dataTable-dropdown">
-									<label>
-									<select name="" id="amount" class="form-control">
-											<option value="5">5</option>
-											<option value="10" selected="">10</option>
-											<option value="15">15</option>
-											<option value="20">20</option>
-											<option value="25">25</option>
-									</select> 글 갯수 지정</label>
+
+									<label><select name="" id="amount" class="dataTable-selector form-control">
+										<option value="5" <c:out value="${pageDto.cri.amount == 5 ? 'selected':''}"/>>5</option>
+                            	   		<option value="10" <c:out value="${pageDto.cri.amount == 10 ? 'selected':''}"/>>10</option>
+                            	   		<option value="15" <c:out value="${pageDto.cri.amount == 15 ? 'selected':''}"/>>15</option>
+                            	   		<option value="20" <c:out value="${pageDto.cri.amount == 20 ? 'selected':''}"/>>20</option>
+                            	   		<option value="25" <c:out value="${pageDto.cri.amount == 25 ? 'selected':''}"/>>25</option>
+									</select> entries per page</label>
 								</div>
 								<button id='regBtn' type='button' class='btn btn-info'
 									onclick="location.href='/board/register'">새 게시글 작성</button>
 								<div class="dataTable-search">
-									
 								</div>
 								   <div class="row">
 		                     <!--search Form-->

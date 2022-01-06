@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.company.domain.ChartDTO;
+import com.company.domain.ItemDTO;
 import com.company.domain.PutInDTO;
 import com.company.domain.SellItemDTO;
 import com.company.service.PutInService;
@@ -31,6 +32,9 @@ public class ChartController {
 	
 	@Autowired
 	private PutInService putinService;
+	
+	@Autowired
+	private StockService stockService;
 
 
 	@GetMapping(value = "incomeList")
@@ -49,7 +53,7 @@ public class ChartController {
 	@GetMapping(value = "insertList")
 	public @ResponseBody List<PutInDTO> insertList(Locale locale, Model model) {
 	 	List<PutInDTO> insertnum = putinService.getRow2();	 		
-	 	log.info("월별차트"+insertnum);	 
+	 	log.info("일별차트"+insertnum);	 
 	  	return insertnum;
 	}
 	
@@ -58,6 +62,20 @@ public class ChartController {
 	 	List<PutInDTO> insertnum = sellService.insertnum();	 		
 	 	log.info("월별차트"+insertnum);	 
 	  	return insertnum;
+	}
+	
+	@GetMapping(value = "allsellList")
+	public @ResponseBody List<ItemDTO> allsellList(Locale locale, Model model) {
+	 	List<ItemDTO> allsellnum = stockService.stockDto();	 		
+	 	log.info("재고현황"+allsellnum);	 
+	  	return allsellnum;
+	}
+	
+	@GetMapping(value = "allsellbarList")
+	public @ResponseBody List<ItemDTO> allsellbarList(Locale locale, Model model) {
+	 	List<ItemDTO> allsellbarnum = stockService.stockDto();	 		
+	 	log.info("월별재고"+allsellbarnum);	 
+	  	return allsellbarnum;
 	}
 	
 }

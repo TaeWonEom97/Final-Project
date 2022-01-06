@@ -50,7 +50,7 @@ insert into stock(stockcode,stocknum,stockid)
    </resultMap>
    
    
-   <!-- 쿼리문 대로라면 stocklist2 없이 select 문이 하나만 있어도 되는거 아님? -->
+   <!--  -->
    
   <select id="stocklist" resultMap="ItemMap">
 	select itemcode,itemtitle,itemprice,supplier,itemsize,color, NVL(s,0) as stock

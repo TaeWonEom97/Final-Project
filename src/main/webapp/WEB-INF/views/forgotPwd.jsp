@@ -3,18 +3,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Login - SB Admin</title>
-        <link href="css/styles.css" rel="stylesheet" />
-        <link rel="stylesheet" href="/resources/css/styles.css" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Password Reset - SB Admin</title>
+    <link href="css/styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/resources/css/styles.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
 <title>Insert title here</title>
 </head>
-<body class="bg-primary">
+ <body class="bg-primary">
         <div id="layoutAuthentication">
             <div id="layoutAuthentication_content">
                 <main>
@@ -22,30 +22,28 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-5">
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
-                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
+                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">임시 비밀번호 발급</h3></div>
                                     <div class="card-body">
-                                        <form action="/login" method="post">
+                                        <div class="small mb-3 text-muted">아이디랑 회사명을 입력해서 임시 비밀번호를 새로 발급합니다.</div>
+                                        <form action="/forgotPwd" method="post">
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="username" name="username" type="text" placeholder="아이디" />
-                                                <label for="username">ID</label>
+                                                <input class="form-control" id="userid" name="userid" type="text" placeholder="아이디 입력" />
+                                                <label for="userid">아이디</label>
                                             </div>
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="password" name="password" type="password" placeholder="비밀번호" />
-                                                <label for="password">Password</label>
-                                            </div>
-                                            <div class="form-check mb-3">
-                                                <input class="form-check-input" id="inputRememberPassword" type="checkbox" value="" />
-                                                <label class="form-check-label" for="inputRememberPassword">비밀번호 기억하기</label>
+                                                <input class="form-control" id="company" name="company" type="text" placeholder="회사명 입력" />
+                                                <label for="company">회사명</label>
                                             </div>
                                             <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                                <a class="small" href="/forgotPwd">비밀번호 찾기</a>
-                                                <button type="submit" class="btn btn-primary">로그인</button>
+                                            	<p>${msg}</p>
+                                                <button type="submit" class="btn btn-primary">임시 비밀번호 발급</button>
                                             </div>
                                             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
                                         </form>
                                     </div>
-                                    <div class="card-footer text-center py-3">
-                                        <div class="small"><a href="/register">회원가입</a></div>
+                                    <div class="card-footer small py-3">
+                                        <a class="text-lg-start text-center" href="/login">로그인 화면으로 이동</a>
+                                        <a class="text-lg-end text-center" href="/register">회원가입</a>
                                     </div>
                                 </div>
                             </div>

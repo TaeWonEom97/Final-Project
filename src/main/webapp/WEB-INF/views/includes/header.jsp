@@ -11,11 +11,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Dashboard - SB Admin</title>
+        <title>재고 관리 프로그램</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link rel="stylesheet" href="/resources/css/styles.css" />
         <!-- <link rel="stylesheet" href="/resources/css/modal.css" /> -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+        <!-- 달력 -->
+		<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        
 <title>Insert title here</title>
 </head>
 <body>
@@ -29,17 +34,18 @@
             <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown"> 
-                    		<sec:authorize access="isAnonymous()" >                  	
-                       	 	<li><a class="dropdown-item" href="#!">Settings</a></li>
-                        	<li><a class="dropdown-item" href="#!">Activity Log</a></li>
-                        	<li><hr class="dropdown-divider" /></li>
-                        	<li><a class="dropdown-item" href="/login">Login</a></li>     
-                        	</sec:authorize>
-                        	
-                        	<sec:authorize access="isAuthenticated()" >
-							<li><a class="dropdown-item" href="/">Logout</a></li>           
-							</sec:authorize>                  
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <sec:authorize access="isAnonymous()" >                     
+                           <li><a class="dropdown-item" href="#!">Settings</a></li>
+                           <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+                           <li><hr class="dropdown-divider" /></li>
+                           <li><a class="dropdown-item" href="/login">Login</a></li>     
+                         </sec:authorize>
+                           
+                        <sec:authorize access="isAuthenticated()" >
+	                       <li><a class="dropdown-item" href="/changePwd">ChangePassword</a></li>           
+	                       <li><a class="dropdown-item" href="/logoutForm">Logout</a></li>           
+	                    </sec:authorize>               
                     </ul>
                 </li>
             </ul>
@@ -63,6 +69,7 @@
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
 
+                                    <a class="nav-link" href="/item">제품관리</a>
                                     <a class="nav-link" href="/putin">입고관리</a>
                                     <a class="nav-link" href="/tables-2">판매관리</a>
                                     <a class="nav-link" href="/tables-4">재고현황 및 조회</a>
@@ -78,21 +85,22 @@
                             <div class="collapse" id="collapsePages" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <sec:authorize access="isAnonymous()" >   
-                                     <a class="nav-link" href="/login">로그인</a>
-                                     <a class="nav-link" href="/register">신규등록</a>
-                                     <a class="nav-link" href="password.html">비밀번호 찾기</a>
+	                                    <a class="nav-link" href="/login">로그인</a>
+	                                    <a class="nav-link" href="/register">신규등록</a>
+	                                    <a class="nav-link" href="/forgotPwd">비밀번호 찾기</a>
                                      </sec:authorize>
-                                     <sec:authorize access="isAuthenticated()" >
-									 <a class="nav-link" href="/logout">로그아웃</a>
-									 </sec:authorize>
+			                         <sec:authorize access="isAuthenticated()" >
+			                         	<a class="nav-link" href="/changePwd">비밀번호 변경</a>
+			                         	<a class="nav-link" href="/logoutForm">로그아웃</a>
+			                         </sec:authorize>
                                 </nav>
                             </div>
                             <div class="sb-sidenav-menu-heading">Addons</div>
-                            <a class="nav-link" href="charts.html">
+                            <a class="nav-link" href="/charts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                 보고서
                             </a>
-                            <a class="nav-link" href="board/list">
+                            <a class="nav-link" href="/board/list">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 게시판
                             </a>

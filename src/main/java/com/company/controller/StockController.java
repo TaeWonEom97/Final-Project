@@ -27,6 +27,7 @@ public class StockController {
 
 		model.addAttribute("list",list);
 	
+	
 	}
 
 
