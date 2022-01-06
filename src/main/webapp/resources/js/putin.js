@@ -269,35 +269,49 @@ $(function(){
 
 		//out put to show
 		$('.post_msg').html( '<pre class="bg-success">'+JSON.stringify(arr, null, 2) +'</pre>')
-		
-	
+			
 		//console.log(arr);
+		//let itemcode = tbl_row.find('td:nth-child(1)').text();
 		let amount = tbl_row.find('td:nth-child(2)').text();
+		//let insertdate = tbl_row.find('td:nth-child(3)').text();
 		let seqid = tbl_row.find('td:nth-child(4)').text();
+		/*let itemtitle = tbl_row.find('td:nth-child(5)').text();
+		let itemprice = tbl_row.find('td:nth-child(6)').text();
+		let supplier = tbl_row.find('td:nth-child(7)').text();
+		let size = tbl_row.find('td:nth-child(8)').text();
+		let color = tbl_row.find('td:nth-child(9)').text();*/
 		
 		console.log(amount+"   "+seqid);
 		
-		let data={
+		let putinupdate={
+			itemcode:itemcode,
 			insertnum:amount,
-			seqid:seqid
+			insertdate:insertdate,
+			seqid:seqid,
+			itemtitle:itemtitle,
+			itemprice:itemprice,
+			supplier:supplier,
+			size:size,
+			color:color
 		}
+		console.log(putinupdate.seqid);
 		
-		$.ajax({
-			url:'/'+seqid,
-			data:JSON.stringify(seqid),
-			success:function(data){
-				if(callback) {
-					callback(data);
+		putinService.update(putinupdate,
+			function(data){
+			console.log(data);
+				if(data == "success") {
+					alert("수정성공");
 				}
+				location.reload();
+				modal.modal("hide");
 			},
-			error:function(xhr, status, error) {
-				if(error) {
-					error(xhr.responseText);
-				}
+			function(msg){
+				alert(msg);
 			}
-		})
+		); // update end
 
 	});
+	
 	//--->save whole row entery > end
 	}
 	}) //ajax end

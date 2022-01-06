@@ -44,7 +44,7 @@ let putinService = (function(){
 	function remove(code,callback,error){
 		
 		$.ajax({
-			url:'/' +code,
+			url:'/'+code,
 			type: 'delete', 
 			success:function(result){
 				if(callback){
@@ -59,14 +59,48 @@ let putinService = (function(){
 		})	
 	}//remove end
 	
-	
-	function update(update,callback,error){
+	function update(putinupdate, callback, error) {
 		
 		$.ajax({
-			url:'/'+code,
+			url:'/item/'+putinupdate.seqid,
+			type:'put',
+			contentType:'application/json',
+			data:JSON.stringify(putinupdate),
+			success:function(data){
+				if(callback) {
+					callback(data);
+				}
+			},
+			error:function(xhr, status, error) {
+				if(error) {
+					error(xhr.responseText);
+				}
+			}
+		})
+	} // update end
+	
+	
+/*	putinService.update(itemupdate,
+			function(data){
+			console.log(data);
+				if(data == "success") {
+					alert("수정성공");
+				}
+				location.reload();
+				modal.modal("hide");
+			},
+			function(msg){
+				alert(msg);
+			}
+		); // update end*/
+		
+/*	function update(seqid,callback,error){
+		
+		$.ajax({
+			url:'/'+seqid,
 			type:'put',
 			contentType:'applicationjson',
-			data:JSON.stringify(update),
+			data:JSON.stringify(seqid),
 			success:function(data){
 				if(callback){
 					callback(data);
@@ -78,7 +112,7 @@ let putinService = (function(){
 				}
 			}
 		})
-	}//update end
+	}//update end*/
 	
 	function displayTime(timeValue){
 		

@@ -42,6 +42,10 @@ public class PutInController {
 	@GetMapping("/putin")
 	public void select(Date insertdate,Model model) {
 	}
+	
+//	@GetMapping("/{seqid}")
+//	public void select(PutInDTO updateDto) {
+//	}
 
 	@PostMapping("/putin")
 	public ResponseEntity<List<PutInDTO>> getRow(String insertDate,Model model) {
@@ -61,26 +65,8 @@ public class PutInController {
 					new ResponseEntity<String>("fail",HttpStatus.BAD_REQUEST);
 	}
 	
-	
-
-	@PostMapping("/{code}")
-	public ResponseEntity<PutInDTO> read(@PathVariable String code) {
-		log.info("하나 가져오기 " + code);
-		
-		return new ResponseEntity<PutInDTO>(service.get(code), HttpStatus.OK);
-	}
-	
-//	@DeleteMapping("/{code}")
-//	public ResponseEntity<String> remove(@PathVariable String code) {
-//		log.info("내역 삭제 " + code);
-//		
-//		return service.remove(code)?
-//				new ResponseEntity<String>("success", HttpStatus.OK):
-//					new ResponseEntity<String>("fail", HttpStatus.BAD_REQUEST);
-//	}
-	
-	@PutMapping("/{seqid}")
-	public ResponseEntity<String> modify(@RequestBody PutInDTO updateDto, @RequestParam("seqid")  String seqid) {
+	@PostMapping("/{seqid}")
+	public ResponseEntity<String> modify(@RequestBody PutInDTO updateDto) {
 		log.info("내역 수정 " + updateDto);
 		
 		return service.update(updateDto)?
