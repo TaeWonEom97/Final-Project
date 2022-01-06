@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+
 <!DOCTYPE html>
 
 
@@ -12,6 +15,13 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Tables - SB Admin</title>
+         <!-- 수정 삭제 -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+        <link href="css/styles.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/resources/css/styles.css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link rel="stylesheet" href="/resources/css/styles.css"/>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
@@ -59,7 +69,7 @@
                             <div class="sb-sidenav-menu-heading">Interface</div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                재고관리시스템
+                                							재고관리시스템
                                 <div class="sb-sidenav-collapse-ar"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
@@ -116,8 +126,8 @@
                                 <i class="fas fa-table me-1"></i>
                                 현재 재고 수량
                             </div>
-                            <div class="card-body">
-                                <table id="datatablesSimple">
+                            <div class="card-body tbl_user_data">
+                                 <table id="datatablesSimple">
                                   <thead>
                                         <tr>
                                             <th>제조사</th>
@@ -126,8 +136,7 @@
                                             <th>사이즈</th>
                                             <th>색상</th>
                                             <th>가격</th>
-                                            <th>현재재고수량 </th>
-                                            
+                                            <th>현재재고수량 </th>                                      
                                         </tr>
                                     </thead>    
                                      <tbody>
@@ -137,20 +146,16 @@
                                            <td>${dto.itemtitle}</td> 
                                             <td>${dto.itemcode}</td>
                                              <td>${dto.itemsize}</td>
-                                            <td>${dto.color}</td> 
-                                            <td>${dto.itemprice}</td>
+                                             <td>${dto.color }</td>                                            
+											 <td><fmt:formatNumber type="number" value="${dto.itemprice}" /></td>                                          
                                             <td>${dto.stock}</td>
                                         </tr>
                                         </c:forEach>
                                     </tbody>                           
-                                  </table>
+                                  </table>    
                             </div>
                         </div>
-                        <div>
-                           <button type="button" class="btn btn-success" id="insertSell">수정</button>
-                           <button type="button" class="btn btn-info" id = "lookupbtn" >날짜 조회</button>
-                           	<button type="button" class="btn btn-secondary" id = "savebtn">저장</button>                          
-                        </div>
+                        
                     </div>
                 </main>
                  <!-- Modal -->
@@ -203,6 +208,6 @@
         <script src="/resources/js/datatables-simple-demo.js"></script>
          <script src="/resources/js/sell.js"></script>
 		<script src="/resources/js/modal.js"></script>
-		<script src="/resources/js/datemodal.js"></script>  
+		<script src="/resources/js/edit.js"></script>  
     </body>
 </html>
