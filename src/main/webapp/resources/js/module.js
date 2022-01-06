@@ -26,10 +26,9 @@ let putinService = (function(){
 
 
 	function get(code, callback) {
-			
 		$.ajax({
 			url:'/'+code,
-			type:'post',
+			type:'get',
 			contentType:'application/json',
 			data:JSON.stringify(code),
 			success:function(data) {
@@ -62,7 +61,7 @@ let putinService = (function(){
 	function update(putinupdate, callback, error) {
 		
 		$.ajax({
-			url:'/item/'+putinupdate.seqid,
+			url:'/putin/'+putinupdate.seqid,
 			type:'put',
 			contentType:'application/json',
 			data:JSON.stringify(putinupdate),

@@ -164,7 +164,7 @@
 					</div>
 					
 					 
-					<!-- 나중에 hidden으로 숨기기 -->
+					<!-- 나중에 hidden으로 숨기기 
 					<div class="panel panel-default">
 					  <div class="panel-heading"><b>HTML Table Edits/Upates</b> </div>
 					
@@ -173,7 +173,7 @@
 						<div class="post_msg"> </div>
 					
 					  </div>
-					</div>
+					</div> -->
 
 
                 </main>

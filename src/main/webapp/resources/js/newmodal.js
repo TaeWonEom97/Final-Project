@@ -62,24 +62,5 @@ $(function(){
      }); // add end
   }) // modalRegister end
 
-		modalModifyBtn.click(function(){
-
-			var update = {
-				code:modalCode.val(),
-				insertnum:modalNum.val()
-			};
-					
-			putinService.update(update,
-				function(data){
-					if(data == "success") {
-						alert("수정성공");
-					}
-					location.reload();
-					modal.modal("hide");
-				},
-				function(msg){
-					alert(msg);
-				}
-			); // update end
-})
+		
 })

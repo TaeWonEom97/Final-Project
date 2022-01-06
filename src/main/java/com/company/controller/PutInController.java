@@ -43,7 +43,7 @@ public class PutInController {
 	public void select(Date insertdate,Model model) {
 	}
 	
-//	@GetMapping("/{seqid}")
+//	@GetMapping("/{code}")
 //	public void select(PutInDTO updateDto) {
 //	}
 
@@ -65,7 +65,7 @@ public class PutInController {
 					new ResponseEntity<String>("fail",HttpStatus.BAD_REQUEST);
 	}
 	
-	@PostMapping("/{seqid}")
+	@PostMapping("/putin/{seqid}")
 	public ResponseEntity<String> modify(@RequestBody PutInDTO updateDto) {
 		log.info("내역 수정 " + updateDto);
 		

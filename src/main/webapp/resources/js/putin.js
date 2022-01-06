@@ -284,15 +284,15 @@ $(function(){
 		console.log(amount+"   "+seqid);
 		
 		let putinupdate={
-			itemcode:itemcode,
+			//itemcode:itemcode,
 			insertnum:amount,
-			insertdate:insertdate,
+			//insertdate:insertdate,
 			seqid:seqid,
-			itemtitle:itemtitle,
-			itemprice:itemprice,
-			supplier:supplier,
-			size:size,
-			color:color
+			//itemtitle:itemtitle,
+			//itemprice:itemprice,
+			//supplier:supplier,
+			//size:size,
+			//color:color
 		}
 		console.log(putinupdate.seqid);
 		
