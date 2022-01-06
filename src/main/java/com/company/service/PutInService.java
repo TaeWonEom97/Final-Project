@@ -13,5 +13,6 @@ public interface PutInService {
 	public boolean insertNew(PutInDTO insertnewDto);
 	public PutInDTO get(String code);
 	public boolean update(PutInDTO updateDto);
+	public boolean putinRemove(String code);
 
 }

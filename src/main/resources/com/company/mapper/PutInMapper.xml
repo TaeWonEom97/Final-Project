@@ -34,6 +34,11 @@
 		values(#{code},#{insertnum},sysdate,seqid.nextval)
 	</insert>
 	
+	<!-- 삭제하기 -->
+	<delete id="remove">
+		delete from insertitem where code = #{code}
+	</delete>
+	
 	<!-- 수정하기 -->
 	<update id="update">
 		update INSERTITEM set insertnum = #{insertnum} where seqid = #{seqid}

@@ -13,4 +13,5 @@ public interface PutInMapper {
 	public int insert(PutInDTO insertNewDto);
 	public PutInDTO get(String code);
 	public int update(PutInDTO updateDto);
+	public int remove(String code);
 }

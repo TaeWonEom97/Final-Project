@@ -73,6 +73,15 @@ public class PutInController {
 				new ResponseEntity<String>("success", HttpStatus.OK):
 					new ResponseEntity<String>("fail", HttpStatus.BAD_REQUEST);
 	}
+	
+	@DeleteMapping("/putin/{code}")
+	public ResponseEntity<String> delete(@PathVariable String itemcode) {
+		log.info("내역 삭제 " + itemcode);
+		
+		return service.putinRemove(itemcode) ?
+				new ResponseEntity<String>("success", HttpStatus.OK):
+					new ResponseEntity<String>("fail", HttpStatus.BAD_REQUEST);
+	}
 
 	
 }

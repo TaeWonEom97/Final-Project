@@ -49,4 +49,9 @@ public class PutInServiceImpl implements PutInService {
 	public boolean update(PutInDTO updateDto) {
 		return mapper.update(updateDto) > 0 ? true : false;
 	}
+
+	@Override
+	public boolean putinRemove(String code) {
+		return mapper.remove(code) > 0 ? true:false;
+	}
 }

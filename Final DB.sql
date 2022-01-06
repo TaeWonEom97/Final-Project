@@ -20,13 +20,14 @@ create table insertitem(
 insert into insertitem(code, insertnum, insertdate, seqid) values('P004', 30, sysdate, seqid.nextval);
 insert into insertitem(code, insertnum, insertdate, seqid) values('P003', 20, sysdate, seqid.nextval);
 
+delete from insertitem where code = 'p003';
 
 update INSERTITEM set insertnum = 789 where seqid = 363;
 
 update item set itemcode='p001',itemtitle='바보',itemprice=1,supplier='바보',itemsize='babo',color='b'
 where itemcode='p001';
 
-select * from item;
+select * from insertitem;
 
 select * from customer;
 
