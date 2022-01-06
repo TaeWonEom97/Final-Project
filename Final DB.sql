@@ -114,3 +114,4 @@ create table customerboard_reply(
 	updatereplydate date default sysdate
 );
 
+

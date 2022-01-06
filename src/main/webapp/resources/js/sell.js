@@ -7,7 +7,7 @@ let sellService = (function(){
 		console.log("add method 실행");
 		
 		$.ajax({
-			url:'/insertSell',
+			url:'/sell/insertSell',
 			type:'post',
 			contentType:'application/json',
 			data:JSON.stringify(sellinsert),
@@ -25,7 +25,7 @@ let sellService = (function(){
 	function get(sellid, callback) {
 			
 		$.ajax({
-			url:'/'+sellid,
+			url:'/sell/'+sellid,
 			type:'post',
 			contentType:'application/json',
 			data:JSON.stringify(sellid),
@@ -40,7 +40,7 @@ let sellService = (function(){
 	function remove(sellid, callback, error) {
 		
 		$.ajax({
-			url:'/'+sellid,
+			url:'/sell/'+sellid,
 			type:'delete',
 			success:function(result){
 				if(callback) {
@@ -58,7 +58,7 @@ let sellService = (function(){
 	function update(sellupdate, callback, error) {
 		
 		$.ajax({
-			url:'/sellid',
+			url:'/sell/sellid',
 			type:'put',
 			contentType:'application/json',
 			data:JSON.stringify(sellupdate),

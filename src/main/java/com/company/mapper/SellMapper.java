@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.company.domain.SellItemDTO;
 
-public interface StockMapper {
+public interface SellMapper {
 	public List<SellItemDTO> sellList();
 	public int sellInsert(SellItemDTO insertDto);
 	public SellItemDTO sellGet(String sellid);

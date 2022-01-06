@@ -27,11 +27,12 @@
                                             <th>합계</th>
                                             <th>제조사</th>
                                             <th>판매일</th>
+                                            <th>총수량</th>
                                         </tr>
                                     </thead>
                                     <tbody>
 									<c:forEach var="dto" items="${list}">
-										<tr class="get" style = "cursor:pointer;" href="${dto.sellid}">
+										<tr class="get" style="cursor:pointer;" href="${dto.sellid}">
 											<td>${dto.customerDto.company}</td>
 											<td>${dto.sellcode}</td>
 											<td>${dto.itemDto.itemtitle}</td>
@@ -42,6 +43,7 @@
 											<td>${dto.selldate}</td>
 										</tr>
 									</c:forEach>
+											<div>${total}</div>
 								</tbody>
                                 </table>
                             </div>
@@ -60,7 +62,7 @@
         <h5 class="modal-title">판매 추가</h5>
       </div>
       <div class="modal-body">
-      	<input type="hidden" name="sellid" value="" readonly="readonly" />
+      		<input type="hidden" name="sellid" value="" readonly="readonly" />
         <div class="form-group">
         	<label for="">거래처 ID</label>
 			<input type="text" name="selluser" class="form-control" placeholder="거래처 ID"/>

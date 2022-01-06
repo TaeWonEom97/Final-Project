@@ -14,16 +14,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import com.company.domain.SellItemDTO;
-import com.company.service.StockService;
+import com.company.service.SellService;
 
 import lombok.extern.log4j.Log4j2;
 
 @Controller
 @Log4j2
-public class StockController {
+public class SellController {
 	
 	@Autowired
-	private StockService service;
+	private SellService service;
 	
 	@GetMapping("/tables-2")
 	public void list(Model model) {
@@ -43,7 +43,7 @@ public class StockController {
 //		model.addAttribute("list",list);
 	}
 	
-	@PostMapping("/insertSell")
+	@PostMapping("/sell/insertSell")
 	public ResponseEntity<String> insertSell(@RequestBody SellItemDTO insertDto) {
 		log.info("판매 등록 " + insertDto);
 		
@@ -52,14 +52,14 @@ public class StockController {
 					new ResponseEntity<String>("fail", HttpStatus.BAD_REQUEST);
 	}
 	
-	@PostMapping("/{sellid}")
+	@PostMapping("/sell/{sellid}")
 	public ResponseEntity<SellItemDTO> read(@PathVariable String sellid) {
 		log.info("하나 가져오기 " + sellid);
 		
 		return new ResponseEntity<SellItemDTO>(service.sellGet(sellid), HttpStatus.OK);
 	}
 	
-	@DeleteMapping("/{sellid}")
+	@DeleteMapping("/sell/{sellid}")
 	public ResponseEntity<String> remove(@PathVariable String sellid) {
 		log.info("내역 삭제 " + sellid);
 		
@@ -68,7 +68,7 @@ public class StockController {
 					new ResponseEntity<String>("fail", HttpStatus.BAD_REQUEST);
 	}
 	
-	@PutMapping("/{sellid}")
+	@PutMapping("/sell/{sellid}")
 	public ResponseEntity<String> modify(@RequestBody SellItemDTO updateDto) {
 		log.info("내역 수정 " + updateDto);
 		
@@ -86,13 +86,4 @@ public class StockController {
 		
 	}
 
-	
-//	@GetMapping("/getSearchList")
-//	@ResponseBody
-//	private List<StockDTO> getSearchList(@RequestParam)
-//	@PostMapping("/StockList")
-//	public String StockId(BoardDTO insertDto) {
-//		log.info("StockList 가져오기 "+insertDto);
-//		
-//	}
 }

@@ -65,10 +65,10 @@
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="/resources/views/jsp/putin">입고관리</a>
-                                    <a class="nav-link" href="/views/tables2">판매관리</a>
-                                    <a class="nav-link" href="/views/tables3">판매내역조회</a>
-                                    <a class="nav-link" href="/views/tables4">재고현황</a>
+                                    <a class="nav-link" href="/putin">입고관리</a>
+                                    <a class="nav-link" href="/tables-2">판매관리</a>
+                                    <a class="nav-link" href="/tables-3">판매내역조회</a>
+                                    <a class="nav-link" href="/tables-4">재고현황</a>
                                 </nav>
                             </div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">

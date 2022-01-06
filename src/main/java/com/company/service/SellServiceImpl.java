@@ -6,13 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.company.domain.SellItemDTO;
-import com.company.mapper.StockMapper;
+import com.company.mapper.SellMapper;
 
 @Service
-public class StockServiceImpl implements StockService {
+public class SellServiceImpl implements SellService {
 
 	@Autowired
-	private StockMapper mapper;
+	private SellMapper mapper;
 	
 	@Override
 	public List<SellItemDTO> sellAll() {

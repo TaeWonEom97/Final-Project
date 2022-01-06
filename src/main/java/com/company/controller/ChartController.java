@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.company.domain.SellItemDTO;
-import com.company.service.StockService;
+import com.company.service.SellService;
 
 import lombok.Setter;
 
@@ -20,7 +20,7 @@ import lombok.Setter;
 public class ChartController {
 	
 	@Autowired
-	private StockService stockService;
+	private SellService stockService;
 
 	@RequestMapping(value = "chartex1", method = RequestMethod.GET)
 	public void dateIncome(Locale locale, Model model) {
