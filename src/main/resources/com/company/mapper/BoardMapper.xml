@@ -62,12 +62,12 @@
    </delete>
    
    
-   <!-- 댓글 수정 
+    	<!--댓글 수정 -->
    	<update id="updateReplyCnt">
    		update customerboard
    		set replycnt = replycnt + #{amount}
    		where bno = #{bno}
-   	</update> -->
+   	</update> 
    
    
    

@@ -31,26 +31,25 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-									<c:forEach var="dto" items="${list}">
-										<tr class="get" style="cursor:pointer;" href="${dto.sellid}">
-											<td>${dto.customerDto.company}</td>
-											<td>${dto.sellcode}</td>
-											<td>${dto.itemDto.itemtitle}</td>
-											<td>${dto.sellnum}</td>
-											<td>${dto.itemDto.itemprice}</td>
-											<td>${(dto.itemDto.itemprice) * (dto.sellnum)}</td>
-											<td>${dto.itemDto.supplier}</td>
-											<td>${dto.selldate}</td>
-										</tr>
-									</c:forEach>
-											<div>${total}</div>
-								</tbody>
+                           <c:forEach var="dto" items="${list}">
+                              <tr class="get" style = "cursor:pointer;" href="${dto.sellid}">
+                                 <td>${dto.customerDto.company}</td>
+                                 <td>${dto.sellcode}</td>
+                                 <td>${dto.itemDto.itemtitle}</td>
+                                 <td>${dto.sellnum}</td>
+                                 <td>${dto.itemDto.itemprice}</td>
+                                 <td>${(dto.itemDto.itemprice) * (dto.sellnum)}</td>
+                                 <td>${dto.itemDto.supplier}</td>
+                                 <td>${dto.selldate}</td>
+                              </tr>
+                           </c:forEach>
+                        </tbody>
                                 </table>
                             </div>
                         </div>
-		                  <div>
-		                     <button type="button" class="btn btn-success" id="insertSell">추가</button>
-		                  </div>
+                        <div>
+                           <button type="button" class="btn btn-success" id="insertSell">추가</button>
+                        </div>
                     </div>
                 </main>
                 
@@ -62,34 +61,34 @@
         <h5 class="modal-title">판매 추가</h5>
       </div>
       <div class="modal-body">
-      		<input type="hidden" name="sellid" value="" readonly="readonly" />
+         <input type="hidden" name="sellid" value="" readonly="readonly" />
         <div class="form-group">
-        	<label for="">거래처 ID</label>
-			<input type="text" name="selluser" class="form-control" placeholder="거래처 ID"/>
+           <label for="">거래처 ID</label>
+         <input type="text" name="selluser" class="form-control" placeholder="거래처 ID"/>
         </div>
         <div class="form-group">
-        	<label for="">상품 코드</label>
-        	<input type="text" name="sellcode" class="form-control" placeholder="상품 코드"/>
+           <label for="">상품 코드</label>
+           <input type="text" name="sellcode" class="form-control" placeholder="상품 코드"/>
         </div>      
         <div class="form-group">
-        	<label for="">상품명</label>
-        	<input type="text" name="itemtitle" class="form-control" placeholder="상품명"/>
+           <label for="">상품명</label>
+           <input type="text" name="itemtitle" class="form-control" placeholder="상품명"/>
         </div>      
         <div class="form-group">
-        	<label for="">수량</label>
-        	<input type="text" name="sellnum" class="form-control" placeholder="수량"/>
+           <label for="">수량</label>
+           <input type="text" name="sellnum" class="form-control" placeholder="수량"/>
         </div>      
         <div class="form-group">
-        	<label for="">가격</label>
-        	<input type="text" name="itemprice" class="form-control" placeholder="가격"/>
+           <label for="">가격</label>
+           <input type="text" name="itemprice" class="form-control" placeholder="가격"/>
         </div>      
         <div class="form-group">
-        	<label for="">제조사</label>
-        	<input type="text" name="supplier" class="form-control" placeholder="제조사"/>
+           <label for="">제조사</label>
+           <input type="text" name="supplier" class="form-control" placeholder="제조사"/>
         </div>      
         <div class="form-group">
-        	<label for="">판매일</label>
-        	<input type="text" name="selldate" class="form-control" placeholder="판매일"/>
+           <label for="">판매일</label>
+           <input type="text" name="selldate" class="form-control" placeholder="판매일"/>
         </div>      
       </div>
       <div class="modal-footer">
@@ -102,8 +101,8 @@
   </div>
 </div>
 <script>
-	let csrfHeaderName = "${_csrf.headerName}";
-	let csrfTokenValue = "${_csrf.token}";
+   let csrfHeaderName = "${_csrf.headerName}";
+   let csrfTokenValue = "${_csrf.token}";
 </script>
 <script src="/resources/js/sell.js"></script>
 <script src="/resources/js/modal.js"></script>

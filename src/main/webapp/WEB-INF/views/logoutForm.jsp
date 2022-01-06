@@ -16,7 +16,7 @@
     <link href="/resources/css/signin.css" rel="stylesheet" />
 </head>
 <body>
-	<form class="form-signin" method="post" action="/customLogout">
+	<form class="form-signin" method="post" action="/logout">
       <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
       <button class="btn btn-lg btn-primary btn-block" type="submit">
         Logout

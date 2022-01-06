@@ -45,12 +45,12 @@
                                 <div class="card mb-4">
                                     <div class="card-header">
                                         <i class="fas fa-chart-area me-1"></i>
-                                        판매 차트
+                                        입고 차트
                                     </div>
                                      <div>
 
 									<div>
-										<canvas id="canvas" height="50%" width="99%"></canvas>
+										<canvas id="canvas3" height="50%" width="99%"></canvas>
 							
 									</div>
 							
@@ -67,15 +67,15 @@
 							
 									var chartData = [];
 							
-									$.getJSON("incomeList", function(data) {
+									$.getJSON("insertList", function(data) {
 										
 										console.log(data);
 							
 										$.each(data, function(inx, obj) {
 							
-											chartLabels.push(displayTime(obj.selldate));
+											chartLabels.push(displayTime(obj.insertdate));
 							
-											chartData.push(obj.sellnum);
+											chartData.push(obj.insertnum);
 							
 										});
 							
@@ -93,7 +93,7 @@
 							
 										{
 							
-											label : "일별 판매",
+											label : "일별 입고",
 							
 											backgroundColor:"#bfdaf9",
 							                borderColor: "#80b6f4",
@@ -112,7 +112,7 @@
 							
 									function createChart() {
 							
-										var ctx = document.getElementById("canvas").getContext("2d");
+										var ctx = document.getElementById("canvas3").getContext("2d");
 							
 										LineChartDemo = Chart.Line(ctx, {
 							
@@ -140,7 +140,6 @@
 							
 									}
 								</script>
-
                                 </div>
                             </div>
                          
@@ -158,7 +157,7 @@
 										<div style="width: 80%">
 										<div>
 										<div>
-                             
+
 													<canvas id="canvas2" height="63%" width="80%"></canvas>
 										
 												</div>
@@ -181,7 +180,7 @@
 										
 										var chartData2 = [];
 										
-										$.getJSON("OutcomeList", function(data) {
+										$.getJSON("insertbarList", function(data) {
 											
 											console.log(data);
 								
@@ -189,7 +188,7 @@
 								
 												chartLabels2.push("Jan","Feb","Mar","Apr","May","June","July","Aug","Sep","Oct","Nov","Dec");
 												//만약 다른 월에도 데이터가 있다면 obj2.sellnum.each로 루프를 돌려서 값을 넣어줍니다.
-												chartData2.push(40,60,70,80,90,60,10,40,0,0,0,obj2.sellnum);
+												chartData2.push(40,60,70,80,90,60,10,40,0,0,20,obj2.insertnum);
 								
 											});
 								
@@ -203,7 +202,7 @@
 												labels : chartLabels2,
 									
 												datasets: [{
-													label : "월별 판매",
+													label : "월별 입고",
 										            data: chartData2, //컨트롤러에서 모델로 받아온다.
 										            backgroundColor: [
 										                'rgba(255, 99, 132, 0.2)',
@@ -256,10 +255,9 @@
                         
 								</div>
 							</div>
-				
-                                      
+					</div>
    </main>
-<script>
+ <script>
  function displayTime(timeValue){	
 		
 		var dateObj = new Date(timeValue);
@@ -271,6 +269,5 @@
 		return [yy,'/',(mm>9?'':'0')+mm,'/',(dd>9?'':'0')+dd].join('');			
 		
 	}//displayTime end
- </script>  
+ </script>
 <%@include file="includes/footer.jsp" %>
-

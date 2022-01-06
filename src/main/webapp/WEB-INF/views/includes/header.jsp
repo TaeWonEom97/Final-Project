@@ -65,8 +65,7 @@
 
                                     <a class="nav-link" href="/putin">입고관리</a>
                                     <a class="nav-link" href="/tables-2">판매관리</a>
-                                    <a class="nav-link" href="/tables-3">판매내역조회</a>
-                                    <a class="nav-link" href="/tables-4">재고현황</a>
+                                    <a class="nav-link" href="/tables-4">재고현황 및 조회</a>
                                 </nav>
                             </div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
@@ -74,6 +73,8 @@
                                 계정관리
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
+                            
+                            
                             <div class="collapse" id="collapsePages" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <sec:authorize access="isAnonymous()" >   

@@ -25,6 +25,11 @@ public class PutInServiceImpl implements PutInService {
 		return mapper.insert(insertnewDto) > 0? true:false;
 	}
 
+	@Override
+	public List<PutInDTO> getRow2() {
+		return mapper.select2();
+	}
+
 	
 
 }

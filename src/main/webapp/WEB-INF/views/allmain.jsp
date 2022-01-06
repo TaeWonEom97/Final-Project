@@ -45,7 +45,7 @@
                                 <div class="card mb-4">
                                     <div class="card-header">
                                         <i class="fas fa-chart-area me-1"></i>
-                                        판매 차트
+                                        재고 차트
                                     </div>
                                      <div>
 
@@ -67,15 +67,15 @@
 							
 									var chartData = [];
 							
-									$.getJSON("incomeList", function(data) {
+									$.getJSON("allsellList", function(data) {
 										
 										console.log(data);
 							
 										$.each(data, function(inx, obj) {
 							
-											chartLabels.push(displayTime(obj.selldate));
+											chartLabels.push(obj.itemtitle+obj.itemcode);
 							
-											chartData.push(obj.sellnum);
+											chartData.push(obj.stock);
 							
 										});
 							
@@ -93,7 +93,7 @@
 							
 										{
 							
-											label : "일별 판매",
+											label : "재고 현황",
 							
 											backgroundColor:"#bfdaf9",
 							                borderColor: "#80b6f4",
@@ -140,7 +140,6 @@
 							
 									}
 								</script>
-
                                 </div>
                             </div>
                          
@@ -150,7 +149,7 @@
                                 <div class="card mb-4">
                                     <div class="card-header">
                                         <i class="fas fa-chart-bar me-1"></i>
-                                        월별 차트
+                                        월별 재고차트
                                         
                                     </div>
                                     
@@ -158,8 +157,8 @@
 										<div style="width: 80%">
 										<div>
 										<div>
-                             
-													<canvas id="canvas2" height="63%" width="80%"></canvas>
+
+													<canvas id="canvas3" height="63%" width="80%"></canvas>
 										
 												</div>
 										
@@ -177,34 +176,34 @@
 											<script
 												src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.js"></script>
 										<script>
-										var chartLabels2 = [];
+										var chartLabels3 = [];
 										
-										var chartData2 = [];
+										var chartData3 = [];
 										
-										$.getJSON("OutcomeList", function(data) {
+										$.getJSON("allsellbarList", function(data) {
 											
 											console.log(data);
 								
-											$.each(data, function(inx, obj2) {
+											$.each(data, function(inx, obj3) {
 								
-												chartLabels2.push("Jan","Feb","Mar","Apr","May","June","July","Aug","Sep","Oct","Nov","Dec");
+												chartLabels3.push("Jan","Feb","Mar","Apr","May","June","July","Aug","Sep","Oct","Nov","Dec");
 												//만약 다른 월에도 데이터가 있다면 obj2.sellnum.each로 루프를 돌려서 값을 넣어줍니다.
-												chartData2.push(40,60,70,80,90,60,10,40,0,0,0,obj2.sellnum);
+												chartData3.push(obj3.stock,40,10,30,90,30,50,10,40,10,15,5);
 								
 											});
 								
-											createChart2();
+											createChart3();
 								
 											console.log("create Chart")
 								
 										});
-										var lineChartData2 = {
+										var lineChartData3 = {
 												
-												labels : chartLabels2,
+												labels : chartLabels3,
 									
 												datasets: [{
-													label : "월별 판매",
-										            data: chartData2, //컨트롤러에서 모델로 받아온다.
+													label : "월별 재고현황",
+										            data: chartData3, //컨트롤러에서 모델로 받아온다.
 										            backgroundColor: [
 										                'rgba(255, 99, 132, 0.2)',
 										                'rgba(54, 162, 235, 0.2)'
@@ -220,13 +219,13 @@
 										        ]
 									
 											}
-										function createChart2() {
+										function createChart3() {
 											
-											var ctx = document.getElementById("canvas2").getContext('2d');
+											var ctx = document.getElementById("canvas3").getContext('2d');
 								
 											var myChart = new Chart(ctx, {
 								
-												data : lineChartData2,
+												data : lineChartData3,
 												type: 'bar',
 												options : {
 								
@@ -256,21 +255,6 @@
                         
 								</div>
 							</div>
-				
-                                      
+					</div>
    </main>
-<script>
- function displayTime(timeValue){	
-		
-		var dateObj = new Date(timeValue);
-		
-		var yy = dateObj.getFullYear();
-		var mm = dateObj.getMonth()+1;
-		var dd = dateObj.getDate();
-		
-		return [yy,'/',(mm>9?'':'0')+mm,'/',(dd>9?'':'0')+dd].join('');			
-		
-	}//displayTime end
- </script>  
 <%@include file="includes/footer.jsp" %>
-
