@@ -180,9 +180,11 @@
 						<button type="button" class="btn btn-info" id="lookupbtn">날짜
 							조회</button>
 						<button type="button" class="btn btn-secondary" id="savebtn">저장</button>
+						<div class="btn float-right">
 						<form action="/excel/download" method="get">
 							<button type="submit" class="btn btn-success">Excel</button>
 						</form>
+						</div>
 					</div>
 				</div>
 			</main>

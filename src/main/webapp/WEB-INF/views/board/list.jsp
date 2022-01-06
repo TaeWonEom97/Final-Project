@@ -18,7 +18,8 @@
 						<div class="card-body">
 							<div class="dataTable-top">
 								<div class="dataTable-dropdown">
-									<label><select name="" id="amount" class="form-control">
+									<label>
+									<select name="" id="amount" class="form-control">
 											<option value="5">5</option>
 											<option value="10" selected="">10</option>
 											<option value="15">15</option>
@@ -32,13 +33,14 @@
 								<div class="dataTable-search">
 									
 								</div>
-								   <div class="col-md-8">
+								   <div class="row">
 		                     <!--search Form-->
-		                     <form action="" method="get" id="searchForm">
+		                     <form action="" class="form-inline" method="get" id="searchForm">
+		                     <div class="form-group mb-2">
 		                        <input type="hidden" name="pageNum"
 		                           value="${pageDto.cri.pageNum}" /> <input type="hidden"
 		                           name="amount" value="${pageDto.cri.amount}" /> <select
-		                           name="type" input class = "amount" id="">
+		                           name="type" input class = "custom-select" id="">
 		                           <option value="">------------</option>
 		                           <option value="T" <c:out value="${pageDto.cri.type == 'T'?'selected':''}"/>>제목</option>
 		                           <option value="C" <c:out value="${pageDto.cri.type == 'C'?'selected':''}"/>>내용</option>
@@ -46,9 +48,14 @@
 		                           <option value="TC" <c:out value="${pageDto.cri.type == 'TC'?'selected':''}"/>>제목 or 내용</option>
 		                           <option value="TW" <c:out value="${pageDto.cri.type == 'TW'?'selected':''}"/>>제목 or 작성자</option>
 		                           <option value="TCW" <c:out value="${pageDto.cri.type == 'TCW'?'selected':''}"/>>제목 or 내용 or 작성자</option>
-		                        </select> 
-		                        <input class="dataTable-input" type="text" name="keyword" id="searchForm" placeholder="Search..." value='<c:out value="${pageDto.cri.keyword}"/>' />
-		                        <button class="btn btn-success">Search</button>
+		                        </select>
+		                        </div>
+		                        <div class="form-group mb-2">
+		                        <input class="form-control" type="text" name="keyword" id="searchForm" placeholder="Search..." value='<c:out value="${pageDto.cri.keyword}"/>' />
+		                        </div>
+		                        <div class="form-group mb-2">
+		                        <button class="btn btn-success">검색</button>
+		                        </div>
 		                     </form>
 		                  </div>
 							</div>							
@@ -84,7 +91,7 @@
 	            <div class="text-center">
 	               <ul class="dataTable-pagination">
 	                  <c:if test="${pageDto.prev}">
-	                     <li class="paginate_button previous">
+	                     <li class="pageinate_button previous">
 	                     <a href="${pageDto.startPage-10}">Previous</a></li>
 	                  </c:if>
 	                  <c:forEach var="idx" begin="${pageDto.startPage}"
@@ -94,7 +101,7 @@
 	                     </li>
 	                  </c:forEach>
 	                  <c:if test="${pageDto.next}">
-	                     <li class="paginate_button next"><a
+	                     <li class="pageinate_button next"><a
 	                        href="${pageDto.endPage+1}">Next</a></li>
 	                  </c:if>
 	               </ul>

@@ -42,6 +42,8 @@ $(function() {
 		// 폼전송
 		actionForm.submit();
 	})
+	
+	
 
 	//amount 값이 변경이되면 
 	$("#amount").change(function() {
