@@ -11,6 +11,9 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Tables - SB Admin</title>
+		<!-- 수정 삭제 -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
         <link rel="stylesheet" href="/resources/css/styles.css"/>
@@ -20,6 +23,8 @@
 		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
+		
 		<style>
 			div.col{
 			padding: 5px;
@@ -65,10 +70,10 @@
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="/resources/views/jsp/putin">입고관리</a>
-                                    <a class="nav-link" href="/views/tables2">판매관리</a>
-                                    <a class="nav-link" href="/views/tables3">판매내역조회</a>
-                                    <a class="nav-link" href="/views/tables4">재고현황</a>
+                                    <a class="nav-link" href="/putin">입고관리</a>
+                                    <a class="nav-link" href="/tables-2">판매관리</a>
+                                    <a class="nav-link" href="/tables-3">판매내역조회</a>
+                                    <a class="nav-link" href="/tables-4">재고현황</a>
                                 </nav>
                             </div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
@@ -121,8 +126,6 @@
                       
 	                   <button type="button" class="btn btn-secondary btn-sm" id="new">신규</button>
 	                   <button type="button" class="btn btn-secondary btn-sm" id="select">조회</button>
-	                   <button type="button" class="btn btn-secondary btn-sm" id="delete">삭제</button>
-	                   <button type="button" class="btn btn-secondary btn-sm" id="save">저장</button>
                         
                         <div class="container">
 						  <div class="row">
@@ -135,96 +138,82 @@
 						            $("#putindate").datepicker({dateFormat:'yy-mm-dd'});
 						        });
 						    </script>
-                        <div class="card mb-4">
-                            <div class="card-header">
-                                <i class="fas fa-table me-1"></i>
-                                [ 입고 관리 ]
-                            </div>                            
-                            <div class="card-body">
-                            	<div class="dataTable-top">
-                            	
-                                <table id="datatablesSimple" class="dataTable-table">
-                                	<input type="hidden" name="insertdate" value="${PutinDTO.insertdate}"/>
-                                	    <thead>
-                                        <tr>
-                                        	<th>
-                                			<input id="check" type="checkbox">
-                                        	</th>
-                                        	<th>
-                                        	제품코드
-                                        	</th>
-                                        	
-                                        	<th>
-                                        	입고수량
-                                        	</th>
-                                        	
-                                            <th>
-                                            입고날짜
-                                            </th>
-                                            
-                                            <th>
-                                            입고순번
-                                            </th>
-                                            
-                                            <th>
-                                            제품명
-                                            </th>
-                                            
-                                            <th>
-                                            제품가격
-                                            </th>
-                                            
-                                            <th>
-                                            공급처
-                                            </th>
-                                            
-                                            <th>
-                                            사이즈
-                                            </th>
-                                            
-                                            <th>
-                                            색상
-                                            </th>
-                                        </tr>
-                                    </thead> 
-                                <tbody>
-								</tbody>
-                                </table>
-                            </div>
-                        </div>
+
                     </div>
-                    
-                    <%-- 신규 입고내역 작성 폼 --%>
-					<div class="modal" tabindex="-1" id="newModal">
-					  <div class="modal-dialog">
-					    <div class="modal-content">
-					      <div class="modal-header">
-					        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					          <span aria-hidden="true">&times;</span>
-					        </button>
-					        <h5 class="modal-title">신규 
-					        입고 내역 등록</h5>
-					      </div>
-					      <div class="modal-body">
-					        <div class="form-group">
-					        	<label for="">제품 코드</label>
-					        	<input type="text" name="code" class="form-control" value=""/>
-					        </div>
-					        <div class="form-group">
-					        	<label for="">입고 수량</label>
-					        	<input type="text" name="num" class="form-control" value=""/>
-					        </div>        
-					      </div>
-					      <div class="modal-footer">
-					        <button type="button" class="btn btn-secondary" id="modalRegisterBtn">등록</button>
-					        <button type="button" class="btn btn-secondary" id="modalRemoveBtn">삭제</button>
-					        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="modalCloseBtn">종료</button>
-					      </div>
-					    </div>
+                
+				 <div class="panel panel-default">
+					  <div class="panel-heading"><b> <i class="fas fa-table me-1"></i>
+                                입고 관리 </b> 
+                                
+                                <div>
+							        <h5>Excel Download</h5>
+							        <form action="/excelDown" method="get">
+							            <button type="submit">Excel</button>
+							        </form>
 					  </div>
+                  </div>
+
+						
+						
+					  <div class="panel-body contents">
+						
+						<div class="tbl_user_data"></div>
+					
+					  </div>
+					
 					</div>
 					
+					 
+					<!-- 나중에 hidden으로 숨기기 
+					<div class="panel panel-default">
+					  <div class="panel-heading"><b>HTML Table Edits/Upates</b> </div>
+					
+					  <div class="panel-body">
+						<p>All the changes will be displayed below</p>
+						<div class="post_msg"> </div>
+					
+					  </div>
+					</div> -->
+
+
                 </main>
+   <%-- 신규 입고내역 작성 폼 --%>
+	<div class="modal" tabindex="-1" id="newModal">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	        <h5 class="modal-title">신규 
+	        입고 내역 등록</h5>
+	      </div>
+	      <div class="modal-body">
+	        <div class="form-group">
+	        	<label for="">제품 코드</label>
+	        	<input type="text" name="code" class="form-control" value=""/>
+	        </div>
+	        <div class="form-group">
+	        	<label for="">입고 수량</label>
+	        	<input type="text" name="num" class="form-control" value=""/>
+	        </div>        
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" id="modalRegisterBtn">등록</button>
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="modalCloseBtn">종료</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+<script>
+	let csrfHeaderName = "${_csrf.headerName}";
+	let csrfTokenValue = "${_csrf.token}";
+</script>			
+    <script src="/resources/js/putin.js"></script>
+    <script src="/resources/js/newmodal.js"></script>
+    <script src="/resources/js/module.js"></script> 		
+<%@include file="includes/footer.jsp" %>
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">

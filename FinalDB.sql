@@ -10,6 +10,15 @@ create table item(
 );
 create sequence seqid;
 
+<<<<<<< HEAD
+select * from item;
+=======
+insert 
+select * from item;
+
+delete from item where itemcode = 'P000';
+>>>>>>> branch 'master' of https://github.com/TaeWonEom97/Final-Project.git
+
 --입고 상품코드(foreign key), 입고수량,  입고 날짜,시퀀스(primary)
 create table insertitem(
    code varchar2(50) not null,
@@ -61,7 +70,7 @@ alter table salescheck modify custsell varchar2(50)
 	constraint pk_custsell primary key;
 	
 
-insert into item(itemcode, itemtitle, itemprice, supplier, itemsize, color) values('P001', '에어포스', 150000, '나이키', '250cm', 'White');
+insert into item(itemcode, itemtitle, itemprice, supplier, itemsize, color) values('P009', '에어포스', 150000, '나이키', '250cm', 'White');
 insert into stock(stockcode,stocknum,stockid) values('P001',30,stockid.nextval); -- 더미테이블 생성
 insert into stock(stockcode,stocknum,stockid) values('P001',30,stockid.nextval); 
 insert into 

@@ -26,9 +26,9 @@
         <link rel="stylesheet" href="/resources/css/styles.css"/>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-		
+      <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+      
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -69,7 +69,7 @@
                             <div class="sb-sidenav-menu-heading">Interface</div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                							재고관리시스템
+                                                     재고관리시스템
                                 <div class="sb-sidenav-collapse-ar"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
@@ -147,7 +147,7 @@
                                             <td>${dto.itemcode}</td>
                                              <td>${dto.itemsize}</td>
                                              <td>${dto.color }</td>                                            
-											 <td><fmt:formatNumber type="number" value="${dto.itemprice}" /></td>                                          
+                                  <td><fmt:formatNumber type="number" value="${dto.itemprice}" /></td>                                          
                                             <td>${dto.stock}</td>
                                         </tr>
                                         </c:forEach>
@@ -159,55 +159,55 @@
                     </div>
                 </main>
                  <!-- Modal -->
-				<div class="modal fade" id="lookup_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-				  <div class="modal-dialog">
-				    <div class="modal-content">
-				      <div class="modal-header">
-				        <h4 class="modal-title" id="myModalLabel">날짜 조회</h4>
-				      </div>
-				      <div class="modal-body">
-				       <p>기간: <input type="text" id="datepicker"></p>
-				      </div>
-				      <div class="modal-footer">
-				      	<button type="button" class="btn btn-success" id = "lookupbtn2">찾기</button>				      
-				        <button type="button" class="btn btn-primary" id = "closebtn" data-dismiss="modal">닫기</button>
-				      </div>
-				    </div>
-				  </div>
-				</div>
+            <div class="modal fade" id="lookup_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">날짜 조회</h4>
+                  </div>
+                  <div class="modal-body">
+                   <p>기간: <input type="text" id="datepicker"></p>
+                  </div>
+                  <div class="modal-footer">
+                     <button type="button" class="btn btn-success" id = "lookupbtn2">찾기</button>                  
+                    <button type="button" class="btn btn-primary" id = "closebtn" data-dismiss="modal">닫기</button>
+                  </div>
+                </div>
+              </div>
+            </div>
                 
                 
-				                <%-- sell 추가 모달 --%>
-				<div class="modal" tabindex="-1" id="sellModal">
-				  <div class="modal-dialog">
-				    <div class="modal-content">
-				      <div class="modal-header">
-				        <h5 class="modal-title">판매 수정</h5>
-				      </div>
-				      <div class="modal-body">				        
-				        <div class="form-group">
-				           <label for="">상품 코드</label>
-				           <input type="text" name="sellcode" class="form-control" placeholder="상품 코드"/>
-				        </div>      				             
-				        <div class="form-group">
-				           <label for="">재고수량</label>
-				           <input type="text" name="sellnum" class="form-control" placeholder="수량"/>
-				        </div>      				           
-				      </div>
-				      <div class="modal-footer">
-				        <button type="button" class="btn btn-warning" id="modalModifyBtn">수정</button>				       
-				        <button type="button" class="btn btn-primary" data-dismiss="modal" id="modalCloseBtn">닫기</button>
-				      </div>
-				    </div>
-				  </div>
-				</div>
+                            <%-- sell 추가 모달 --%>
+            <div class="modal" tabindex="-1" id="sellModal">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">판매 수정</h5>
+                  </div>
+                  <div class="modal-body">                    
+                    <div class="form-group">
+                       <label for="">상품 코드</label>
+                       <input type="text" name="sellcode" class="form-control" placeholder="상품 코드"/>
+                    </div>                               
+                    <div class="form-group">
+                       <label for="">재고수량</label>
+                       <input type="text" name="sellnum" class="form-control" placeholder="수량"/>
+                    </div>                             
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-warning" id="modalModifyBtn">수정</button>                   
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="modalCloseBtn">닫기</button>
+                  </div>
+                </div>
+              </div>
+            </div>
                 
          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="/resources/js/scripts.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
         <script src="/resources/js/datatables-simple-demo.js"></script>
          <script src="/resources/js/sell.js"></script>
-		<script src="/resources/js/modal.js"></script>
-		<script src="/resources/js/edit.js"></script>  
+      <script src="/resources/js/modal.js"></script>
+      <script src="/resources/js/edit.js"></script>  
     </body>
 </html>

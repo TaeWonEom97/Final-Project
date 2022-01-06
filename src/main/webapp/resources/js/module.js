@@ -3,7 +3,7 @@
  */
 
 // 자바스크립트 모듈화
-let replyService = (function(){
+let putinService = (function(){
 	
 	function add(newinsert,callback,error){
 		console.log("add method 실행");		
@@ -24,56 +24,62 @@ let replyService = (function(){
 		})	
 	}//add end
 
-	
-	function remove(rno,callback,error){
-		
+
+	function get(code, callback) {
 		$.ajax({
-			url:'/replies/' +rno,
+			url:'/'+code,
+			type:'get',
+			contentType:'application/json',
+			data:JSON.stringify(code),
+			success:function(data) {
+				if(callback) {
+					callback(data);
+				}	
+			}
+		})
+	} // get end
+	
+	
+	function remove(code,callback,error){
+		$.ajax({
+			url:'/putin/'+code,
 			type: 'delete', 
+			contentType:'application/json',
+			data:JSON.stringify(itemcode),
 			success:function(result){
 				if(callback){
 					callback(result);					
 				}
 			},
-			//error:function(xhr,status,err){
-			//	if(error){
-					//error(xhr.responseText);
-				//}
-			//}
+			error:function(xhr,status,err){
+				if(error){
+					error(xhr.responseText);
+				}
+			}
 		})	
 	}//remove end
 	
-	function update(reply,callback,error){
+	function update(putinupdate, callback, error) {
 		
 		$.ajax({
-			url:'/replies/'+reply.rno,
-			type:'put',
-			contentType:'applicationjson',
-			data:JSON.stringify(reply),
+			url:'/putin/'+putinupdate.seqid,
+			type:'post',
+			contentType:'application/json',
+			data:JSON.stringify(putinupdate),
 			success:function(data){
-				if(callback){
+				if(callback) {
 					callback(data);
 				}
 			},
-			error:function(xhr,status,err){
-				if(error){
-					error(xhr.reponseText);
+			error:function(xhr, status, error) {
+				if(error) {
+					error(xhr.responseText);
 				}
 			}
 		})
-	}//update end
+	} // update end
 	
-	function get(rno,callback){
-		
-		$.getJSON({
-			url:'/replies/'+rno,
-			succes:function(data){
-				if(callback){
-					callback(data);
-				}
-			}
-		})
-	}//get end
+
 	
 	function displayTime(timeValue){
 		
@@ -105,25 +111,12 @@ let replyService = (function(){
 	
 	return {
 		add:add,
+		get:get,
 		remove:remove,
 		update:update,
-		get:get,
 		displayTime:displayTime
 		};
 	
 })();
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

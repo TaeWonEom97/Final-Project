@@ -83,7 +83,7 @@ insert into customer(userid, password, company) values('user1', 'user1', '나이
 insert into sellitem(sellcode, sellnum, sellid, selluser) values('P001', 12, sellid.nextval, 'user1');
 insert into sellitem(sellcode, sellnum, sellid, selluser) values('P001', 10, sellid.nextval, 'user1');
 
-select * from sellitem;
+select * from insertitem;
 
 delete from sellitem;
 drop table salescheck;
@@ -100,3 +100,12 @@ create table customer_auth(
 
 select * from sellitem left outer join item on sellcode = itemcode left outer join customer on selluser = userid;
 select * from sellitem left outer join item on sellcode = itemcode left outer join customer on selluser = userid where sellid = 42;
+select * from customer_auth;
+
+select sum(sellnum) from sellitem where sellcode = 'P001';
+select (select sum(insertnum) from INSERTITEM where code = 'P004') - (select sum(sellnum) from sellitem where sellcode = 'P004') from dual;
+
+select * from customer;
+select * from customerboard;
+
+insert into customerboard(bno, title, content, writer) values(bno.nextval, '테스트제목', '테스트글', 'test1');

@@ -7,13 +7,12 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-
-
 @Getter
 @Setter
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
+
 public class ItemDTO {
 	private String itemcode;
 	private String itemtitle;

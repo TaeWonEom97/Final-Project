@@ -27,6 +27,7 @@
                                             <th>합계</th>
                                             <th>제조사</th>
                                             <th>판매일</th>
+                                            <th>총수량</th>
                                         </tr>
                                     </thead>
                                     <tbody>

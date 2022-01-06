@@ -18,21 +18,44 @@
 						<div class="card-body">
 							<div class="dataTable-top">
 								<div class="dataTable-dropdown">
-									<label><select class="dataTable-selector">
-											<option value="5">5</option>
-											<option value="10" selected="">10</option>
-											<option value="15">15</option>
-											<option value="20">20</option>
-											<option value="25">25</option>
+
+									<label><select name="" id="amount" class="dataTable-selector form-control">
+										<option value="5" <c:out value="${pageDto.cri.amount == 5 ? 'selected':''}"/>>5</option>
+                            	   		<option value="10" <c:out value="${pageDto.cri.amount == 10 ? 'selected':''}"/>>10</option>
+                            	   		<option value="15" <c:out value="${pageDto.cri.amount == 15 ? 'selected':''}"/>>15</option>
+                            	   		<option value="20" <c:out value="${pageDto.cri.amount == 20 ? 'selected':''}"/>>20</option>
+                            	   		<option value="25" <c:out value="${pageDto.cri.amount == 25 ? 'selected':''}"/>>25</option>
 									</select> entries per page</label>
 								</div>
-								<button id='regBtn' type='button' class='btn btn-xs pull-right'
+								<button id='regBtn' type='button' class='btn btn-info'
 									onclick="location.href='/board/register'">새 게시글 작성</button>
-									
 								<div class="dataTable-search">
-									<input class="dataTable-input" placeholder="Search..."
-										type="text" />
 								</div>
+								   <div class="row">
+		                     <!--search Form-->
+		                     <form action="" class="form-inline" method="get" id="searchForm">
+		                     <div class="form-group mb-2">
+		                        <input type="hidden" name="pageNum"
+		                           value="${pageDto.cri.pageNum}" /> <input type="hidden"
+		                           name="amount" value="${pageDto.cri.amount}" /> <select
+		                           name="type" input class = "custom-select" id="">
+		                           <option value="">------------</option>
+		                           <option value="T" <c:out value="${pageDto.cri.type == 'T'?'selected':''}"/>>제목</option>
+		                           <option value="C" <c:out value="${pageDto.cri.type == 'C'?'selected':''}"/>>내용</option>
+		                           <option value="W" <c:out value="${pageDto.cri.type == 'W'?'selected':''}"/>>작성자</option>
+		                           <option value="TC" <c:out value="${pageDto.cri.type == 'TC'?'selected':''}"/>>제목 or 내용</option>
+		                           <option value="TW" <c:out value="${pageDto.cri.type == 'TW'?'selected':''}"/>>제목 or 작성자</option>
+		                           <option value="TCW" <c:out value="${pageDto.cri.type == 'TCW'?'selected':''}"/>>제목 or 내용 or 작성자</option>
+		                        </select>
+		                        </div>
+		                        <div class="form-group mb-2">
+		                        <input class="form-control" type="text" name="keyword" id="searchForm" placeholder="Search..." value='<c:out value="${pageDto.cri.keyword}"/>' />
+		                        </div>
+		                        <div class="form-group mb-2">
+		                        <button class="btn btn-success">검색</button>
+		                        </div>
+		                     </form>
+		                  </div>
 							</div>							
 							<table id="datatablesSimple" class="dataTable-table">
 								<thead>
@@ -64,9 +87,9 @@
 		               <!-- start search -->
 			                <!-- start Pagination -->
 	            <div class="text-center">
-	               <ul class="pagination">
+	               <ul class="dataTable-pagination">
 	                  <c:if test="${pageDto.prev}">
-	                     <li class="paginate_button previous">
+	                     <li class="pageinate_button previous">
 	                     <a href="${pageDto.startPage-10}">Previous</a></li>
 	                  </c:if>
 	                  <c:forEach var="idx" begin="${pageDto.startPage}"
@@ -76,46 +99,13 @@
 	                     </li>
 	                  </c:forEach>
 	                  <c:if test="${pageDto.next}">
-	                     <li class="paginate_button next"><a
+	                     <li class="pageinate_button next"><a
 	                        href="${pageDto.endPage+1}">Next</a></li>
 	                  </c:if>
 	               </ul>
 	            </div>
 	            <!-- end Pagination -->
-		                  <div class="col-md-8">
-		                     <!--search Form-->
-		                     <form action="" method="get" id="searchForm">
-		                        <input type="hidden" name="pageNum"
-		                           value="${pageDto.cri.pageNum}" /> <input type="hidden"
-		                           name="amount" value="${pageDto.cri.amount}" /> <select
-		                           name="type" id="">
-		                           <option value="">------------</option>
-		                           <option value="T" <c:out value="${pageDto.cri.type == 'T'?'selected':''}"/>>제목</option>
-		                           <option value="C" <c:out value="${pageDto.cri.type == 'C'?'selected':''}"/>>내용</option>
-		                           <option value="W" <c:out value="${pageDto.cri.type == 'W'?'selected':''}"/>>작성자</option>
-		                           <option value="TC" <c:out value="${pageDto.cri.type == 'TC'?'selected':''}"/>>제목 or 내용</option>
-		                           <option value="TW" <c:out value="${pageDto.cri.type == 'TW'?'selected':''}"/>>제목 or 작성자</option>
-		                           <option value="TCW" <c:out value="${pageDto.cri.type == 'TCW'?'selected':''}"/>>제목 or 내용 or 작성자</option>
-		                        </select> 
-		                        <input type="text" name="keyword" id="" value='<c:out value="${pageDto.cri.keyword}"/>' />
-		                        <button class="btn btn-default">Search</button>
-		                     </form>
-		                  </div>		                
-			             <div class="col-md-2 col-md-offset-3">
-		                     <!--페이지 목록 갯수 지정하는 폼-->
-		                     <select name="" id="amount" class="form-control">
-		                        <option value="10"
-		                           <c:out value="${pageDto.cri.amount == 10?'selected':''}"/>>10</option>
-		                        <option value="20"
-		                           <c:out value="${pageDto.cri.amount == 20?'selected':''}"/>>20</option>
-		                        <option value="30"
-		                           <c:out value="${pageDto.cri.amount == 30?'selected':''}"/>>30</option>
-		                        <option value="40"
-		                           <c:out value="${pageDto.cri.amount == 40?'selected':''}"/>>40</option>
-		                        <option value="100"
-		                           <c:out value="${pageDto.cri.amount == 1000?'selected':''}"/>>100</option>
-		                     </select>
-	                  	</div><!-- col-md-2 -->                  	
+	            
                   </div><!-- row close -->
 				</div>		
 			</main>

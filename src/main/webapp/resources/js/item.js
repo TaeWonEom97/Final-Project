@@ -1,34 +1,40 @@
 /**
- * 
+ * item 관련 js
  */
-let sellService = (function(){
+let itemService = (function(){
 	
-	function add(sellinsert, callback, error) {
+	$(document).ajaxSend(function(e, xhr, options){
+		xhr.setRequestHeader(csrfHeaderName, csrfTokenValue);
+	});
+	
+	
+	function add(insertItem, callback, error) {
 		console.log("add method 실행");
 		
 		$.ajax({
-			url:'/sell/insertSell',
+			url:'/insertItem',
 			type:'post',
 			contentType:'application/json',
-			data:JSON.stringify(sellinsert),
+			data:JSON.stringify(insertItem),
 			success:function(result) {
 				if(callback) {
 					callback(result);
 				}
 			},
 			error:function(xhr, status, error) {
-				error(err);
+				alert("중복된 상품 코드입니다.");
 			}
 		})
 	} // add end
 	
-	function get(sellid, callback) {
+	
+	function get(itemcode, callback) {
 			
 		$.ajax({
-			url:'/sell/'+sellid,
-			type:'post',
+			url:'/item/'+itemcode,
+			type:'get',
 			contentType:'application/json',
-			data:JSON.stringify(sellid),
+			data:JSON.stringify(itemcode),
 			success:function(data) {
 				if(callback) {
 					callback(data);
@@ -37,11 +43,13 @@ let sellService = (function(){
 		})
 	} // get end
 	
-	function remove(sellid, callback, error) {
+	function remove(itemcode, callback, error) {
 		
 		$.ajax({
-			url:'/sell/'+sellid,
+			url:'/item/'+itemcode,
 			type:'delete',
+			contentType:'application/json',
+			data:JSON.stringify(itemcode),
 			success:function(result){
 				if(callback) {
 					callback(result);
@@ -49,19 +57,20 @@ let sellService = (function(){
 			},
 			error:function(xhr, status, error) {
 				if(error) {
-					error(xhr.responseText);
+					alert("삭제할 수 없는 상품입니다.");
 				}
 			}
 		})
 	} // remove end
 	
-	function update(sellupdate, callback, error) {
+	function update(itemupdate, callback, error) {
+		
 		
 		$.ajax({
-			url:'/sell/sellid',
+			url:'/item/'+itemupdate.itemcode,
 			type:'put',
 			contentType:'application/json',
-			data:JSON.stringify(sellupdate),
+			data:JSON.stringify(itemupdate),
 			success:function(data){
 				if(callback) {
 					callback(data);

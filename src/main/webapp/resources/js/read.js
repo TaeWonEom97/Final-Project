@@ -257,7 +257,7 @@ $(function() {
       }
       if(next){
          str += "<li class='paginate_button'>";
-         str += "<a href='"+(endPage+1) +"'>next</a></li>";
+         str += "<a href='" +(endPage+1) +"'>next</a></li>";
       }
       
       str +="</ul>";

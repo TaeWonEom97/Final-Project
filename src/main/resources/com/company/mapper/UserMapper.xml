@@ -32,4 +32,17 @@
       where s1.userid=#{userid}
    </select>
    
+   <update id="forgotPwd">
+      update customer set password = #{password} where userid = #{userid}
+   </update>
+   
+   <select id="searchId" resultType="com.company.domain.CustomerDTO">
+      select * from customer where userid = #{userid} and company = #{company}
+   </select>
+   
+   <!-- 비밀번호 변경 : 아이디와 현재 비밀번호가 일치하면 변경 비밀번호로 바꾸기 -->
+	<update id="changePwd">
+		update customer set password = #{new_password} where userid = #{userid} and password = #{password}
+	</update>
+   
 </mapper>
