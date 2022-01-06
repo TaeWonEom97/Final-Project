@@ -19,7 +19,6 @@
    <!--  <script src="/resources/js/scripts.js"></script> -->
    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest"
       crossorigin="anonymous"></script>
-   
    <script>
       let result = '${result}'
    </script>

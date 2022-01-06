@@ -1,6 +1,6 @@
 package com.company.domain;
 
-import com.company.service.StockService;
+import com.company.service.SellService;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

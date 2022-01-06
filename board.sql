@@ -16,7 +16,7 @@ select * from customerboard;
 alter table customerboard add constraint pk_customerboard primary key(bno);
 
 -- spring board 테이블에 댓글 수를 저장할 컬럼 추가 -- 아직 처리 안함.
-alter table spring_board add(replycnt number default 0);
+alter table customerboard add(replycnt number default 0);
 
 create table customerboard_reply(
    rno number(10,0) constraint pk_customerreply primary key,
@@ -40,5 +40,11 @@ select * from CUSTOMER;
 insert into CUSTOMER(userid, password, company) 
 values('test1','12345','테스트');
 
+insert into customerboard(bno,title,content,writer)
+(select bno.nextval,title,content,writer from customerboard);
 
+<<<<<<< HEAD
+select count(*) from CUSTOMERBOARD;
+=======
 select * from insertitem;
+>>>>>>> branch 'master' of https://github.com/TaeWonEom97/Final-Project.git

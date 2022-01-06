@@ -2,12 +2,20 @@ package com.company.service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
+import com.company.domain.ItemDTO;
+import com.company.domain.ChartDTO;
+import com.company.domain.PutInDTO;
 import com.company.domain.SellItemDTO;
+import com.company.domain.StockDTO;
 
 public interface StockService {
-	public List<SellItemDTO> sellAll();
-	public boolean sellInsert(SellItemDTO insetDto);
-	public SellItemDTO sellGet(String sellid);
-	public boolean sellRemove(String sellid);
-	public boolean sellUpdate(SellItemDTO updateDto);
+
+	public List<ItemDTO> stockDto();
+	
+	
+
+
+	
 }

@@ -1,8 +1,17 @@
 package com.company.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 public class PageDTO {
 	private int startPage;
 	private int endPage;
@@ -20,7 +29,7 @@ public class PageDTO {
 		this.endPage = (int)(Math.ceil(cri.getPageNum()/10.0))*10;
 		this.startPage = this.endPage - 9;
 		
-		int realEnd = (int)(Math.ceil(total/1.0) / cri.getAmount());
+		int realEnd = (int)(Math.ceil(total/1.0 / cri.getAmount()));
 		if (realEnd < this.endPage) {
 			this.endPage = realEnd;
 		}

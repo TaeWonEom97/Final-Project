@@ -45,6 +45,10 @@ public class PutInServiceImpl implements PutInService {
 		return mapper.get(code);
 	}
 
+	public List<PutInDTO> getRow2() {
+		return mapper.select2();
+	}
+
 	@Override
 	public boolean update(PutInDTO updateDto) {
 		return mapper.update(updateDto) > 0 ? true : false;

@@ -70,10 +70,10 @@
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="/resources/views/jsp/putin">입고관리</a>
-                                    <a class="nav-link" href="/views/tables2">판매관리</a>
-                                    <a class="nav-link" href="/views/tables3">판매내역조회</a>
-                                    <a class="nav-link" href="/views/tables4">재고현황</a>
+                                    <a class="nav-link" href="/putin">입고관리</a>
+                                    <a class="nav-link" href="/tables-2">판매관리</a>
+                                    <a class="nav-link" href="/tables-3">판매내역조회</a>
+                                    <a class="nav-link" href="/tables-4">재고현황</a>
                                 </nav>
                             </div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
@@ -214,3 +214,30 @@
     <script src="/resources/js/newmodal.js"></script>
     <script src="/resources/js/module.js"></script> 		
 <%@include file="includes/footer.jsp" %>
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; Your Website 2021</div>
+                            <div>
+                                <a href="#">Privacy Policy</a>
+                                &middot;
+                                <a href="#">Terms &amp; Conditions</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <script>
+      	//ajax 동작 시 헤더 값에 포함해서 보낼 csrf 토큰 값 설정
+    	let csrfHeaderName = "${_csrf.headerName}";
+    	let csrfTokenValue = "${_csrf.token}";
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="/resources/js/putin.js"></script>
+        <script src="/resources/js/scripts.js"></script>
+        <script src="/resources/js/newmodal.js"></script>
+        <script src="/resources/js/module.js"></script>  
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+    </body>
+</html>

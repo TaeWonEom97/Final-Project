@@ -14,5 +14,7 @@ public interface PutInService {
 	public PutInDTO get(String code);
 	public boolean update(PutInDTO updateDto);
 	public boolean putinRemove(String code);
+	
+	public List<PutInDTO> getRow2();
 
 }

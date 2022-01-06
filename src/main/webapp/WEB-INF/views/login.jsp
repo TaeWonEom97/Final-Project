@@ -26,26 +26,26 @@
                                     <div class="card-body">
                                         <form action="/login" method="post">
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="username" name="username" type="text" placeholder="name@example.com" />
-                                                <label for="username">User Email</label>
+                                                <input class="form-control" id="username" name="username" type="text" placeholder="아이디" />
+                                                <label for="username">ID</label>
                                             </div>
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="password" name="password" type="password" placeholder="Password" />
+                                                <input class="form-control" id="password" name="password" type="password" placeholder="비밀번호" />
                                                 <label for="password">Password</label>
                                             </div>
                                             <div class="form-check mb-3">
                                                 <input class="form-check-input" id="inputRememberPassword" type="checkbox" value="" />
-                                                <label class="form-check-label" for="inputRememberPassword">Remember Password</label>
+                                                <label class="form-check-label" for="inputRememberPassword">비밀번호 기억하기</label>
                                             </div>
                                             <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                                <a class="small" href="/password">Forgot Password?</a>
-                                                <button type="submit" class="btn btn-primary">Login</button>
+                                                <a class="small" href="/forgotPwd">비밀번호 찾기</a>
+                                                <button type="submit" class="btn btn-primary">로그인</button>
                                             </div>
                                             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
                                         </form>
                                     </div>
                                     <div class="card-footer text-center py-3">
-                                        <div class="small"><a href="register.html">Need an account? Sign up!</a></div>
+                                        <div class="small"><a href="/register">회원가입</a></div>
                                     </div>
                                 </div>
                             </div>

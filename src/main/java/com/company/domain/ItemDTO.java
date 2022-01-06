@@ -20,4 +20,9 @@ public class ItemDTO {
 	private String supplier;
 	private String itemsize;
 	private String color;
+	
+	private int stock;
+	
+	private SellItemDTO sellItemDto;
+	private InsertItemDTO insertItemDto;
 }

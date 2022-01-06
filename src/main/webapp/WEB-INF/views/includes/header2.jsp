@@ -118,10 +118,11 @@
                      <div class="sb-nav-link-icon">
                         <i class="fas fa-chart-area"></i>
                      </div> 보고서
-                  </a> <a class="nav-link" href="tables.html">
+                  </a> <a class="nav-link" href="/board/list">
                      <div class="sb-nav-link-icon">
                         <i class="fas fa-table"></i>
                      </div> 게시판
+                     
                   </a>
                </div>
             </div>

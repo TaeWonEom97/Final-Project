@@ -1,8 +1,14 @@
-/**
+/*
  * 
  */
 
 $(function() {
+	
+	
+	
+	
+	
+	
    // 댓글 전체 가져오기 함수 호출(showList)
    showList(1);
    // 댓글 보여줄 영역 가져오기
@@ -34,6 +40,14 @@ $(function() {
 
 
    // ========================댓글 작업    =========================
+
+
+	// beforeSend : ajax 추가해서 header 값으로 보내야 하는 값들을 전송(ajax 코드 안에 해당 코드가 존재해야 함)
+	// ajaxSend() : ajax 호출되면 무조건 이 값을 헤더로 전송
+	$(document).ajaxSend(function(e,xhr,options){
+		xhr.setRequestHeader(csrfHeaderName,csrfTokenValue);
+	});	
+
    //------------------------댓글 삽입-------------------------------
    // 댓글 모달 창 영역 가져오기
    let modal =$("#replyModal");
@@ -47,9 +61,14 @@ $(function() {
    let modalRegisterBtn = modal.find("#modalRegisterBtn");
    let modalModifyBtn = modal.find("#modalModifyBtn");
    let modalRemoveBtn = modal.find("#modalRemoveBtn");
+   let modalCloseBtn = modal.find("#modalCloseBtn");
    
-   
-   $("#addReplyBtn").click(function(e){
+    // 종료 버튼 활성화
+    modalCloseBtn.click(function(){
+	modal.modal("hide");
+	})
+
+   $("#addReplyBtn").click(function(){
       // input 안에 들어있는 value 제거
       modal.find("input").val("");
 
@@ -65,7 +84,7 @@ $(function() {
       
       // 댓글 MODAL 창 보여주기
       modal.modal('show');
-      
+
    })// # addReplyBtn end
    modalRegisterBtn.click(function(){
       // key value형식 
@@ -87,6 +106,8 @@ $(function() {
                modal.modal("hide");
                showList(-1);
             }
+		},function(msg){
+			alert(msg);
       });// add end;
    })// 등록버튼 end
    //-----------------------------------------------------------
@@ -255,87 +276,11 @@ $(function() {
    
    
    
-   // 첩부파일 가져오기 
-
-    //첨부파일 보여줄 영역 가져오기
-	let uploadResult = $(".uploadResult ul");
-	let str="";
-
-
-	//게시물에 달려있는 전체 첨부 ㅍ파일 가져오기
-   $.getJSON({
-      url:'getAttachList', // == /board/getAttachList 
-      data:{
-         bno:bno
-      },
-      success:function(data){
-         console.log(data);
-         // 도착한 첨부파일을 보여주기
-         $(data).each(function(idx,obj){
-         if(obj.fileType){
-            
-            // 썸네일 이미지 경로 생성
-            var fileCallPath = encodeURIComponent(obj.uploadPath+"\\s_"+obj.uuid+"_"+obj.fileName);
-            
-            
-            str += "<li data-path ='"+ obj.uploadPath +"' data-uuid='"+ obj.uuid +"'";
-            str += " data-filename='"+ obj.fileName +"' data-type='"+ obj.fileType +"'>";
-            str += "<a><img src='/display?fileName="+fileCallPath+"'>";
-            str += "<div>"+obj.fileName+"</a> ";
-            str += "</div></li>";
-            
-         }else{
-            
-            str += "<li data-path ='"+ obj.uploadPath +"' data-uuid='"+ obj.uuid +"'";
-            str += " data-filename='"+ obj.fileName +"' data-type='"+ obj.fileType +"'>";
-            str += "<a><img src='/resources/img/attach.png'><div>"+obj.fileName+"</a> "
-            str += "</div></li>";
-         }
-      })  // $(data).each end
-		uploadResult.html(str);
-      }   
-   })// 전체 첨부물 가져오기 종료
-
-   //첨부파일 클릭시 이벤트
-	$(".uploadResult").on("click","li",function(){
-		console.log("첨부파일 클릭");		
-		
-		//선택된 첨부파일 가져오기
-		let liobj = $(this);
-		
-		let path = encodeURIComponent(liobj.data("path")+"/"+liobj.data("uuid")+"_"+liobj.data("filename")); 
-		
-		if(liobj.data("type")){
-			showImage(path.replace(new RegExp(/\\/g),"/"));
-		}else{
-			self.location="/download?fileName="+path;
-		}		
-	})// .uploadResult").on("click" end
+   
 	
-	//원본 이미지 창 닫기
-	$(".bigPictureWrapper").on("click",function(){
-		$(".bigPicture").animate({
-						width:'100%',
-						height:'0%'
-						},1000);
-		setTimeout(function(){
-			$(".bigPictureWrapper").hide();
-			},1000);
-		})
 })
-function showImage(fileCallPath){
-	console.log(fileCallPath);
-	
-	//안보였던 영역 보이기
-	$(".bigPictureWrapper").css("display","flex").show();
-	
-	$(".bigPicture").html("<img src='/display?fileName="+ fileCallPath +"'>")
-					.animate({
-						width:'100%',
-						height:'100%'
-					},1000);
 
-}
+
 
 
 
