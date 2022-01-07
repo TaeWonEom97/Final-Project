@@ -162,20 +162,6 @@
 					  </div>
 					
 					</div>
-					
-					 
-					<!-- 나중에 hidden으로 숨기기 
-					<div class="panel panel-default">
-					  <div class="panel-heading"><b>HTML Table Edits/Upates</b> </div>
-					
-					  <div class="panel-body">
-						<p>All the changes will be displayed below</p>
-						<div class="post_msg"> </div>
-					
-					  </div>
-					</div> -->
-
-
                 </main>
    <%-- 신규 입고내역 작성 폼 --%>
 	<div class="modal" tabindex="-1" id="newModal">
@@ -212,32 +198,5 @@
 </script>			
     <script src="/resources/js/putin.js"></script>
     <script src="/resources/js/newmodal.js"></script>
-    <script src="/resources/js/module.js"></script> 		
+    <script src="/resources/js/module.js"></script> 	
 <%@include file="includes/footer.jsp" %>
-                <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid px-4">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2021</div>
-                            <div>
-                                <a href="#">Privacy Policy</a>
-                                &middot;
-                                <a href="#">Terms &amp; Conditions</a>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
-            </div>
-        </div>
-        <script>
-      	//ajax 동작 시 헤더 값에 포함해서 보낼 csrf 토큰 값 설정
-    	let csrfHeaderName = "${_csrf.headerName}";
-    	let csrfTokenValue = "${_csrf.token}";
-        </script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="/resources/js/putin.js"></script>
-        <script src="/resources/js/scripts.js"></script>
-        <script src="/resources/js/newmodal.js"></script>
-        <script src="/resources/js/module.js"></script>  
-        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
-    </body>
-</html>

@@ -28,6 +28,7 @@
                                             <th>공급자</th>
                                             <th>사이즈</th>
                                             <th>색상</th>
+                                            <th>제품 등록 일자</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -39,6 +40,7 @@
 											<td>${dto.supplier}</td>
 											<td>${dto.itemsize}</td>
 											<td>${dto.color}</td>
+											<td>${dto.itemdate}</td>
 										</tr>
 									</c:forEach>
 								</tbody>

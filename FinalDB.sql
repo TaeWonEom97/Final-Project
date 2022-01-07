@@ -10,9 +10,7 @@ create table item(
 );
 create sequence seqid;
 
-<<<<<<< HEAD
-select * from item;
-=======
+
 insert 
 select * from item;
 
@@ -229,8 +227,6 @@ from item left join (select code, (putin-out) as s
   
 select * from item;
 
--- 1 에서  281  행에 대한 삽입 실패
---ORA-00001: 무결성 제약 조건(C##JAVA.PK_ITEM)에 위배됩니다
 --행 1
 INSERT INTO ITEM (ITEMCODE, ITEMTITLE, ITEMPRICE, SUPPLIER, ITEMSIZE, COLOR) VALUES ('P001',' 나일론 메신저 크로스바디백 ',1590000,'프라다','M','Blue');
 --행 2

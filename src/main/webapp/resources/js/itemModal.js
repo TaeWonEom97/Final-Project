@@ -12,6 +12,7 @@ $(function(){
 	let modalsupplier = modal.find("input[name='supplier']");
 	let modalitemsize = modal.find("input[name='itemsize']");
 	let modalcolor = modal.find("input[name='color']");
+	let modalitemdate = modal.find("input[name='itemdate']");
 	
 	let modaltitle = modal.find(".modal-title");
 
@@ -40,6 +41,7 @@ $(function(){
 		modalsupplier.attr("readonly", false);
 		modalitemsize.attr("readonly", false);
 		modalcolor.attr("readonly", false);
+		modalitemdate.attr("readonly", false);
 		
 		// input 안에 들어있는 value 제거
 		modal.find("input").val("");
@@ -66,7 +68,8 @@ $(function(){
 			itemprice:modalitemprice.val(),
 			supplier:modalsupplier.val(),
 			itemsize:modalitemsize.val(),
-			color:modalcolor.val()
+			color:modalcolor.val(),
+			itemdate:modalitemdate.val(),
 		};
 		
 		itemService.add(insertNew,
@@ -107,6 +110,7 @@ $(function(){
 			modalsupplier.closest("div").show();
 			modalitemsize.closest("div").show();
 			modalcolor.closest("div").show();
+			modalitemdate.closest("div").show();
 			modalModifyBtn.show();
 			modalRemoveBtn.show();
 			
@@ -117,6 +121,7 @@ $(function(){
 			modalsupplier.val(data.supplier);
 			modalitemsize.val(data.itemsize);
 			modalcolor.val(data.color);
+			modalitemdate.val(data.itemdate);
 			
 			// 버튼 숨기기
 			modal.find("button[id = 'modalRegisterBtn']").hide();
@@ -153,7 +158,8 @@ $(function(){
 			itemprice:modalitemprice.val(),
 			supplier:modalsupplier.val(),
 			itemsize:modalitemsize.val(),
-			color:modalcolor.val()
+			color:modalcolor.val(),
+			itemdate:modalitemdate.val()
 		};
 		
 		console.log(itemupdate);
