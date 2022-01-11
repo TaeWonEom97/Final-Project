@@ -2,71 +2,82 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.company.mapper.StockMapper">
 
-	
 
-<insert id = "insert">
-insert into stock(stockcode,stocknum,stockid)
+	<insert id="insert">
+		insert into stock(stockcode,stocknum,stockid)
 		values(#{stockcode},#{stocknum},#{stockid})
+	</insert>
 
-</insert>
 
-   <resultMap type="com.company.domain.SellItemDTO" id="SellItemMap">
-      <id property="sellid" column="sellid"/>
-      <result property="sellnum" column="sellnum"/>
-      <result property="selldate" column="selldate"/>
-      <result property="sellcode" column="sellcode"/>
-      <result property="selluser" column="selluser"/>
-      
-      <!--  <collection property="itemDto" resultMap="ItemMap"/>
-      <collection property="customerDto" resultMap="CustomerMap"/>-->
-   </resultMap>
-   
-   <resultMap type="com.company.domain.ItemDTO" id="ItemMap">
-      <result property="itemcode" column="itemcode"/>
-      <result property="itemtitle" column="itemtitle"/>
-      <result property="itemprice" column="itemprice"/>
-      <result property="supplier" column="supplier"/>
-      <result property="itemsize" column="itemsize"/>
-      <result property="color" column="color"/>
-      <result property="stock" column="stock"/>
-      <collection property="sellItemDto" resultMap="SellItemMap"/>
-     
-      <collection property="insertItemDto" resultMap="insertItemMap"/>
-      
-   </resultMap>
-   
-   <resultMap type="com.company.domain.InsertItemDTO" id="insertItemMap">
-   		     <result property="code" column="code"/>
-   		     <result property="insertnum" column="insertnum"/>
-   		     <result property="insertdate" column="insertdate"/>
-   		     <result property="seqid" column="seqid"/>  
-   </resultMap>
-   
-   
-   <resultMap type="com.company.domain.CustomerDTO" id="CustomerMap">
-      <result property="userid" column="userid"/>
-      <result property="password" column="password"/>
-      <result property="company" column="company"/>
-   </resultMap>
-   
-   
-   <!--  -->
-   
-  <select id="stocklist" resultMap="ItemMap">
-	select itemcode,itemtitle,itemprice,supplier,itemsize,color, NVL(s,0) as stock
-	from item left join (select code, putin-out as s
-	    from(select code, sum(insertnum) putin, 
-	           (SELECT SUM(sellnum) FROM sellitem where sellcode = code GROUP BY sellcode) out
-	        from insertitem
-	        group by code)
-	    ) on itemcode = code
-  </select>
 
-  <!-- 재고수량 조회 -->
-  <select  id="Stocknum" resultType="com.company.domain.StockDTO">
-  insert into stock(stockcode,stocknum,stockid)
+	<resultMap type="com.company.domain.SellItemDTO"
+		id="SellItemMap">
+		<id property="sellid" column="sellid" />
+		<result property="sellnum" column="sellnum" />
+		<result property="selldate" column="selldate" />
+		<result property="sellcode" column="sellcode" />
+		<result property="selluser" column="selluser" />
+		<!-- <collection property="itemDto" resultMap="ItemMap"/> <collection property="customerDto" 
+			resultMap="CustomerMap"/> -->
+	</resultMap>
+
+	<resultMap type="com.company.domain.ItemDTO" id="ItemMap">
+		<result property="itemcode" column="itemcode" />
+		<result property="itemtitle" column="itemtitle" />
+		<result property="itemprice" column="itemprice" />
+		<result property="supplier" column="supplier" />
+		<result property="itemsize" column="itemsize" />
+		<result property="color" column="color" />
+		<result property="stock" column="stock" />
+		<result property="itemdate" column="itemdate" />
+		<result property="goods_cate" column="goods_cate" />
+		<collection property="sellItemDto" resultMap="SellItemMap" />
+
+		<collection property="insertItemDto" resultMap="insertItemMap" />
+	</resultMap>
+
+	<resultMap type="com.company.domain.InsertItemDTO" id="insertItemMap">
+		<result property="code" column="code" />
+		<result property="insertnum" column="insertnum" />
+		<result property="insertdate" column="insertdate" />
+		<result property="seqid" column="seqid" />
+	</resultMap>
+
+	<resultMap type="com.company.domain.CustomerDTO" id="CustomerMap">
+		<result property="userid" column="userid" />
+		<result property="password" column="password" />
+		<result property="company" column="company" />
+	</resultMap>
+
+	<select id="stocklist" resultMap="ItemMap">
+		select itemcode,itemtitle,itemprice,supplier,itemsize,color,itemdate, NVL(num,0) as stock, goods_cate
+		from item left join (select code, NVL(i-s, 0) as num
+		from (select code, NVL(sum(insertnum),0) as i, NVL(SUM(sellnum),0) as s
+		from insertitem left join sellitem on code = sellcode group by code))
+		on itemcode = code
+	</select>
+
+	<select id="stockcate" resultMap="ItemMap">
+		select sum(stock) as stock, goods_cate
+		from(select itemcode,itemtitle,itemprice,supplier,itemsize,color,itemdate, NVL(num,0) as stock, goods_cate
+		from item left join (select code, NVL(i-s, 0) as num
+		from (select code, NVL(sum(insertnum),0) as i, NVL(SUM(sellnum),0) as s
+		from insertitem left join sellitem on code = sellcode group by code))
+		on itemcode = code) group by goods_cate
+	</select>
+	
+	<select id="stockchart" resultMap="ItemMap">
+		select TO_CHAR(itemdate,'MM') as stockdate, NVL(sum(stock),0) as stock
+		from (select NVL(num,0) as stock, itemdate
+		from item left join (select code, NVL(i-s, 0) as num
+		from (select code, NVL(sum(insertnum),0) as i, NVL(SUM(sellnum),0) as s
+		from insertitem left join sellitem on code = sellcode group by code)) on itemcode = code) group by TO_CHAR(itemdate,'MM')
+	</select>
+	
+	<!-- 재고수량 조회 -->
+	<select id="Stocknum" resultType="com.company.domain.StockDTO">
+		insert into stock(stockcode,stocknum,stockid)
 		values(#{stockcode},#{stocknum},stockid.nextval)
-</select>
-
+	</select>
 
 </mapper>

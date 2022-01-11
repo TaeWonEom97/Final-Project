@@ -313,7 +313,8 @@ $(function(){
 					alert("수정성공");
 				}
 				//location.reload();
-				//modal.modal("hide");
+
+				modal.modal("hide");
 			},
 			function(msg){
 				alert(msg);
@@ -345,3 +346,16 @@ function displayTime(timeValue){
 	return [yy,'/',(mm>9?'':'0')+mm,'/',(dd>9?'':'0')+dd].join('');			
 	
 }//displayTime end
+
+
+
+
+
+
+
+
+
+
+
+
+

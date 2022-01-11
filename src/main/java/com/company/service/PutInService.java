@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import com.company.domain.PutInDTO;
 
 public interface PutInService {
@@ -13,6 +15,8 @@ public interface PutInService {
 	public PutInDTO get(String code);
 	public boolean update(PutInDTO updateDto);
 	public boolean putinRemove(String code);
+	
+	
 	
 	public List<PutInDTO> getRow2();
 

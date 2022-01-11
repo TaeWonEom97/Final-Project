@@ -105,7 +105,38 @@ select * from customer_auth;
 select sum(sellnum) from sellitem where sellcode = 'P001';
 select (select sum(insertnum) from INSERTITEM where code = 'P004') - (select sum(sellnum) from sellitem where sellcode = 'P004') from dual;
 
+select * from sellitem;
 select * from customer;
-select * from customerboard;
-
+select * from customer_auth;
+insert into sellitem(sellcode, sellnum, sellid, selluser) values('P005', 20, sellid.nextval, 'user1');
 insert into customerboard(bno, title, content, writer) values(bno.nextval, '테스트제목', '테스트글', 'test1');
+alter table item add itemdate date default sysdate;
+ALTER TABLE item add goods_cate varchar2(50);
+
+select sum(stock) as stock, goods_cate
+from(select itemcode,itemtitle,itemprice,supplier,itemsize,color, NVL(num,0) as stock, goods_cate
+from item left join (select code, NVL(i-s, 0) as num
+    from (select code, NVL(sum(insertnum),0) as i, NVL(SUM(sellnum),0) as s
+    from insertitem left join sellitem on code = sellcode group by code)) on itemcode = code) group by goods_cate;
+
+select itemcode,itemtitle,itemprice,supplier,itemsize,color,itemdate, NVL(num,0) as stock
+from item left join (select code, NVL(i-s, 0) as num
+    from (select code, NVL(sum(insertnum),0) as i, NVL(SUM(sellnum),0) as s
+    from insertitem left join sellitem on code = sellcode group by code)) on itemcode = code;
+    
+select code, NVL(i-s, 0) as num
+    from (select code, NVL(sum(insertnum),0) as i, NVL(SUM(sellnum),0) as s
+    from insertitem left join sellitem on code = sellcode group by code);
+
+SELECT NVL(sum(insertnum),0), code from insertitem group by code;
+SELECT NVL(SUM(sellnum),0), sellcode FROM sellitem group by sellcode;
+update item set goods_cate = ltrim(goods_cate);
+update item set itemtitle = ltrim(itemtitle);
+select TO_CHAR(SYSDATE,'MM') as insertdate,sum(insertnum) as insertnum from insertitem group by TO_CHAR(SYSDATE,'MM');
+select TO_CHAR(selldate,'MM') as selldate,sum(sellnum) as sellnum from sellitem group by TO_CHAR(selldate,'MM');
+
+select TO_CHAR(itemdate,'MM') as stockdate, NVL(sum(stock),0) as stock
+from (select NVL(num,0) as stock, itemdate
+	from item left join (select code, NVL(i-s, 0) as num
+    from (select code, NVL(sum(insertnum),0) as i, NVL(SUM(sellnum),0) as s
+    from insertitem left join sellitem on code = sellcode group by code)) on itemcode = code) group by TO_CHAR(itemdate,'MM');

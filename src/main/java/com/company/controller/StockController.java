@@ -15,24 +15,20 @@ import lombok.extern.log4j.Log4j2;
 @Controller
 @Log4j2
 public class StockController {
-	
+
 	@Autowired
 	private StockService service;
-	
+
 	// /tables-4 =StockList.jsp
-	@GetMapping("/tables-4")
-	public void StockListGet(Model model,ItemDTO itemDto) {
+	@GetMapping("/stock")
+	public void StockListGet(Model model, ItemDTO itemDto) {
 		log.info("재고현황 폼 요청");
 		List<ItemDTO> list = service.stockDto();
 
-		model.addAttribute("list",list);
-	
-	
+		model.addAttribute("list", list);
+
 	}
 
-
-
-	
 //	@GetMapping("/getSearchList")
 //	@ResponseBody
 //	private List<StockDTO> getSearchList(@RequestParam)

@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class MenuController {
-	
+
 //	@GetMapping("/tables-1")
 //	public void buy() {
 //		
