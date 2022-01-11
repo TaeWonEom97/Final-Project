@@ -1,5 +1,6 @@
 package com.company.controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
@@ -9,11 +10,6 @@ import java.util.List;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.ibatis.annotations.Param;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,8 +24,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
+
+
 
 import com.company.domain.PutInDTO;
 import com.company.mapper.PutInMapper;
@@ -79,20 +75,17 @@ public class PutInController {
 	}
 
 	@DeleteMapping("/putin/{code}")
-	public ResponseEntity<String> delete(@PathVariable String itemcode) {
-		log.info("내역 삭제 " + itemcode);
-
-		return service.putinRemove(itemcode) ? new ResponseEntity<String>("success", HttpStatus.OK)
-				: new ResponseEntity<String>("fail", HttpStatus.BAD_REQUEST);
-	}
+	public ResponseEntity<String> delete(@PathVariable String code) {
+		log.info("내역 삭제 " + code);
+		
+		return service.putinRemove(code) ?
+				new ResponseEntity<String>("success", HttpStatus.OK):
+					new ResponseEntity<String>("fail", HttpStatus.BAD_REQUEST);
 	
-		
-		
-		
-		
+
     }
 	
-	
+}
 	
 	
 	

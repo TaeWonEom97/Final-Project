@@ -227,10 +227,32 @@ $(function(){
 		{   
 			$(this).html( $(this).attr('original_entry') ); 
 		});  
+
+		let code = tbl_row.find('td:nth-child(1)').text();
+		console.log("코드는 : "+code);
+		
+		let putinremove={
+			code:code
+		}
+		console.log(putinremove.code);
+		
+		putinService.remove(putinremove,
+			function(data){
+			console.log(data);
+				if(data == "success") {
+					alert("삭제 성공");
+				}
+				location.reload();
+				modal.modal("hide");
+			},
+			function(msg){
+				alert(msg);
+			}
+		); // remove end
+		
 	});
 	//--->button > cancel > end
 
-	
 	//--->save whole row entery > start	
 	$(document).on('click', '.btn_save', function(event) 
 	{
@@ -264,6 +286,7 @@ $(function(){
 		});
 		//--->get row data > end
 
+
 		//use the "arr"	object for your ajax call
 		$.extend(arr, {row_id:row_id});
 
@@ -271,28 +294,15 @@ $(function(){
 		$('.post_msg').html( '<pre class="bg-success">'+JSON.stringify(arr, null, 2) +'</pre>')
 			
 		//console.log(arr);
-		//let itemcode = tbl_row.find('td:nth-child(1)').text();
 		let amount = tbl_row.find('td:nth-child(2)').text();
-		//let insertdate = tbl_row.find('td:nth-child(3)').text();
 		let seqid = tbl_row.find('td:nth-child(4)').text();
-		/*let itemtitle = tbl_row.find('td:nth-child(5)').text();
-		let itemprice = tbl_row.find('td:nth-child(6)').text();
-		let supplier = tbl_row.find('td:nth-child(7)').text();
-		let size = tbl_row.find('td:nth-child(8)').text();
-		let color = tbl_row.find('td:nth-child(9)').text();*/
+		
 		
 		console.log(amount+"   "+seqid);
 		
 		let putinupdate={
-			//itemcode:itemcode,
 			insertnum:amount,
-			//insertdate:insertdate,
 			seqid:seqid,
-			//itemtitle:itemtitle,
-			//itemprice:itemprice,
-			//supplier:supplier,
-			//size:size,
-			//color:color
 		}
 		console.log(putinupdate.seqid);
 		
@@ -303,15 +313,17 @@ $(function(){
 					alert("수정성공");
 				}
 				//location.reload();
+
 				modal.modal("hide");
 			},
 			function(msg){
 				alert(msg);
 			}
 		); // update end
+		
+		
 
 	});
-	
 	//--->save whole row entery > end
 	}
 	}) //ajax end

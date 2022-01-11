@@ -7,7 +7,9 @@ create table item(
 	itemsize varchar2(50) not null,
 	color varchar2(10) not null
 );
+
 create sequence seqid;
+drop sequence seqid;
 --입고 상품코드(foreign key), 입고수량,  입고 날짜,시퀀스(primary) -> 거래처에서 입고
 create table insertitem(
 	code varchar2(50) not null,
@@ -17,19 +19,31 @@ create table insertitem(
 	seqid number(10) constraint pk_seqid primary key
 );
 
-insert into insertitem(code, insertnum, insertdate, seqid) values('P004', 30, sysdate, seqid.nextval);
-insert into insertitem(code, insertnum, insertdate, seqid) values('P003', 20, sysdate, seqid.nextval);
+delete from insertitem;
 
-delete from insertitem where code = 'p003';
+insert into insertitem(code, insertnum, insertdate, seqid) values('P001', 40, sysdate-365, seqid.nextval);
+insert into insertitem(code, insertnum, insertdate, seqid) values('P002', 60, sysdate-335, seqid.nextval);
+insert into insertitem(code, insertnum, insertdate, seqid) values('P003', 70, sysdate-305, seqid.nextval);
+insert into insertitem(code, insertnum, insertdate, seqid) values('P204', 80, sysdate-275, seqid.nextval);
+insert into insertitem(code, insertnum, insertdate, seqid) values('P205', 90, sysdate-245, seqid.nextval);
+insert into insertitem(code, insertnum, insertdate, seqid) values('P206', 60, sysdate-215, seqid.nextval);
+insert into insertitem(code, insertnum, insertdate, seqid) values('P207', 10, sysdate-185, seqid.nextval);
+insert into insertitem(code, insertnum, insertdate, seqid) values('P208', 40, sysdate-155, seqid.nextval);
+insert into insertitem(code, insertnum, insertdate, seqid) values('P109', 0, sysdate-125, seqid.nextval);
+insert into insertitem(code, insertnum, insertdate, seqid) values('P110', 0, sysdate-95, seqid.nextval);
+insert into insertitem(code, insertnum, insertdate, seqid) values('P211', 20, sysdate-65, seqid.nextval);
 
-update INSERTITEM set insertnum = 789 where seqid = 363;
+insert into insertitem(code, insertnum, insertdate, seqid) values('P004', 50, sysdate-35, seqid.nextval);
+insert into insertitem(code, insertnum, insertdate, seqid) values('P105', 20, sysdate-30, seqid.nextval);
+insert into insertitem(code, insertnum, insertdate, seqid) values('P106', 15, sysdate-25, seqid.nextval);
 
-update item set itemcode='p001',itemtitle='바보',itemprice=1,supplier='바보',itemsize='babo',color='b'
-where itemcode='p001';
+insert into insertitem(code, insertnum, insertdate, seqid) values('P107', 30, sysdate-10, seqid.nextval);
+insert into insertitem(code, insertnum, insertdate, seqid) values('P108', 15, sysdate-5, seqid.nextval);
+insert into insertitem(code, insertnum, insertdate, seqid) values('P209', 20, sysdate-1, seqid.nextval);
 
 select * from insertitem;
 
-select * from customer;
+delete from insertitem;
 
 create sequence sellid;
 --판매, 조회 : 코드(foreign key), 판매수량,  판매 날짜,시퀀스(primary) -> 입고 된거를 판매
@@ -45,13 +59,6 @@ drop table salescheck;
 alter table sellitem add selluser varchar2(50) not null;
 alter table sellitem add constraint fk_selluser foreign key(selluser) references customer(userid);
 
-
-insert into item(itemcode, itemtitle, itemprice, supplier, itemsize, color) values('P004', '에어포스', 150000, '나이키', '250cm', 'White');
-insert into item(itemcode, itemtitle, itemprice, supplier, itemsize, color) values('P007', '이름', 7000, '나키', '250cm', 'Wh');
-
-insert into sellitem(sellcode, sellnum, sellid, selluser) values('P004', 30, sellid.nextval, 'user1');
-insert into sellitem(sellcode, sellnum, sellid, selluser) values('P004', 3, sellid.nextval, 'user1');
-select * from sellitem;
 --판매조회 userid(foreign key), 상품 코드(foreign key), 시퀀스(primary) 
 --create table salescheck(
 --	salesid varchar2(50) not null,
