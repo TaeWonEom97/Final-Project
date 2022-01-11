@@ -85,6 +85,7 @@
                         <a class="nav-link" href="/sellPage">판매관리</a>
                         <a class="nav-link" href="/tables-4">재고현황 및 조회</a>
                      </nav>
+                     
                   </div>
                   <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
                      data-bs-target="#collapsePages" aria-expanded="false"
