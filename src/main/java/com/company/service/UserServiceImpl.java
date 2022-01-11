@@ -62,5 +62,10 @@ public class UserServiceImpl implements UserService {
 		}
 	}
 
+	@Override
+	public CustomerDTO checkId(String userid) {
+		return mapper.checkId(userid);
+	}
+
 	
 }

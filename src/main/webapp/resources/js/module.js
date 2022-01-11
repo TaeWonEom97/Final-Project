@@ -40,12 +40,12 @@ let putinService = (function(){
 	} // get end
 	
 	
-	function remove(code,callback,error){
+	function remove(putinremove,callback,error){
 		$.ajax({
-			url:'/putin/'+code,
+			url:'/putin/'+putinremove.code,
 			type: 'delete', 
 			contentType:'application/json',
-			data:JSON.stringify(itemcode),
+			data:JSON.stringify(putinremove),
 			success:function(result){
 				if(callback){
 					callback(result);					

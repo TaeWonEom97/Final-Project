@@ -7,7 +7,7 @@ $(function(){
    let modal = $('#sellModal');
    
    // 모달 창 영역 안의 요소 가져오기
-   let modalsellid = modal.find("input[name='sellid']")
+   let modalsellid = modal.find("input[name='sellid']");
    let modalselluser = modal.find("input[name='selluser']");
    let modalsellcode = modal.find("input[name='sellcode']");
    let modalitemtitle = modal.find("input[name='itemtitle']");

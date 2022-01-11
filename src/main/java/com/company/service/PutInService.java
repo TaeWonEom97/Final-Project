@@ -1,12 +1,13 @@
 package com.company.service;
 
-import java.util.Date;
+import java.io.File;
 import java.util.List;
 
-import javax.servlet.http.HttpServletResponse;
+import org.springframework.web.multipart.MultipartFile;
+
+import org.springframework.web.multipart.MultipartFile;
 
 import com.company.domain.PutInDTO;
-import com.company.domain.SellItemDTO;
 
 public interface PutInService {
 	public List<PutInDTO> getRow(String insertdate);
@@ -15,6 +16,9 @@ public interface PutInService {
 	public boolean update(PutInDTO updateDto);
 	public boolean putinRemove(String code);
 	
+	
+	
 	public List<PutInDTO> getRow2();
+
 
 }

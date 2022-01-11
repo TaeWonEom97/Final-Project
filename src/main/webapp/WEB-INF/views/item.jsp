@@ -32,6 +32,10 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+<<<<<<< HEAD
+=======
+
+>>>>>>> branch 'master' of https://github.com/TaeWonEom97/Final-Project.git
                            <c:forEach var="dto" items="${list}">
                               <tr class="get" style = "cursor:pointer;">
                                  <td>${dto.itemcode}</td>

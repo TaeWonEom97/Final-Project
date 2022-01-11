@@ -62,6 +62,8 @@ $(function(){
    
    modalRegisterBtn.click(function(){
 
+
+
       var insertNew = {
          itemcode:modalitemcode.val(),
          itemtitle:modalitemtitle.val(),

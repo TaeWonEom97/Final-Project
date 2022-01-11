@@ -116,7 +116,7 @@
 						<a class="nav-link" href="charts.html">
 							<div class="sb-nav-link-icon">
 								<i class="fas fa-chart-area"></i>
-							</div> 보고서
+							</div> 기능추가예정
 						</a> <a class="nav-link" href="board">
 							<div class="sb-nav-link-icon">
 								<i class="fas fa-table"></i>

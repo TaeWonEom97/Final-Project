@@ -445,6 +445,7 @@ legend + * {
   direction: ltr;
 }
 */
+
 ::-webkit-search-decoration {
   -webkit-appearance: none;
 }
@@ -7828,6 +7829,7 @@ textarea.form-control-lg {
 .text-opacity-100 {
   --bs-text-opacity: 1;
 }
+
 
 .bg-primary {
   --bs-bg-opacity: 1;

@@ -50,7 +50,7 @@
                                      <div>
 
 									<div>
-										<canvas id="canvas3" height="50%" width="99%"></canvas>
+										<canvas id="canvas2" height="50%" width="99%"></canvas>
 							
 									</div>
 							
@@ -112,7 +112,7 @@
 							
 									function createChart() {
 							
-										var ctx = document.getElementById("canvas3").getContext("2d");
+										var ctx = document.getElementById("canvas2").getContext("2d");
 							
 										LineChartDemo = Chart.Line(ctx, {
 							
@@ -158,7 +158,7 @@
 										<div>
 										<div>
 
-													<canvas id="canvas2" height="63%" width="80%"></canvas>
+													<canvas id="canvas3" height="63%" width="80%"></canvas>
 										
 												</div>
 										
@@ -221,7 +221,7 @@
 											}
 										function createChart2() {
 											
-											var ctx = document.getElementById("canvas2").getContext('2d');
+											var ctx = document.getElementById("canvas3").getContext('2d');
 								
 											var myChart = new Chart(ctx, {
 								
@@ -257,8 +257,8 @@
 							</div>
 					</div>
    </main>
- <script>
- function displayTime(timeValue){	
+<script>
+	function displayTime(timeValue){	
 		
 		var dateObj = new Date(timeValue);
 		
@@ -269,5 +269,5 @@
 		return [yy,'/',(mm>9?'':'0')+mm,'/',(dd>9?'':'0')+dd].join('');			
 		
 	}//displayTime end
- </script>
+</script>
 <%@include file="includes/footer.jsp" %>

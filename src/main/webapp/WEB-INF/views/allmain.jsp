@@ -45,12 +45,12 @@
                                 <div class="card mb-4">
                                     <div class="card-header">
                                         <i class="fas fa-chart-area me-1"></i>
-                                        재고 차트
+                                        품목별 재고 차트
                                     </div>
                                      <div>
 
 									<div>
-										<canvas id="canvas" height="50%" width="99%"></canvas>
+										<canvas id="canvas4" height="50%" width="99%"></canvas>
 							
 									</div>
 							
@@ -73,7 +73,7 @@
 							
 										$.each(data, function(inx, obj) {
 							
-											chartLabels.push(obj.itemtitle+obj.itemcode);
+											chartLabels.push(obj.goods_cate);
 							
 											chartData.push(obj.stock);
 							
@@ -93,7 +93,7 @@
 							
 										{
 							
-											label : "재고 현황",
+											label : "품목별 재고현황",
 							
 											backgroundColor:"#bfdaf9",
 							                borderColor: "#80b6f4",
@@ -112,7 +112,7 @@
 							
 									function createChart() {
 							
-										var ctx = document.getElementById("canvas").getContext("2d");
+										var ctx = document.getElementById("canvas4").getContext("2d");
 							
 										LineChartDemo = Chart.Line(ctx, {
 							
@@ -158,7 +158,7 @@
 										<div>
 										<div>
 
-													<canvas id="canvas3" height="63%" width="80%"></canvas>
+													<canvas id="canvas5" height="63%" width="80%"></canvas>
 										
 												</div>
 										
@@ -186,8 +186,9 @@
 								
 											$.each(data, function(inx, obj3) {
 								
-												chartLabels3.push("Jan","Feb","Mar","Apr","May","June","July","Aug","Sep","Oct","Nov","Dec");
-												//만약 다른 월에도 데이터가 있다면 obj2.sellnum.each로 루프를 돌려서 값을 넣어줍니다.
+												// chartLabels3.push("Jan","Feb","Mar","Apr","May","June","July","Aug","Sep","Oct","Nov","Dec");
+												chartLabels3.push("1월","2월","3월","4월","5월","6월","7월","8월","9월","10월","11월","12월");
+												//만약 다른 월에도 데이터가 있다면 obj3.stock.each로 루프를 돌려서 값을 넣어줍니다.
 												chartData3.push(obj3.stock,40,10,30,90,30,50,10,40,10,15,5);
 								
 											});
@@ -221,7 +222,7 @@
 											}
 										function createChart3() {
 											
-											var ctx = document.getElementById("canvas3").getContext('2d');
+											var ctx = document.getElementById("canvas5").getContext('2d');
 								
 											var myChart = new Chart(ctx, {
 								
