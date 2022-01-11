@@ -121,4 +121,14 @@ create table customerboard_reply(
 	updatereplydate date default sysdate
 );
 
+select * from INSERTITEM;
+
+
+alter table item add itemdate date default sysdate;
+
+
+
+
+
+
 

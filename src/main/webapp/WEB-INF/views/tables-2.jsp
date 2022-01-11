@@ -22,12 +22,13 @@
                                             <th>거래처</th>
                                             <th>상품코드</th>
                                             <th>상품명</th>
+                                            <th>사이즈</th>
+                                            <th>색상</th>
                                             <th>수량</th>
                                             <th>가격</th>
                                             <th>합계</th>
                                             <th>제조사</th>
                                             <th>판매일</th>
-                                            <th>총수량</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -36,9 +37,11 @@
                                  <td>${dto.customerDto.company}</td>
                                  <td>${dto.sellcode}</td>
                                  <td>${dto.itemDto.itemtitle}</td>
+                                 <td>${dto.itemDto.itemsize}</td>
+                                 <td>${dto.itemDto.color}</td>
                                  <td>${dto.sellnum}</td>
-                                 <td>${dto.itemDto.itemprice}</td>
-                                 <td>${(dto.itemDto.itemprice) * (dto.sellnum)}</td>
+                                 <td><fmt:formatNumber type="number" value="${dto.itemDto.itemprice}" /></td>
+                                 <td><fmt:formatNumber type="number" value="${(dto.itemDto.itemprice) * (dto.sellnum)}" /></td>
                                  <td>${dto.itemDto.supplier}</td>
                                  <td>${dto.selldate}</td>
                               </tr>

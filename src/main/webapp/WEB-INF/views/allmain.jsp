@@ -45,7 +45,7 @@
                                 <div class="card mb-4">
                                     <div class="card-header">
                                         <i class="fas fa-chart-area me-1"></i>
-                                        재고 차트
+                                        품목별 재고 차트
                                     </div>
                                      <div>
 
@@ -73,7 +73,7 @@
 							
 										$.each(data, function(inx, obj) {
 							
-											chartLabels.push(obj.itemtitle+obj.itemcode);
+											chartLabels.push(obj.goods_cate);
 							
 											chartData.push(obj.stock);
 							
@@ -93,7 +93,7 @@
 							
 										{
 							
-											label : "재고 현황",
+											label : "품목별 재고현황",
 							
 											backgroundColor:"#bfdaf9",
 							                borderColor: "#80b6f4",

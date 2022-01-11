@@ -19,6 +19,8 @@ public interface StockMapper {
 		public String insert1(StockDTO insertDto); 
 		public int Stocknum(StockDTO insertDto);			 
 		public List<ItemDTO> stocklist();
+		public List<ItemDTO> stockcate();
+		
 	    
 
 }

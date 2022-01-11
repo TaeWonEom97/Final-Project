@@ -1,7 +1,9 @@
 package com.company.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
@@ -26,11 +28,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.company.domain.PutInDTO;
+import com.company.mapper.PutInMapper;
 import com.company.service.PutInService;
 
 import lombok.extern.log4j.Log4j2;
+import oracle.jdbc.proxy.annotation.Post;
 
 @Controller
 @Log4j2
@@ -82,9 +88,32 @@ public class PutInController {
 				new ResponseEntity<String>("success", HttpStatus.OK):
 					new ResponseEntity<String>("fail", HttpStatus.BAD_REQUEST);
 	}
-
 	
-}
+		
+		
+		
+		
+    }
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 

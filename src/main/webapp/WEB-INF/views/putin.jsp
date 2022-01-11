@@ -11,25 +11,25 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Tables - SB Admin</title>
-		<!-- 수정 삭제 -->
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+      <!-- 수정 삭제 -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
         <link rel="stylesheet" href="/resources/css/styles.css"/>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
-   		<!-- 달력 -->
-		<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+         <!-- 달력 -->
+      <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+      <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
-		
-		<style>
-			div.col{
-			padding: 5px;
-			}
-		</style>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
+      
+      <style>
+         div.col{
+         padding: 5px;
+         }
+      </style>
 
     </head>
     <body class="sb-nav-fixed">
@@ -124,120 +124,83 @@
                             </div>
                         </div>
                       
-	                   <button type="button" class="btn btn-secondary btn-sm" id="new">신규</button>
-	                   <button type="button" class="btn btn-secondary btn-sm" id="select">조회</button>
+                      <button type="button" class="btn btn-secondary btn-sm" id="new">신규</button>
+                      <button type="button" class="btn btn-secondary btn-sm" id="select">조회</button>
                         
                         <div class="container">
-						  <div class="row">
-						    <div class="col">
-      	    			<label>입고일자</label>
-      	    				<input type="text" id="putindate" placeholder="날짜를 입력해주세요">
-						    <script>
-						        $(function () {
-						        	$.datepicker.setDefaults($.datepicker.regional['ko']);
-						            $("#putindate").datepicker({dateFormat:'yy-mm-dd'});
-						        });
-						    </script>
+                    <div class="row">
+                      <div class="col">
+                      <label>입고일자</label>
+                         <input type="text" id="putindate" placeholder="날짜를 입력해주세요">
+                      <script>
+                          $(function () {
+                             $.datepicker.setDefaults($.datepicker.regional['ko']);
+                              $("#putindate").datepicker({dateFormat:'yy-mm-dd'});
+                          });
+                      </script>
 
                     </div>
                 
-				 <div class="panel panel-default">
-					  <div class="panel-heading"><b> <i class="fas fa-table me-1"></i>
+             <div class="panel panel-default">
+                 <div class="panel-heading"><b> <i class="fas fa-table me-1"></i>
                                 입고 관리 </b> 
                                 
-                                <div>
-							        <h5>Excel Download</h5>
-							        <form action="/excelDown" method="get">
-							            <button type="submit">Excel</button>
-							        </form>
-					  </div>
-                  </div>
+                             <div>
+                          <h5>Excel Download</h5>
+                          <form action="/excelDown" method="get">
+                              <button type="submit">Excel</button>
+                          </form>
+                    <form id="form1" name="form1">
+						<input type="file" id="fileInput" name="fileInput">
+						<button type="button" onclick="doExcelUploadProcess()">엑셀업로드 작업</button>
+				</form>
+             </div>
+           </div>
 
-						
-						
-					  <div class="panel-body contents">
-						
-						<div class="tbl_user_data"></div>
-					
-					  </div>
-					
-					</div>
-					
-					 
-					<!-- 나중에 hidden으로 숨기기 
-					<div class="panel panel-default">
-					  <div class="panel-heading"><b>HTML Table Edits/Upates</b> </div>
-					
-					  <div class="panel-body">
-						<p>All the changes will be displayed below</p>
-						<div class="post_msg"> </div>
-					
-					  </div>
-					</div> -->
-
-
+                  
+                  
+                 <div class="panel-body contents">
+                  
+                  <div class="tbl_user_data"></div>
+               
+                 </div>
+               
+               </div>
                 </main>
    <%-- 신규 입고내역 작성 폼 --%>
-	<div class="modal" tabindex="-1" id="newModal">
-	  <div class="modal-dialog">
-	    <div class="modal-content">
-	      <div class="modal-header">
-	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-	          <span aria-hidden="true">&times;</span>
-	        </button>
-	        <h5 class="modal-title">신규 
-	        입고 내역 등록</h5>
-	      </div>
-	      <div class="modal-body">
-	        <div class="form-group">
-	        	<label for="">제품 코드</label>
-	        	<input type="text" name="code" class="form-control" value=""/>
-	        </div>
-	        <div class="form-group">
-	        	<label for="">입고 수량</label>
-	        	<input type="text" name="num" class="form-control" value=""/>
-	        </div>        
-	      </div>
-	      <div class="modal-footer">
-	        <button type="button" class="btn btn-secondary" id="modalRegisterBtn">등록</button>
-	        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="modalCloseBtn">종료</button>
-	      </div>
-	    </div>
-	  </div>
-	</div>
+   <div class="modal" tabindex="-1" id="newModal">
+     <div class="modal-dialog">
+       <div class="modal-content">
+         <div class="modal-header">
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+             <span aria-hidden="true">&times;</span>
+           </button>
+           <h5 class="modal-title">신규 
+           입고 내역 등록</h5>
+         </div>
+         <div class="modal-body">
+           <div class="form-group">
+              <label for="">제품 코드</label>
+              <input type="text" name="code" class="form-control" value=""/>
+           </div>
+           <div class="form-group">
+              <label for="">입고 수량</label>
+              <input type="text" name="num" class="form-control" value=""/>
+           </div>        
+         </div>
+         <div class="modal-footer">
+           <button type="button" class="btn btn-secondary" id="modalRegisterBtn">등록</button>
+           <button type="button" class="btn btn-secondary" data-dismiss="modal" id="modalCloseBtn">종료</button>
+         </div>
+       </div>
+     </div>
+   </div>
 
 <script>
-	let csrfHeaderName = "${_csrf.headerName}";
-	let csrfTokenValue = "${_csrf.token}";
-</script>			
+   let csrfHeaderName = "${_csrf.headerName}";
+   let csrfTokenValue = "${_csrf.token}";
+</script>         
     <script src="/resources/js/putin.js"></script>
     <script src="/resources/js/newmodal.js"></script>
-    <script src="/resources/js/module.js"></script> 		
+    <script src="/resources/js/module.js"></script>    
 <%@include file="includes/footer.jsp" %>
-                <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid px-4">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2021</div>
-                            <div>
-                                <a href="#">Privacy Policy</a>
-                                &middot;
-                                <a href="#">Terms &amp; Conditions</a>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
-            </div>
-        </div>
-        <script>
-      	//ajax 동작 시 헤더 값에 포함해서 보낼 csrf 토큰 값 설정
-    	let csrfHeaderName = "${_csrf.headerName}";
-    	let csrfTokenValue = "${_csrf.token}";
-        </script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="/resources/js/putin.js"></script>
-        <script src="/resources/js/scripts.js"></script>
-        <script src="/resources/js/newmodal.js"></script>
-        <script src="/resources/js/module.js"></script>  
-        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
-    </body>
-</html>

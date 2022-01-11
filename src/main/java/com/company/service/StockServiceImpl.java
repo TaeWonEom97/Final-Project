@@ -27,6 +27,12 @@ public class StockServiceImpl implements StockService {
 		return mapper.stocklist();
 	}
 
+	@Override
+	public List<ItemDTO> stockCate() {
+		
+		return mapper.stockcate();
+	}
+
 
 	
 

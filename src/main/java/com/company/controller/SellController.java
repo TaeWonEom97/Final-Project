@@ -37,7 +37,7 @@ public class SellController {
       model.addAttribute("list", list);
    }
    
-   @PostMapping("/insertSell")
+   @PostMapping("/sell/insertSell")
    public ResponseEntity<String> insertSell(@RequestBody SellItemDTO insertDto) {
       log.info("판매 등록 " + insertDto);
       
@@ -46,14 +46,14 @@ public class SellController {
                new ResponseEntity<String>("fail", HttpStatus.BAD_REQUEST);
    }
    
-   @PostMapping("/{sellid}")
+   @PostMapping("/sell/{sellid}")
    public ResponseEntity<SellItemDTO> read(@PathVariable String sellid) {
       log.info("하나 가져오기 " + sellid);
       
       return new ResponseEntity<SellItemDTO>(service.sellGet(sellid), HttpStatus.OK);
    }
    
-   @DeleteMapping("/{sellid}")
+   @DeleteMapping("/sell/{sellid}")
    public ResponseEntity<String> remove(@PathVariable String sellid) {
       log.info("내역 삭제 " + sellid);
       
@@ -62,7 +62,7 @@ public class SellController {
                new ResponseEntity<String>("fail", HttpStatus.BAD_REQUEST);
    }
    
-   @PutMapping("/{sellid}")
+   @PutMapping("/sell/{sellid}")
    public ResponseEntity<String> modify(@RequestBody SellItemDTO updateDto) {
       log.info("내역 수정 " + updateDto);
       

@@ -66,7 +66,7 @@ public class ChartController {
 	
 	@GetMapping(value = "allsellList")
 	public @ResponseBody List<ItemDTO> allsellList(Locale locale, Model model) {
-	 	List<ItemDTO> allsellnum = stockService.stockDto();	 		
+	 	List<ItemDTO> allsellnum = stockService.stockCate();	 		
 	 	log.info("재고현황"+allsellnum);	 
 	  	return allsellnum;
 	}
