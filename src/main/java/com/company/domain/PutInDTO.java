@@ -20,7 +20,7 @@ public class PutInDTO {
 	private int insertnum;
 	private Date insertdate;
 	private int seqid;
-	
+
 	private List<ItemDTO> itemDto;
 	private CustomerDTO customerDto;
 }

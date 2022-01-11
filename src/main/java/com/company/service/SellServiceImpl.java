@@ -21,8 +21,6 @@ public class SellServiceImpl implements SellService {
 		return mapper.sellList();
 	}
 
-
-
 	@Override
 	public List<ChartDTO> sellnum() {
 		return mapper.sellchart();

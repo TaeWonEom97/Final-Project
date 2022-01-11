@@ -7,21 +7,20 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class SalesListDTO {
-	   private String sellcode;
-	   private int sellnum;
-	   private String selldate;
-	   private String sellid;
-	   
-	   private ItemDTO itemDto;
+	private String sellcode;
+	private int sellnum;
+	private String selldate;
+	private String sellid;
 
-	   public SalesListDTO(ItemDTO itemDto) {
-	      super();
-	      this.itemDto = itemDto;
-	   }
-	
+	private ItemDTO itemDto;
+
+	public SalesListDTO(ItemDTO itemDto) {
+		super();
+		this.itemDto = itemDto;
+	}
+
 }

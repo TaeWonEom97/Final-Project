@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
+<%@taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,14 +16,7 @@
         <link rel="stylesheet" href="/resources/css/styles.css" />
         <!-- <link rel="stylesheet" href="/resources/css/modal.css" /> -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
-        <!-- 달력 -->
-		<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        
-<title>Insert title here</title>
 </head>
-<body>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
@@ -35,17 +28,16 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <sec:authorize access="isAnonymous()" >                     
-                           <li><a class="dropdown-item" href="#!">Settings</a></li>
-                           <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+                        <sec:authorize access="isAnonymous()">              
+                           <li><a class="dropdown-item" href="/register">Register</a></li>
+                           <li><a class="dropdown-item" href="/forgotPwd">ForgotPassword</a></li>
                            <li><hr class="dropdown-divider" /></li>
                            <li><a class="dropdown-item" href="/login">Login</a></li>     
                          </sec:authorize>
-                           
-                        <sec:authorize access="isAuthenticated()" >
+                         <sec:authorize access="isAuthenticated()" >
 	                       <li><a class="dropdown-item" href="/changePwd">ChangePassword</a></li>           
 	                       <li><a class="dropdown-item" href="/logoutForm">Logout</a></li>           
-	                    </sec:authorize>               
+	                     </sec:authorize>               
                     </ul>
                 </li>
             </ul>
@@ -68,10 +60,9 @@
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-
                                     <a class="nav-link" href="/item">제품관리</a>
                                     <a class="nav-link" href="/putin">입고관리</a>
-                                    <a class="nav-link" href="/tables-2">판매관리</a>
+                                    <a class="nav-link" href="/sellPage">판매관리</a>
                                     <a class="nav-link" href="/tables-4">재고현황 및 조회</a>
                                 </nav>
                             </div>
@@ -80,8 +71,6 @@
                                 계정관리
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            
-                            
                             <div class="collapse" id="collapsePages" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <sec:authorize access="isAnonymous()" >   

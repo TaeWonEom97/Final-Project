@@ -43,7 +43,7 @@
 		select TO_CHAR(SYSDATE,'MM') as insertdate,sum(insertnum) as insertnum from insertitem group by TO_CHAR(SYSDATE,'MM')
 	</select>
 
-<!-- 판매 등록 -->
+	<!-- 판매 등록 -->
 	<insert id="sellInsert">
 		insert into sellitem(sellcode, sellnum, sellid, selluser) values(#{sellcode}, #{sellnum}, sellid.nextval, #{selluser})
 	</insert>

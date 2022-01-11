@@ -13,9 +13,7 @@ import com.company.domain.StockDTO;
 public interface StockService {
 
 	public List<ItemDTO> stockDto();
-	
-	
+	public List<ItemDTO> stockcate();
+	public List<ItemDTO> stockchart();
 
-
-	
 }

@@ -8,4 +8,5 @@ public interface UserService {
 	public boolean forgotPwd(String userid, String password);
 	public CustomerDTO searchId(CustomerDTO customerDto);
 	public boolean changePwd(ChangePwdDTO changeDto);
+	public CustomerDTO checkId(String userid);
 }

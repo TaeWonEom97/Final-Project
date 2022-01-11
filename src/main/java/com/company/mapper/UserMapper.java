@@ -12,4 +12,5 @@ public interface UserMapper {
 	public int forgotPwd(@Param("userid") String userid, @Param("password") String password);
 	public CustomerDTO searchId(CustomerDTO customerDto);
 	public int changePwd(ChangePwdDTO changeDto);
+	public CustomerDTO checkId(String userid);
 }

@@ -12,10 +12,9 @@
         <meta name="author" content="" />
         <title>Tables - SB Admin</title>
 		<!-- 수정 삭제 -->
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
+		<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css"> -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
-        <link href="css/styles.css" rel="stylesheet" />
         <link rel="stylesheet" href="/resources/css/styles.css"/>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
    		<!-- 달력 -->
@@ -214,30 +213,3 @@
     <script src="/resources/js/newmodal.js"></script>
     <script src="/resources/js/module.js"></script> 		
 <%@include file="includes/footer.jsp" %>
-                <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid px-4">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2021</div>
-                            <div>
-                                <a href="#">Privacy Policy</a>
-                                &middot;
-                                <a href="#">Terms &amp; Conditions</a>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
-            </div>
-        </div>
-        <script>
-      	//ajax 동작 시 헤더 값에 포함해서 보낼 csrf 토큰 값 설정
-    	let csrfHeaderName = "${_csrf.headerName}";
-    	let csrfTokenValue = "${_csrf.token}";
-        </script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="/resources/js/putin.js"></script>
-        <script src="/resources/js/scripts.js"></script>
-        <script src="/resources/js/newmodal.js"></script>
-        <script src="/resources/js/module.js"></script>  
-        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
-    </body>
-</html>
