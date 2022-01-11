@@ -75,15 +75,13 @@ public class PutInController {
 	}
 	
 	@DeleteMapping("/putin/{code}")
-	public ResponseEntity<String> delete(@PathVariable String itemcode) {
-		log.info("내역 삭제 " + itemcode);
+	public ResponseEntity<String> delete(@PathVariable String code) {
+		log.info("내역 삭제 " + code);
 		
-		return service.putinRemove(itemcode) ?
+		return service.putinRemove(code) ?
 				new ResponseEntity<String>("success", HttpStatus.OK):
 					new ResponseEntity<String>("fail", HttpStatus.BAD_REQUEST);
 	}
-
-	
 }
 	
 	
