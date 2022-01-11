@@ -7,6 +7,11 @@
       values(#{userid},#{password},#{company})
    </insert>
    
+   <!-- 아이디 중복 확인 -->
+   <select id="checkId" resultType="com.company.domain.CustomerDTO">
+      select * from customer where userid = #{userid}
+   </select>
+   
    <!-- 회원가입 시 권한 정보 삽입 -->
    <insert id="register_auth">
       insert into customer_auth(userid,auth) values(#{userid},#{auth})

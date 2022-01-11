@@ -19,7 +19,7 @@ public class CustomerDTO {
 	private String password;
 	private String company;
 	private boolean enabled;
-	
+
 	private List<AuthDTO> authList;
 
 }

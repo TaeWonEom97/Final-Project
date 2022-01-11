@@ -16,5 +16,5 @@ public class ChangePwdDTO {
 	private String password;
 	private String new_password;
 	private String corfirm_password;
-	
+
 }

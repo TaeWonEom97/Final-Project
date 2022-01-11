@@ -27,7 +27,7 @@ public class SellController {
    @Autowired
    private SellService service;
    
-   @GetMapping("/tables-2")
+   @GetMapping("/sellPage")
    public void list(Model model) {
       
       log.info("판매 조회");
@@ -69,15 +69,6 @@ public class SellController {
       return service.sellUpdate(updateDto)?
             new ResponseEntity<String>("success", HttpStatus.OK):
                new ResponseEntity<String>("fail", HttpStatus.BAD_REQUEST);
-   }
-
-
-
-   @GetMapping("/tables-3")//판매내역조회
-   public void table3Get() {
-      log.info("폼 요청");
-      
-      
    }
 
 }

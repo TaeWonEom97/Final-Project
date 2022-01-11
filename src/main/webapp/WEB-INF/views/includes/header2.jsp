@@ -82,7 +82,7 @@
                      
                         <a class="nav-link" href="/item">제품관리</a>
                         <a class="nav-link" href="/putin">입고관리</a>
-                        <a class="nav-link" href="/tables-2">판매관리</a>
+                        <a class="nav-link" href="/sellPage">판매관리</a>
                         <a class="nav-link" href="/tables-4">재고현황 및 조회</a>
                      </nav>
                   </div>
