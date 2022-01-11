@@ -14,7 +14,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
 <title>Insert title here</title>
 </head>
-<body class="bg-primary">
+<body class="bg-primary" style="--bs-bg-opacity: .5;"><!-- 배경화면 컬러 변경 -->
         <div id="layoutAuthentication">
             <div id="layoutAuthentication_content">
                 <main>
@@ -39,7 +39,7 @@
                                             </div>
                                             <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
                                                 <a class="small" href="/forgotPwd">비밀번호 찾기</a>
-                                                <button type="submit" class="btn btn-primary">로그인</button>
+                                                <button type="submit" class="btn btn-primary" >로그인</button>
                                             </div>
                                             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
                                         </form>

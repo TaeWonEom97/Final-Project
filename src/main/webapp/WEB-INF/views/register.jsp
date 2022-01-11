@@ -13,7 +13,7 @@
         <link href="css/styles.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
     </head>
-    <body class="bg-primary">
+    <body class="bg-primary" style="--bs-bg-opacity: .5;">
         <div id="layoutAuthentication">
             <div id="layoutAuthentication_content">
                 <main>

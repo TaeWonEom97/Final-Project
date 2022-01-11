@@ -3,6 +3,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -72,7 +73,7 @@
                                     <a class="nav-link" href="/item">제품관리</a>
                                     <a class="nav-link" href="/putin">입고관리</a>
                                     <a class="nav-link" href="/tables-2">판매관리</a>
-                                    <a class="nav-link" href="/tables-4">재고현황 및 조회</a>
+                                    <a class="nav-link" href="/stock">재고현황 및 조회</a>
                                 </nav>
                             </div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">

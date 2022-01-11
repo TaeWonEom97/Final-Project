@@ -20,7 +20,7 @@ public class StockController {
 	private StockService service;
 	
 	// /tables-4 =StockList.jsp
-	@GetMapping("/tables-4")
+	@GetMapping("/stock")
 	public void StockListGet(Model model,ItemDTO itemDto) {
 		log.info("재고현황 폼 요청");
 		List<ItemDTO> list = service.stockDto();
