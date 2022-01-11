@@ -31,13 +31,7 @@
                 
 				 <div class="panel panel-default">
 					  <div class="panel-heading"><b> <i class="fas fa-table me-1"></i> 입고 관리 </b> 
-                                
-                                <div>
-							        <h5>Excel Download</h5>
-							        <form action="/excelDown" method="get">
-							            <button type="submit">Excel</button>
-							        </form>
-					  			</div>
+                               
                   	  </div>
 
 						
@@ -49,6 +43,7 @@
 					  </div>
 					
 					</div>
+					
                 </main>
    <%-- 신규 입고내역 작성 폼 --%>
 	<div class="modal" tabindex="-1" id="newModal">

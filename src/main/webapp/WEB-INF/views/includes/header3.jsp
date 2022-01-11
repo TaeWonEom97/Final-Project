@@ -10,10 +10,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Tables - SB Admin</title>
+        <title>재고 관리 프로그램</title>
 		<!-- 수정 삭제 -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
         <link rel="stylesheet" href="/resources/css/styles.css"/>
@@ -35,7 +36,7 @@
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="index.html">재고 관리 프로그램</a>
+            <a class="navbar-brand ps-3" href="/">재고관리프로그램</a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
         
@@ -72,9 +73,8 @@
                                <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="/item">제품관리</a>
                                     <a class="nav-link" href="/putin">입고관리</a>
-                                    <a class="nav-link" href="/tables-2">판매관리</a>
-                                    <a class="nav-link" href="/tables-3">판매내역조회</a>
-                                    <a class="nav-link" href="/tables-4">재고현황</a>
+                                    <a class="nav-link" href="/sellPage">판매관리</a>
+                                    <a class="nav-link" href="/stock">재고현황</a>
                                 </nav>
                             </div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
@@ -85,15 +85,21 @@
                             <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
                                     <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                                        Authentication
+                                        계정관리
                                         <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                                     </a>
                                     <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
                                         <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="login.html">Login</a>
-                                            <a class="nav-link" href="register.html">Register</a>
-                                            <a class="nav-link" href="password.html">Forgot Password</a>
-                                        </nav>
+		                                    <sec:authorize access="isAnonymous()" >   
+			                                    <a class="nav-link" href="/login">로그인</a>
+			                                    <a class="nav-link" href="/register">신규등록</a>
+			                                    <a class="nav-link" href="/forgotPwd">비밀번호 찾기</a>
+		                                     </sec:authorize>
+					                         <sec:authorize access="isAuthenticated()" >
+					                         	<a class="nav-link" href="/changePwd">비밀번호 변경</a>
+					                         	<a class="nav-link" href="/logoutForm">로그아웃</a>
+					                         </sec:authorize>
+                                		</nav>
                                     </div>
                                 </nav>
                             </div>
@@ -110,7 +116,7 @@
                     </div>
                     <div class="sb-sidenav-footer">
                         <div class="small">Logged in as:</div>
-                        Administer
+                        Start Bootstrap
                     </div>
                 </nav>
             </div>

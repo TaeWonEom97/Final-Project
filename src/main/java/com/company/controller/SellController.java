@@ -27,7 +27,7 @@ public class SellController {
    @Autowired
    private SellService service;
    
-   @GetMapping("/tables-2")
+   @GetMapping("/sellPage")
    public void list(Model model) {
       
       log.info("판매 조회");

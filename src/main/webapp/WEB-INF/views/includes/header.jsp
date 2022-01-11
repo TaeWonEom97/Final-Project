@@ -14,7 +14,7 @@
         <title>재고 관리 프로그램</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link rel="stylesheet" href="/resources/css/styles.css" />
-        <!-- <link rel="stylesheet" href="/resources/css/modal.css" /> -->
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
         <!-- 달력 -->
 		<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -68,11 +68,10 @@
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-
-                                    <a class="nav-link" href="/item">제품관리</a>
-                                    <a class="nav-link" href="/putin">입고관리</a>
-                                    <a class="nav-link" href="/sell">판매관리</a>
-                                    <a class="nav-link" href="/tables-4">재고현황 및 조회</a>
+	                                    <a class="nav-link" href="/item">제품관리</a>
+	                                    <a class="nav-link" href="/putin">입고관리</a>
+	                                    <a class="nav-link" href="/sellPage">판매관리</a>
+	                                    <a class="nav-link" href="/stock">재고현황</a>
                                 </nav>
                             </div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">

@@ -13,8 +13,12 @@
         <link rel="stylesheet" href="/resources/css/styles.css" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
 <title>Insert title here</title>
+<style>
+
+</style>
+
 </head>
-<body class="bg-primary">
+<body>
         <div id="layoutAuthentication">
             <div id="layoutAuthentication_content">
                 <main>
