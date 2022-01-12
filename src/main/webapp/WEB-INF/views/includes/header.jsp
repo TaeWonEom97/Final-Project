@@ -2,12 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<<<<<<< HEAD
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
-
-=======
-<%@taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
->>>>>>> branch 'master' of https://github.com/TaeWonEom97/Final-Project.git
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,7 +14,6 @@
         <title>재고 관리 프로그램</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link rel="stylesheet" href="/resources/css/styles.css" />
-
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
 </head>
     <body class="sb-nav-fixed">
@@ -27,7 +21,10 @@
             <!-- Navbar Brand-->
             <a class="navbar-brand ps-3" href="/">재고관리프로그램</a>
             <!-- Sidebar Toggle-->
-            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0"
+		         id="sidebarToggle" href="#!">
+		         <i class="fas fa-bars"></i>
+      		 </button>
             <!-- Navbar-->
             <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
                 <li class="nav-item dropdown">
@@ -52,12 +49,12 @@
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
-                            <div class="sb-sidenav-menu-heading">Core</div>
+                            <div class="sb-sidenav-menu-heading">HOME</div>
                             <a class="nav-link" href="/">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 메인으로
                             </a>
-                            <div class="sb-sidenav-menu-heading">Interface</div>
+                            <div class="sb-sidenav-menu-heading">재고관리</div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 재고관리시스템
@@ -65,13 +62,13 @@
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-
                                     <a class="nav-link" href="/item">제품관리</a>
                                     <a class="nav-link" href="/putin">입고관리</a>
                                     <a class="nav-link" href="/sellPage">판매관리</a>
                                     <a class="nav-link" href="/stock">재고현황 및 조회</a>
                                 </nav>
                             </div>
+                            <div class="sb-sidenav-menu-heading">Account</div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                                 계정관리
@@ -90,21 +87,21 @@
 			                         </sec:authorize>
                                 </nav>
                             </div>
-                            <div class="sb-sidenav-menu-heading">Addons</div>
-                            <a class="nav-link" href="/charts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                보고서
-                            </a>
+                            <!--  <div class="sb-sidenav-menu-heading">Q & A</div>-->
                             <a class="nav-link" href="/board/list">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 게시판
+                            </a>
+                             <div class="sb-sidenav-menu-heading">관리자메뉴</div>
+                            <a class="nav-link" href="/charts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                                보고서
                             </a>
                         </div>
                     </div>
 
                     <div class="sb-sidenav-footer">
-                        <div class="small">Logged in as:</div>
-                        Start Bootstrap
+                        <div class="text align">welcome :)</div>
                     </div>
                 </nav>
             </div>

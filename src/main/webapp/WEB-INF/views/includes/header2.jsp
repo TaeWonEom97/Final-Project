@@ -59,13 +59,13 @@
             id="sidenavAccordion">
             <div class="sb-sidenav-menu">
                <div class="nav">
-                  <div class="sb-sidenav-menu-heading">Core</div>
+                  <div class="sb-sidenav-menu-heading">HOME</div>
                   <a class="nav-link" href="/">
                      <div class="sb-nav-link-icon">
                         <i class="fas fa-tachometer-alt"></i>
                      </div> 메인으로
                   </a>
-                  <div class="sb-sidenav-menu-heading">Interface</div>
+                  <div class="sb-sidenav-menu-heading">재고관리</div>
                   <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
                      data-bs-target="#collapseLayouts" aria-expanded="false"
                      aria-controls="collapseLayouts">
@@ -87,6 +87,7 @@
                         <a class="nav-link" href="/stock">재고현황 및 조회</a>
                      </nav>
                   </div>
+                  <div class="sb-sidenav-menu-heading">Account</div>
                   <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
                      data-bs-target="#collapsePages" aria-expanded="false"
                      aria-controls="collapsePages">
@@ -120,22 +121,21 @@
 
                      </nav>
                   </div>
-                  <div class="sb-sidenav-menu-heading">Addons</div>
+                   <a class="nav-link" href="/board/list">
+                     <div class="sb-nav-link-icon">
+                        <i class="fas fa-table"></i>
+                     </div> 게시판                
+                  </a>
+                   <div class="sb-sidenav-menu-heading">관리자메뉴</div>
                   <a class="nav-link" href="charts.html">
                      <div class="sb-nav-link-icon">
                         <i class="fas fa-chart-area"></i>
                      </div> 보고서
-                  </a> <a class="nav-link" href="/board/list">
-                     <div class="sb-nav-link-icon">
-                        <i class="fas fa-table"></i>
-                     </div> 게시판
-                     
                   </a>
                </div>
             </div>
             <div class="sb-sidenav-footer">
-               <div class="small">Logged in as:</div>
-               Start Bootstrap
+               <div class="small">Welcome :)</div>
             </div>
          </nav>
       </div>      

@@ -18,7 +18,7 @@
 </style>
 
 </head>
-<body class="bg-primary" style="--bs-bg-opacity: .5;"><!-- 배경화면 컬러 변경 -->
+<body class="bg-primary" style="--bs-bg-opacity: .5;"><!-- 배경화면 투명도 변경 -->
 <body class="bg-primary">
 	<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
        <!-- Navbar Brand-->
