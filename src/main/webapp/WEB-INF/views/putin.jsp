@@ -1,8 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-<%@include file="includes/header3.jsp" %>
-            <div id="layoutSidenav_content">
+<%@include file="includes/header.jsp" %>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<style>
+	div.col{
+	padding: 5px;
+	}
+</style>
+<div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
                         <h4 class="mt-4">입고 관리</h1>
@@ -13,7 +20,10 @@
                             </div>
                         </div>
                       
-                      <button type="button" class="btn btn-secondary btn-sm" id="new">신규</button>
+                      <sec:authorize access="hasRole('ROLE_ADMIN')">
+                      	<button type="button" class="btn btn-secondary btn-sm" id="new">신규</button>
+                      </sec:authorize>
+                      
                       <button type="button" class="btn btn-secondary btn-sm" id="select">조회</button>
                         
                         <div class="container">
@@ -30,13 +40,13 @@
 
                     </div>
                 
-				 <div class="panel panel-default">
-					  <div class="panel-heading"><b> <i class="fas fa-table me-1"></i> 입고 관리 </b> 
+				 <div class="card mb-4">
+					  <div class="card-header"><b> <i class="fas fa-table me-1"></i> 입고 관리 </b> 
                                
                   	  </div>
 
 						
-					  <div class="panel-body contents">
+					  <div class="card-body contents">
 						
 						<div class="tbl_user_data"></div>
 					

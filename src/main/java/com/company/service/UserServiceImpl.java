@@ -26,8 +26,8 @@ public class UserServiceImpl implements UserService {
 	public boolean register(CustomerDTO customerDto) {
 		customerDto.setPassword(passwordEncoder.encode(customerDto.getPassword()));
 		boolean result = mapper.register(customerDto)==1 ;
-		mapper.register_auth(customerDto.getUserid(), "ROLE_ADMIN");
-		//mapper.register_auth(customerDto.getUserid(), "ROLE_USER");
+		//mapper.register_auth(customerDto.getUserid(), "ROLE_ADMIN");
+		mapper.register_auth(customerDto.getUserid(), "ROLE_USER");
 		return result;
 	}
 

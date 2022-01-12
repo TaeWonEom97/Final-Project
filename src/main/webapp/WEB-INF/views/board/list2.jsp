@@ -248,7 +248,7 @@
             </div>
             <!-- end Pagination -->
          </div>
-         <!-- end panel-body -->
+         <!-- end card-body -->
       </div>
       <!-- end panel -->
    </div>

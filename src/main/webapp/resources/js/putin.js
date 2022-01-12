@@ -10,7 +10,7 @@ $(function(){
 		//alert(date1);
 		
 		//let tbody = $(".card.mb-4 .contents");
-		let tbody = $(".panel-body .contents");
+		let tbody = $(".card-body .contents");
 		
 		// type 값이 들어 있는지 확인
 		// 값이 없는 경우 메시지 띄우고 돌아가기

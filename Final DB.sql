@@ -41,7 +41,7 @@ insert into insertitem(code, insertnum, insertdate, seqid) values('P107', 30, sy
 insert into insertitem(code, insertnum, insertdate, seqid) values('P108', 15, sysdate-5, seqid.nextval);
 insert into insertitem(code, insertnum, insertdate, seqid) values('P209', 20, sysdate-1, seqid.nextval);
 
-select * from insertitem;
+select * from insertitem where code='P004';
 
 delete from insertitem;
 

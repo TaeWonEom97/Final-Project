@@ -32,10 +32,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-<<<<<<< HEAD
-=======
 
->>>>>>> branch 'master' of https://github.com/TaeWonEom97/Final-Project.git
                            <c:forEach var="dto" items="${list}">
                               <tr class="get" style = "cursor:pointer;">
                                  <td>${dto.itemcode}</td>
@@ -52,12 +49,15 @@
                             </div>
                         </div>
                         <div>
-                         <button type="button" class="btn btn-secondary btn-sm" id="new">추가</button>
+                        <sec:authorize access="hasRole('ROLE_ADMIN')">
+                         	<button type="button" class="btn btn-secondary btn-sm" id="new">추가</button>
+                         </sec:authorize>
                         </div>
                     </div>
                 </main>
 
 <%-- 추가 모달 --%>
+<sec:authorize access="hasRole('ROLE_ADMIN')">
 <div class="modal" tabindex="-1" id="itemModal">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -99,6 +99,7 @@
     </div>
   </div>
 </div>
+</sec:authorize>
 <script>
    let csrfHeaderName = "${_csrf.headerName}";
    let csrfTokenValue = "${_csrf.token}";
