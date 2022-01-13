@@ -29,7 +29,7 @@
 
 	<!-- 판매 목록 조회 -->
 	<select id="sellList" resultMap="sellItemMap">
-		select * from sellitem left outer join item on sellcode = itemcode order by selldate asc
+		select * from sellitem left outer join item on sellcode = itemcode order by selldate desc
 	</select>
 		
 	<!-- 월별 판매 -->
