@@ -19,6 +19,8 @@ create table insertitem(
 	seqid number(10) constraint pk_seqid primary key
 );
 
+
+
 delete from insertitem;
 select * from insertitem;
 
