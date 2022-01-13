@@ -16,7 +16,6 @@ public class SellItemDTO {
 	private int sellnum;
 	private String selldate;
 	private String sellcode;
-	private String selluser;
 
 	private ItemDTO itemDto;
 	private CustomerDTO customerDto;

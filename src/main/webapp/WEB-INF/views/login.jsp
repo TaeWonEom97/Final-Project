@@ -13,13 +13,8 @@
 	<link rel="stylesheet" href="/resources/css/styles.css" />
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
 <title>Insert title here</title>
-<style>
-
-</style>
-
 </head>
 <body class="bg-primary" style="--bs-bg-opacity: .5;"><!-- 배경화면 컬러 변경 -->
-<body class="bg-primary">
 	<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
        <!-- Navbar Brand-->
        <a class="navbar-brand ps-3" href="/"><i class="fas fa-home"></i>  재고관리프로그램</a>

@@ -21,5 +21,5 @@ public class CustomerDTO {
 	private boolean enabled;
 
 	private List<AuthDTO> authList;
-
+	
 }

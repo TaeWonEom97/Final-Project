@@ -19,7 +19,6 @@
                                 <table id="datatablesSimple">
                                     <thead>
                                         <tr>
-                                            <th>거래처</th>
                                             <th>상품코드</th>
                                             <th>상품명</th>
                                             <th>사이즈</th>
@@ -33,8 +32,9 @@
                                     </thead>
                                     <tbody>
                            <c:forEach var="dto" items="${list}">
-                              <tr class="get" style = "cursor:pointer;" href="${dto.sellid}">
-                                 <td>${dto.customerDto.company}</td>
+							  <sec:authorize access="hasRole('ROLE_ADMIN')">
+							  	<tr class="get" style = "cursor:pointer;" href="${dto.sellid}">
+							  </sec:authorize>
                                  <td>${dto.sellcode}</td>
                                  <td>${dto.itemDto.itemtitle}</td>
                                  <td>${dto.itemDto.itemsize}</td>
@@ -46,12 +46,19 @@
                                  <td>${dto.selldate}</td>
                               </tr>
                            </c:forEach>
+                          <div align="left">
+		                  <form action="/sell/exceldown" method="get">
+		                     <button type="submit" class="btn btn-excel btn-sm">Excel</button>
+		                  </form>
+		                  </div>
                         </tbody>
                                 </table>
                             </div>
                         </div>
                         <div>
-                           <button type="button" class="btn btn-success" id="insertSell">추가</button>
+                           <sec:authorize access="hasRole('ROLE_ADMIN')">
+                           		<button type="button" class="btn btn-success" id="insertSell">추가</button>
+                           </sec:authorize>
                         </div>
                     </div>
                 </main>
@@ -65,10 +72,6 @@
       </div>
       <div class="modal-body">
          <input type="hidden" name="sellid" value="" readonly="readonly" />
-        <div class="form-group">
-           <label for="">거래처 ID</label>
-         <input type="text" name="selluser" class="form-control" placeholder="거래처 ID"/>
-        </div>
         <div class="form-group">
            <label for="">상품 코드</label>
            <input type="text" name="sellcode" class="form-control" placeholder="상품 코드"/>
