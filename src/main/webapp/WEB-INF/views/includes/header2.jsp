@@ -14,14 +14,10 @@
 <meta name="author" content="" />
 <title>Dashboard - SB Admin</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-<link
-   href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
-   rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
 <link rel="stylesheet" href="/resources/css/styles.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script
-   src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
-   crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
 <title>Insert title here</title>
 </head>
 <body>
@@ -43,15 +39,16 @@
                            <li><a class="dropdown-item" href="#!">Settings</a></li>
                            <li><a class="dropdown-item" href="#!">Activity Log</a></li>
                            <li><hr class="dropdown-divider" /></li>
-                           <li><a class="dropdown-item" href="/login">Login</a></li>     
+                           <li><a class="dropdown-item" href="/login">Login</a></li> 
                          </sec:authorize>
-                           
                         <sec:authorize access="isAuthenticated()" >
 	                       <li><a class="dropdown-item" href="/changePwd">ChangePassword</a></li>           
-	                       <li><a class="dropdown-item" href="/logoutForm">Logout</a></li>           
+	                       <li><a class="dropdown-item" href="/logoutForm">Logout</a></li>       
 	                    </sec:authorize>
-            </ul></li>
+            </ul>
+          </li>
       </ul>
+      <li class="text-white"><sec:authentication property="name" />님 안녕하세요</li>
    </nav>
    <div id="layoutSidenav">
       <div id="layoutSidenav_nav">

@@ -47,4 +47,3 @@ insert into customerboard(bno,title,content,writer)
 select count(*) from CUSTOMERBOARD;
 =======
 select * from insertitem;
->>>>>>> branch 'master' of https://github.com/TaeWonEom97/Final-Project.git

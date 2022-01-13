@@ -1460,3 +1460,5 @@ update item set goods_cate = ltrim(goods_cate);
 update item set itemtitle = ltrim(itemtitle);	    
 	    
 select * from item;
+
+alter table sellitem drop column selluser;

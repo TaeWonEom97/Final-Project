@@ -56,6 +56,8 @@ public class MainController {
 		cell.setCellValue("가격");
 		cell = row.createCell(6);
 		cell.setCellValue("현재재고수량");
+		cell = row.createCell(7);
+		cell.setCellValue("카테고리");
 
 		// 실제 받을 내용
 		for (ItemDTO dto : list) {
@@ -74,6 +76,8 @@ public class MainController {
 			cell.setCellValue(dto.getItemprice());
 			cell = row.createCell(6);
 			cell.setCellValue(dto.getStock());
+			cell = row.createCell(7);
+			cell.setCellValue(dto.getGoods_cate());
 
 		}
 

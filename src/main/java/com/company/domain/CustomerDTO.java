@@ -19,6 +19,8 @@ public class CustomerDTO {
 	private String password;
 	private String company;
 	private boolean enabled;
+	private AuthDTO authDto;
+	
 
 	private List<AuthDTO> authList;
 
