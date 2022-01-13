@@ -29,7 +29,7 @@
                            <td>${dto.company}</td>
                            <td>${dto.password}</td>
                            <td>${dto.userid}</td>
-                           <td>${dto.authDto.auth}</td>
+                           <td>${dto.authList.auth}</td>
                            <td><button type="button" class="btn btn-success"
                                  id="btn_edit">권한부여</button></td>
                         </tr>

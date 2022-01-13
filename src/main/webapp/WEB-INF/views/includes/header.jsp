@@ -14,7 +14,6 @@
         <title>재고 관리 프로그램</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link rel="stylesheet" href="/resources/css/styles.css" />
-
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
 </head>
 	
@@ -23,21 +22,24 @@
             <!-- Navbar Brand-->
             <a class="navbar-brand ps-3" href="/">재고관리프로그램</a>
             <!-- Sidebar Toggle-->
-            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0"
+		         id="sidebarToggle" href="#!">
+		         <i class="fas fa-bars"></i>
+      		 </button>
             <!-- Navbar-->
             <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <sec:authorize access="isAnonymous()">              
-                           <li><a class="dropdown-item" href="/register">Register</a></li>
-                           <li><a class="dropdown-item" href="/forgotPwd">ForgotPassword</a></li>
+                           <li><a class="dropdown-item" href="/register">가입</a></li>
+                           <li><a class="dropdown-item" href="/forgotPwd">비밀번호 찾기</a></li>
                            <li><hr class="dropdown-divider" /></li>
-                           <li><a class="dropdown-item" href="/login">Login</a></li>     
+                           <li><a class="dropdown-item" href="/login">로그인</a></li>     
                          </sec:authorize>
                          <sec:authorize access="isAuthenticated()" >
-	                       <li><a class="dropdown-item" href="/changePwd">ChangePassword</a></li>           
-	                       <li><a class="dropdown-item" href="/logoutForm">Logout</a></li>           
+	                       <li><a class="dropdown-item" href="/changePwd">비밀번호 변경</a></li>           
+	                       <li><a class="dropdown-item" href="/logoutForm">로그아웃</a></li>           
 	                     </sec:authorize>               
                     </ul>
                 </li>
@@ -48,12 +50,12 @@
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
-                            <div class="sb-sidenav-menu-heading">Core</div>
+                            <div class="sb-sidenav-menu-heading">HOME</div>
                             <a class="nav-link" href="/">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 메인으로
                             </a>
-                            <div class="sb-sidenav-menu-heading">Interface</div>
+                            <div class="sb-sidenav-menu-heading">재고관리</div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 재고관리시스템
@@ -61,13 +63,13 @@
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-
                                     <a class="nav-link" href="/item">제품관리</a>
                                     <a class="nav-link" href="/putin">입고관리</a>
                                     <a class="nav-link" href="/sellPage">판매관리</a>
                                     <a class="nav-link" href="/stock">재고현황 및 조회</a>
                                 </nav>
                             </div>
+                            <div class="sb-sidenav-menu-heading">Account</div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                                 계정관리
@@ -86,21 +88,21 @@
 			                         </sec:authorize>
                                 </nav>
                             </div>
-                            <div class="sb-sidenav-menu-heading">Addons</div>
-                            <a class="nav-link" href="/charts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                보고서
-                            </a>
+                            <!--  <div class="sb-sidenav-menu-heading">Q & A</div>-->
                             <a class="nav-link" href="/board/list">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 게시판
+                            </a>
+                             <div class="sb-sidenav-menu-heading">관리자메뉴</div>
+                            <a class="nav-link" href="/charts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                                보고서
                             </a>
                         </div>
                     </div>
 
                     <div class="sb-sidenav-footer">
-                        <div class="small">Logged in as:</div>
-                        Start Bootstrap
+                        <div class="text align">welcome :)</div>
                     </div>
                 </nav>
             </div>

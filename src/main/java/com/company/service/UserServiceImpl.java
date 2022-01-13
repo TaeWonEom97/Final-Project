@@ -1,11 +1,13 @@
 package com.company.service;
 
 import java.security.Principal;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.company.domain.AuthDTO;
 import com.company.domain.ChangePwdDTO;
 import com.company.domain.CustomerDTO;
 import com.company.mapper.UserMapper;
@@ -26,7 +28,8 @@ public class UserServiceImpl implements UserService {
 	public boolean register(CustomerDTO customerDto) {
 		customerDto.setPassword(passwordEncoder.encode(customerDto.getPassword()));
 		boolean result = mapper.register(customerDto)==1 ;
-		//mapper.register_auth(customerDto.getUserid(), "ROLE_ADMIN");
+
+		// mapper.register_auth(customerDto.getUserid(), "ROLE_ADMIN");
 		mapper.register_auth(customerDto.getUserid(), "ROLE_USER");
 		return result;
 	}
@@ -65,6 +68,16 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public CustomerDTO checkId(String userid) {
 		return mapper.checkId(userid);
+	}
+
+	@Override
+	public List<CustomerDTO> adminRead() {
+		return mapper.adminRead();
+	}
+
+	@Override
+	public List<AuthDTO> authRead(String userid) {
+		return mapper.authRead(userid);
 	}
 
 	

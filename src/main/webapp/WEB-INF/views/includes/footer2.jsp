@@ -4,10 +4,8 @@
             <div class="container-fluid px-4">
                <div
                   class="d-flex align-items-center justify-content-between small">
-                  <div class="text-muted">Copyright &copy; Your Website 2021</div>
+                  <div class="text-muted"></div>
                   <div>
-                     <a href="#">Privacy Policy</a> &middot; <a href="#">Terms
-                        &amp; Conditions</a>
                   </div>
                </div>
             </div>
@@ -15,8 +13,8 @@
       </div>
    </div>   
    <script src="/resources/vendor/bootstrap/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-   <!--  <script src="/resources/js/scripts.js"></script> -->
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+   <script src="/resources/js/scripts.js"></script>
    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest"
       crossorigin="anonymous"></script>
    <script>

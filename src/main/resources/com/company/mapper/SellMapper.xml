@@ -7,7 +7,6 @@
 		<result property="sellnum" column="sellnum"/>
 		<result property="selldate" column="selldate"/>
 		<result property="sellcode" column="sellcode"/>
-		<result property="selluser" column="selluser"/>
 		
 		<collection property="itemDto" resultMap="itemMap"/>
 		<collection property="customerDto" resultMap="customerMap"/>
@@ -27,10 +26,10 @@
 		<result property="password" column="password"/>
 		<result property="company" column="company"/>
 	</resultMap>
-	
+
 	<!-- 판매 목록 조회 -->
 	<select id="sellList" resultMap="sellItemMap">
-		select * from sellitem left outer join item on sellcode = itemcode left outer join customer on selluser = userid order by selldate asc
+		select * from sellitem left outer join item on sellcode = itemcode order by selldate desc
 	</select>
 		
 	<!-- 월별 판매 -->
@@ -45,12 +44,12 @@
 
 	<!-- 판매 등록 -->
 	<insert id="sellInsert">
-		insert into sellitem(sellcode, sellnum, sellid, selluser) values(#{sellcode}, #{sellnum}, sellid.nextval, #{selluser})
+		insert into sellitem(sellcode, sellnum, sellid) values(#{sellcode}, #{sellnum}, sellid.nextval)
 	</insert>
 	
 	<!-- 하나 가져오기 -->
 	<select id="sellGet" resultMap="sellItemMap">
-		select * from sellitem left outer join item on sellcode = itemcode left outer join customer on selluser = userid where sellid = #{sellid}
+		select * from sellitem left outer join item on sellcode = itemcode where sellid = #{sellid}
 	</select>
 	
 	<!-- 삭제하기 -->

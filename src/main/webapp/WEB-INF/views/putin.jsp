@@ -8,6 +8,10 @@
 	div.col{
 	padding: 5px;
 	}
+   div.col{
+   padding: 5px;
+   }
+
 </style>
 <div id="layoutSidenav_content">
                 <main>
@@ -38,17 +42,30 @@
                     </div>
                     
                     <div id="excel">
+<<<<<<< HEAD
 				        <form action="/excel/download3" method="get">
 				            <button type="submit" class="btn btn-success">Excel Download</button>
 				        </form>
 					</div>
+=======
+                    <form action="/excel/download3" method="get">
+                        <button type="submit" class="btn btn-success">Excel Download</button>
+                    </form>
+               </div>
+>>>>>>> branch 'master' of https://github.com/TaeWonEom97/Final-Project
                             
                 
+<<<<<<< HEAD
 				 <div class="card mb-4">
 					  <div class="card-header"><b> <i class="fas fa-table me-1"></i> 입고 관리 </b> 
+=======
+             <div class="card mb-4">
+                 <div class="card-header"><b> <i class="fas fa-table me-1"></i> 입고 관리 </b> 
+>>>>>>> branch 'master' of https://github.com/TaeWonEom97/Final-Project
                                
-                  	  </div>
+                       </div>
 
+<<<<<<< HEAD
 						
 					  <div class="card-body contents">
 						
@@ -57,6 +74,16 @@
 					  </div>
 					
 					</div>
+=======
+                  
+                 <div class="card-body contents">
+                  
+                  <div class="tbl_user_data"></div>
+               
+                 </div>
+               
+               </div>
+>>>>>>> branch 'master' of https://github.com/TaeWonEom97/Final-Project
 
                 </main>
    <%-- 신규 입고내역 작성 폼 --%>
@@ -95,5 +122,5 @@
     <script src="/resources/js/putin.js"></script>
     <script src="/resources/js/newmodal.js"></script>
 
-    <script src="/resources/js/module.js"></script> 		
+    <script src="/resources/js/module.js"></script>       
 <%@include file="includes/footer.jsp" %>
