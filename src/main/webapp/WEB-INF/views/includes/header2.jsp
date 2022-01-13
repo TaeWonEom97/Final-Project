@@ -12,7 +12,7 @@
    content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>Dashboard - SB Admin</title>
+<title>재고관리 프로그램</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 <link
    href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
@@ -47,8 +47,8 @@
                          </sec:authorize>
                            
                         <sec:authorize access="isAuthenticated()" >
-	                       <li><a class="dropdown-item" href="/changePwd">ChangePassword</a></li>           
-	                       <li><a class="dropdown-item" href="/logoutForm">Logout</a></li>           
+	                       <li><a class="dropdown-item" href="/changePwd">비밀번호 변경</a></li>           
+	                       <li><a class="dropdown-item" href="/logoutForm">로그아웃</a></li>           
 	                    </sec:authorize>
             </ul></li>
       </ul>

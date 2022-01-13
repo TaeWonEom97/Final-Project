@@ -37,8 +37,8 @@
                            <li><a class="dropdown-item" href="/login">Login</a></li>     
                          </sec:authorize>
                          <sec:authorize access="isAuthenticated()" >
-	                       <li><a class="dropdown-item" href="/changePwd">ChangePassword</a></li>           
-	                       <li><a class="dropdown-item" href="/logoutForm">Logout</a></li>           
+	                       <li><a class="dropdown-item" href="/changePwd">비밀번호 변경</a></li>           
+	                       <li><a class="dropdown-item" href="/logoutForm">로그아웃</a></li>           
 	                     </sec:authorize>               
                     </ul>
                 </li>

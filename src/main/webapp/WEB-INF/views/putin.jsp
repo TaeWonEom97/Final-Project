@@ -1,11 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-<%@include file="includes/header3.jsp" %>
-            <div id="layoutSidenav_content">
+<%@include file="includes/header.jsp" %>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<style>
+   div.col{
+   padding: 5px;
+   }
+</style>
+<div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h4 class="mt-4">입고 관리</h1>
+                        <h1 class="mt-4">입고 관리</h1>
                         
                         <div class="card mb-4">
                             <div class="card-body">
@@ -29,20 +36,27 @@
                       </script>
 
                     </div>
+                    
+                    <div id="excel">
+                    <form action="/excel/download3" method="get">
+                        <button type="submit" class="btn btn-success">Excel Download</button>
+                    </form>
+               </div>
+                            
                 
-				 <div class="panel panel-default">
-					  <div class="panel-heading"><b> <i class="fas fa-table me-1"></i> 입고 관리 </b> 
+             <div class="card mb-4">
+                 <div class="card-header"><b> <i class="fas fa-table me-1"></i> 입고 관리 </b> 
                                
-                  	  </div>
+                       </div>
 
-						
-					  <div class="panel-body contents">
-						
-						<div class="tbl_user_data"></div>
-					
-					  </div>
-					
-					</div>
+                  
+                 <div class="card-body contents">
+                  
+                  <div class="tbl_user_data"></div>
+               
+                 </div>
+               
+               </div>
 
                 </main>
    <%-- 신규 입고내역 작성 폼 --%>
@@ -81,5 +95,5 @@
     <script src="/resources/js/putin.js"></script>
     <script src="/resources/js/newmodal.js"></script>
 
-    <script src="/resources/js/module.js"></script> 		
+    <script src="/resources/js/module.js"></script>       
 <%@include file="includes/footer.jsp" %>

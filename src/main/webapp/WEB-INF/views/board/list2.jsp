@@ -154,7 +154,7 @@
 											<option value="15">15</option>
 											<option value="20">20</option>
 											<option value="25">25</option>
-									</select> entries per page</label>
+									</select> </label>
 								</div>
 								<button id='regBtn' type='button' class='btn btn-xs pull-right'
 									onclick="location.href='/board/register'">새 게시글 작성</button>

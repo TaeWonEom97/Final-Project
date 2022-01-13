@@ -9,11 +9,11 @@
 						<li class="breadcrumb-item active">사내게시판</li>
 					</ol>
 					<div class="card mb-4">
-						<div class="card-body">사내 게시판입니다.</div>
+						<div class="card-body">사내 게시판입니다. 문의하실 사항을 남겨주세요.</div>
 					</div>
 					<div class="card mb-4">
 						<div class="card-header">
-							<i class="fas fa-table me-1"></i> LIST
+							<i class="fas fa-table me-1"></i> 게시물 목록
 						</div>
 						<div class="card-body">
 							<div class="dataTable-top">
@@ -25,7 +25,7 @@
                             	   		<option value="15" <c:out value="${pageDto.cri.amount == 15 ? 'selected':''}"/>>15</option>
                             	   		<option value="20" <c:out value="${pageDto.cri.amount == 20 ? 'selected':''}"/>>20</option>
                             	   		<option value="25" <c:out value="${pageDto.cri.amount == 25 ? 'selected':''}"/>>25</option>
-									</select> entries per page</label>
+									</select> </label>
 								</div>
 								<button id='regBtn' type='button' class='btn btn-info'
 									onclick="location.href='/board/register'">새 게시글 작성</button>
@@ -56,16 +56,36 @@
 		                        </div>
 		                     </form>
 		                  </div>
-							</div>							
+							</div>		
+							<div class = "card-body">			
 							<table id="datatablesSimple" class="dataTable-table">
 								<thead>
 									<tr>
-										<th>글번호</th>
-										<th>제목</th>
-										<th>작성자</th>
-										<th>작성날짜</th>
-										<th>수정날짜</th>
-									</tr>
+										<th data-sortable style = "width:7.32189%;">
+										<a href = "#" class = "dataTable-sorter">
+										글번호
+										</a>
+										</th>
+										<th data-sortable style = "width:30.32189%;">
+										<a href = "#" class = "dataTable-sorter">
+										제목
+										</a>
+										</th>
+										<th data-sortable style = "width:25.32189%;">
+										<a href = "#" class = "dataTable-sorter">								
+										작성자
+										</a>
+										</th>
+										<th data-sortable style = "width:20.32189%;">
+										<a href = "#" class = "dataTable-sorter">
+										작성날짜
+										</a>
+										</th>
+										<th data-sortable style = "width:26.32189%;">
+										<a href = "#" class = "dataTable-sorter">										
+										수정날짜
+										</a>
+										</th>
 								</thead>
 								<tbody>
 									<c:forEach var="dto" items="${list}">
@@ -81,6 +101,7 @@
 									</c:forEach>
 								</tbody>
 							</table>
+							</div>	
 						</div>
 					</div>	
 					<div class="row">
@@ -110,12 +131,12 @@
 				</div>		
 			</main>
 	<%-- 페이지 나누기를 위한 폼 --%>
-<form action="" method="get" id="actionForm">
-   <input type="hidden" name="pageNum" value="${pageDto.cri.pageNum}" />
-   <input type="hidden" name="amount" value="${pageDto.cri.amount}" />
-   <input type="hidden" name="type" value="${pageDto.cri.type}" />
-   <input type="hidden" name="keyword" value="${pageDto.cri.keyword}" />
-   <input type="hidden" name="bno" value="" />
-</form>
-<script src="/resources/js/list.js"></script>
-<%@include file="../includes/footer2.jsp" %>			
+			<form action="" method="get" id="actionForm">
+			   <input type="hidden" name="pageNum" value="${pageDto.cri.pageNum}" />
+			   <input type="hidden" name="amount" value="${pageDto.cri.amount}" />
+			   <input type="hidden" name="type" value="${pageDto.cri.type}" />
+			   <input type="hidden" name="keyword" value="${pageDto.cri.keyword}" />
+			   <input type="hidden" name="bno" value="" />
+			</form>
+			<script src="/resources/js/list.js"></script>
+			<%@include file="../includes/footer2.jsp" %>			

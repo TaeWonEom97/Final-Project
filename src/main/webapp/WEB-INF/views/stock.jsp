@@ -15,7 +15,7 @@
                                 <i class="fas fa-table me-1"></i>
                                 현재 재고 수량
                             </div>
-                            <div class="card-body tbl_user_data">
+                            <div class="card-body ">
                                  <table id="datatablesSimple">
                                   <thead>
                                         <tr>
@@ -53,5 +53,4 @@
                         </div>                        
                     </div>
                 </main>                              
-        <script src="/resources/js/scripts.js"></script>
         <%@include file="includes/footer.jsp" %>

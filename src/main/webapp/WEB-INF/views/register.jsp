@@ -27,14 +27,14 @@
                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                    <sec:authorize access="isAnonymous()">              
-                      <li><a class="dropdown-item" href="/register">Register</a></li>
-                      <li><a class="dropdown-item" href="/forgotPwd">ForgotPassword</a></li>
+                      <li><a class="dropdown-item" href="/register">회원가입</a></li>
+                      <li><a class="dropdown-item" href="/forgotPwd">비밀번호 찾기</a></li>
                       <li><hr class="dropdown-divider" /></li>
-                      <li><a class="dropdown-item" href="/login">Login</a></li>     
+                      <li><a class="dropdown-item" href="/login">로그인</a></li>     
                     </sec:authorize>
                    <sec:authorize access="isAuthenticated()" >
-                   <li><a class="dropdown-item" href="/changePwd">ChangePassword</a></li>           
-                   <li><a class="dropdown-item" href="/logoutForm">Logout</a></li>           
+                   <li><a class="dropdown-item" href="/changePwd">비밀번호 변경</a></li>           
+                   <li><a class="dropdown-item" href="/logoutForm">로그아웃</a></li>           
                 </sec:authorize>               
                </ul>
            </li>

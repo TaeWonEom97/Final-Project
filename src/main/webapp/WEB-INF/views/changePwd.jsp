@@ -17,7 +17,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.js"></script>
 <title>Insert title here</title>
 </head>
-<body class="bg-primary">
+<body class="bg-primary"  style="--bs-bg-opacity: .5;">
 	<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
        <!-- Navbar Brand-->
        <a class="navbar-brand ps-3" href="/"><i class="fas fa-home"></i>  재고관리프로그램</a>
@@ -35,8 +35,8 @@
                       <li><a class="dropdown-item" href="/login">Login</a></li>     
                     </sec:authorize>
                    <sec:authorize access="isAuthenticated()" >
-                   <li><a class="dropdown-item" href="/changePwd">ChangePassword</a></li>           
-                   <li><a class="dropdown-item" href="/logoutForm">Logout</a></li>           
+                   <li><a class="dropdown-item" href="/changePwd">비밀번호 변경</a></li>           
+                   <li><a class="dropdown-item" href="/logoutForm">로그아웃</a></li>           
                 </sec:authorize>               
                </ul>
            </li>
