@@ -9,19 +9,37 @@
       <result property="insertnum" column="insertnum"/>
       <result property="insertdate" column="insertdate"/>
       <result property="seqid" column="seqid"/>
-     <collection property="itemDto" resultMap="item"/>
-     
-     <collection property="itemDto" resultMap="item"/>
+      
+      <result property="itemtitle" column="itemtitle"/>
+      <result property="itemprice" column="itemprice"/>
+      <result property="supplier" column="supplier"/>
+      <result property="itemsize" column="itemsize"/>
+      <result property="color" column="color"/>
+      
+     <collection property="itemDto" resultMap="ItemMap"/>
+     <collection property="customerDto" resultMap="ItemMap"/>
     </resultMap>
    
-	<resultMap type="com.company.domain.ItemDTO" id="item">
+<!-- 	<resultMap type="com.company.domain.ItemDTO" id="item">
       <result property="itemcode" column="itemcode"/>
       <result property="itemtitle" column="itemtitle"/>
       <result property="itemprice" column="itemprice"/>
       <result property="supplier" column="supplier"/>
       <result property="itemsize" column="itemsize"/>
       <result property="color" column="color"/>
-   </resultMap>
+   </resultMap> -->
+   
+   	<resultMap type="com.company.domain.ItemDTO" id="ItemMap">
+		<result property="itemcode" column="itemcode" />
+		<result property="itemtitle" column="itemtitle" />
+		<result property="itemprice" column="itemprice" />
+		<result property="supplier" column="supplier" />
+		<result property="itemsize" column="itemsize" />
+		<result property="color" column="color" />
+		<result property="stock" column="stock" />
+		<result property="itemdate" column="itemdate" />
+		<result property="goods_cate" column="goods_cate" />
+	</resultMap>
 	
 	<!-- 입고 내역 조회 -->
 	<select id="select" resultMap="putinDto">

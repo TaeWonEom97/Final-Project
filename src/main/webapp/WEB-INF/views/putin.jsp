@@ -20,10 +20,7 @@
                             </div>
                         </div>
                       
-                      <sec:authorize access="hasRole('ROLE_ADMIN')">
-                      	<button type="button" class="btn btn-secondary btn-sm" id="new">신규</button>
-                      </sec:authorize>
-                      
+                      <button type="button" class="btn btn-secondary btn-sm" id="new">신규</button>
                       <button type="button" class="btn btn-secondary btn-sm" id="select">조회</button>
                         
                         <div class="container">
@@ -39,6 +36,13 @@
                       </script>
 
                     </div>
+                    
+                    <div id="excel">
+				        <form action="/excel/download3" method="get">
+				            <button type="submit" class="btn btn-success">Excel Download</button>
+				        </form>
+					</div>
+                            
                 
 				 <div class="card mb-4">
 					  <div class="card-header"><b> <i class="fas fa-table me-1"></i> 입고 관리 </b> 

@@ -20,7 +20,14 @@ public class PutInDTO {
 	private int insertnum;
 	private Date insertdate;
 	private int seqid;
-
+	
+	private String itemcode;
+	private String itemtitle;
+	private int itemprice;
+	private String supplier;
+	private String itemsize;
+	private String color;
+	
 	private List<ItemDTO> itemDto;
 	private CustomerDTO customerDto;
 }

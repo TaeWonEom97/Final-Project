@@ -16,6 +16,11 @@
                                 현재 재고 수량
                             </div>
                             <div class="card-body tbl_user_data">
+                           		<div id="excel">
+							        <form action="/excel/download" method="get">
+							            <button type="submit" class="btn btn-success">Excel Download</button>
+							        </form>
+					  		    </div>
                                  <table id="datatablesSimple">
                                   <thead>
                                         <tr>

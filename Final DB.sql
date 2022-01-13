@@ -20,28 +20,29 @@ create table insertitem(
 );
 
 delete from insertitem;
+select * from insertitem;
 
-insert into insertitem(code, insertnum, insertdate, seqid) values('P001', 40, sysdate-365, seqid.nextval);
-insert into insertitem(code, insertnum, insertdate, seqid) values('P002', 60, sysdate-335, seqid.nextval);
-insert into insertitem(code, insertnum, insertdate, seqid) values('P003', 70, sysdate-305, seqid.nextval);
-insert into insertitem(code, insertnum, insertdate, seqid) values('P204', 80, sysdate-275, seqid.nextval);
-insert into insertitem(code, insertnum, insertdate, seqid) values('P205', 90, sysdate-245, seqid.nextval);
-insert into insertitem(code, insertnum, insertdate, seqid) values('P206', 60, sysdate-215, seqid.nextval);
-insert into insertitem(code, insertnum, insertdate, seqid) values('P207', 10, sysdate-185, seqid.nextval);
-insert into insertitem(code, insertnum, insertdate, seqid) values('P208', 40, sysdate-155, seqid.nextval);
-insert into insertitem(code, insertnum, insertdate, seqid) values('P109', 0, sysdate-125, seqid.nextval);
-insert into insertitem(code, insertnum, insertdate, seqid) values('P110', 0, sysdate-95, seqid.nextval);
-insert into insertitem(code, insertnum, insertdate, seqid) values('P211', 20, sysdate-65, seqid.nextval);
+insert into insertitem(code, insertnum, insertdate, seqid) values('P001', 40, sysdate-367, seqid.nextval);
+insert into insertitem(code, insertnum, insertdate, seqid) values('P002', 40, sysdate-337, seqid.nextval);
+insert into insertitem(code, insertnum, insertdate, seqid) values('P003', 10, sysdate-307, seqid.nextval);
+insert into insertitem(code, insertnum, insertdate, seqid) values('P204', 30, sysdate-277, seqid.nextval);
+insert into insertitem(code, insertnum, insertdate, seqid) values('P205', 90, sysdate-247, seqid.nextval);
+insert into insertitem(code, insertnum, insertdate, seqid) values('P206', 30, sysdate-217, seqid.nextval);
+insert into insertitem(code, insertnum, insertdate, seqid) values('P207', 50, sysdate-187, seqid.nextval);
+insert into insertitem(code, insertnum, insertdate, seqid) values('P208', 10, sysdate-157, seqid.nextval);
+insert into insertitem(code, insertnum, insertdate, seqid) values('P109', 40, sysdate-127, seqid.nextval);
+insert into insertitem(code, insertnum, insertdate, seqid) values('P110', 10, sysdate-97, seqid.nextval);
+insert into insertitem(code, insertnum, insertdate, seqid) values('P211', 15, sysdate-67, seqid.nextval);
 
-insert into insertitem(code, insertnum, insertdate, seqid) values('P004', 50, sysdate-35, seqid.nextval);
+insert into insertitem(code, insertnum, insertdate, seqid) values('P004', 5, sysdate-37, seqid.nextval);
 insert into insertitem(code, insertnum, insertdate, seqid) values('P105', 20, sysdate-30, seqid.nextval);
-insert into insertitem(code, insertnum, insertdate, seqid) values('P106', 15, sysdate-25, seqid.nextval);
+insert into insertitem(code, insertnum, insertdate, seqid) values('P106', 15, sysdate-27, seqid.nextval);
 
-insert into insertitem(code, insertnum, insertdate, seqid) values('P107', 30, sysdate-10, seqid.nextval);
+insert into insertitem(code, insertnum, insertdate, seqid) values('P107', 30, sysdate-7, seqid.nextval);
 insert into insertitem(code, insertnum, insertdate, seqid) values('P108', 15, sysdate-5, seqid.nextval);
 insert into insertitem(code, insertnum, insertdate, seqid) values('P209', 20, sysdate-1, seqid.nextval);
 
-select * from insertitem where code='P004';
+select * from insertitem where code='P210';
 
 delete from insertitem;
 

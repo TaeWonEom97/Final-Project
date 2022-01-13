@@ -11,14 +11,19 @@
                                제품관리 탭입니다.
                             </div>
                         </div>
-                      
-                     
-                  <div class="card mb-4">
+               <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
                                 제품 관리
                             </div>
+                            
+                            
                             <div class="card-body">
+                        <div id="excel">
+					        <form action="/excel/download2" method="get">
+					            <button type="submit" class="btn btn-success">Excel Download</button>
+					        </form>
+					  	</div>
                                 <table id="datatablesSimple">
                                     <thead>
                                         <tr>
@@ -37,7 +42,7 @@
                               <tr class="get" style = "cursor:pointer;">
                                  <td>${dto.itemcode}</td>
                                  <td>${dto.itemtitle}</td>
-                                 <td>${dto.itemprice}</td>
+                                 <td><fmt:formatNumber type="number" value="${dto.itemprice}" /></td>
                                  <td>${dto.supplier}</td>
                                  <td>${dto.itemsize}</td>
                                  <td>${dto.color}</td>
@@ -48,16 +53,15 @@
                                 </table>
                             </div>
                         </div>
+
+                        
                         <div>
-                        <sec:authorize access="hasRole('ROLE_ADMIN')">
                          	<button type="button" class="btn btn-secondary btn-sm" id="new">추가</button>
-                         </sec:authorize>
                         </div>
                     </div>
                 </main>
 
 <%-- 추가 모달 --%>
-<sec:authorize access="hasRole('ROLE_ADMIN')">
 <div class="modal" tabindex="-1" id="itemModal">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -99,7 +103,6 @@
     </div>
   </div>
 </div>
-</sec:authorize>
 <script>
    let csrfHeaderName = "${_csrf.headerName}";
    let csrfTokenValue = "${_csrf.token}";
