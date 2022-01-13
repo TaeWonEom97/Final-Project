@@ -48,9 +48,12 @@
 						                  </form>
 						                  </div>                                   
                                     </tbody>                                                             
-                                  </table>                                       
+                                  </table>                                        
+
                             </div>
                         </div>                        
                     </div>
                 </main>                              
+
         <%@include file="includes/footer.jsp" %>
+

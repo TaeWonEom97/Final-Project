@@ -1,7 +1,10 @@
 package com.company.mapper;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
+import com.company.domain.AuthDTO;
 import com.company.domain.ChangePwdDTO;
 import com.company.domain.CustomerDTO;
 
@@ -13,4 +16,7 @@ public interface UserMapper {
 	public CustomerDTO searchId(CustomerDTO customerDto);
 	public int changePwd(ChangePwdDTO changeDto);
 	public CustomerDTO checkId(String userid);
+	public List<CustomerDTO> adminRead();
+	public List<AuthDTO> authRead(String userid);
+	
 }

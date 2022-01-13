@@ -1,6 +1,7 @@
 package com.company.controller;
 
 import java.security.Principal;
+import java.util.List;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
@@ -8,12 +9,14 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.company.config.MailConfig;
+import com.company.domain.AuthDTO;
 import com.company.domain.ChangePwdDTO;
 import com.company.domain.CustomerDTO;
 import com.company.service.UserService;
@@ -62,6 +65,19 @@ public class CustomerController {
 	public String board() {
 		log.info("게시판 폼 요청");
 		return "/list";
+	}
+	
+	@GetMapping("/adminPage")
+	public void adminPage(Model model) {
+		log.info("관리자 폼 요청");
+		
+		List<CustomerDTO> list = service.adminRead();
+		List<AuthDTO> authList = service.authRead(list.get(0).getUserid());
+		
+		log.info(list);
+		log.info(authList);
+		
+		model.addAttribute("list", list);
 	}
 
 	// 중복아이디 검사

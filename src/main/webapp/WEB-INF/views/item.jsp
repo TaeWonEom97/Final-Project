@@ -32,7 +32,6 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-
                            <c:forEach var="dto" items="${list}">
                               <tr class="get" style = "cursor:pointer;">
                                  <td>${dto.itemcode}</td>
