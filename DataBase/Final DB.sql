@@ -19,6 +19,9 @@ create table insertitem(
 	seqid number(10) constraint pk_seqid primary key
 );
 
+-- 수정분
+alter table insertitem drop constraint pk_seqid;
+alter table insertitem add primary key(code);
 
 
 delete from insertitem;

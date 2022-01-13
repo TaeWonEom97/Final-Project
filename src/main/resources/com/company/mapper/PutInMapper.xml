@@ -19,16 +19,7 @@
      <collection property="itemDto" resultMap="ItemMap"/>
      <collection property="customerDto" resultMap="ItemMap"/>
     </resultMap>
-   
-<!-- 	<resultMap type="com.company.domain.ItemDTO" id="item">
-      <result property="itemcode" column="itemcode"/>
-      <result property="itemtitle" column="itemtitle"/>
-      <result property="itemprice" column="itemprice"/>
-      <result property="supplier" column="supplier"/>
-      <result property="itemsize" column="itemsize"/>
-      <result property="color" column="color"/>
-   </resultMap> -->
-   
+
    	<resultMap type="com.company.domain.ItemDTO" id="ItemMap">
 		<result property="itemcode" column="itemcode" />
 		<result property="itemtitle" column="itemtitle" />
