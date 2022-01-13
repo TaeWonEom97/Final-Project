@@ -8,7 +8,6 @@ $(function(){
    
    // 모달 창 영역 안의 요소 가져오기
    let modalsellid = modal.find("input[name='sellid']");
-   let modalselluser = modal.find("input[name='selluser']");
    let modalsellcode = modal.find("input[name='sellcode']");
    let modalitemtitle = modal.find("input[name='itemtitle']");
    let modalsellnum = modal.find("input[name='sellnum']");
@@ -33,7 +32,6 @@ $(function(){
       modaltitle.text("판매 추가");
       
       // readonly 속성 제거
-      modalselluser.attr("readonly", false);
       modalsellcode.attr("readonly", false);
       modalitemtitle.attr("readonly", false);
       modalitemprice.attr("readonly", false);
@@ -97,7 +95,6 @@ $(function(){
          modaltitle.text("판매 관리");
          
          // 요소 보여주기
-         modalselluser.closest("div").show();
          modalsellcode.closest("div").show();
          modalitemtitle.closest("div").show();
          modalitemprice.closest("div").show();
@@ -108,7 +105,6 @@ $(function(){
          
          // 내용 보여주기
          modalsellid.val(data.sellid);
-         modalselluser.val(data.selluser).attr("readonly", true);
          modalsellcode.val(data.sellcode).attr("readonly", true);
          modalitemtitle.val(data.itemDto.itemtitle).attr("readonly", true);
          modalsellnum.val(data.sellnum);

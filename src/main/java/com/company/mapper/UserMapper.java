@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.security.core.userdetails.User;
 
+import com.company.domain.AuthDTO;
 import com.company.domain.ChangePwdDTO;
 import com.company.domain.CustomerDTO;
 
@@ -21,5 +22,6 @@ public interface UserMapper {
 	public int adminUpdate(String userid);
 	
 	
+	public List<AuthDTO> authRead(String userid);
 	
 }

@@ -13,13 +13,8 @@
 	<link rel="stylesheet" href="/resources/css/styles.css" />
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
 <title>Insert title here</title>
-<style>
-
-</style>
-
 </head>
 <body class="bg-primary" style="--bs-bg-opacity: .5;"><!-- 배경화면 컬러 변경 -->
-<body class="bg-primary">
 	<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
        <!-- Navbar Brand-->
        <a class="navbar-brand ps-3" href="/"><i class="fas fa-home"></i>  재고관리프로그램</a>
@@ -31,14 +26,14 @@
                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                    <sec:authorize access="isAnonymous()">              
-                      <li><a class="dropdown-item" href="/register">Register</a></li>
-                      <li><a class="dropdown-item" href="/forgotPwd">ForgotPassword</a></li>
+                      <li><a class="dropdown-item" href="/register">회원가입</a></li>
+                      <li><a class="dropdown-item" href="/forgotPwd">비밀번호 찾기</a></li>
                       <li><hr class="dropdown-divider" /></li>
-                      <li><a class="dropdown-item" href="/login">Login</a></li>     
+                      <li><a class="dropdown-item" href="/login">로그인</a></li>     
                     </sec:authorize>
                    <sec:authorize access="isAuthenticated()" >
-                   <li><a class="dropdown-item" href="/changePwd">ChangePassword</a></li>           
-                   <li><a class="dropdown-item" href="/logoutForm">Logout</a></li>           
+                   <li><a class="dropdown-item" href="/changePwd">비밀번호 변경</a></li>           
+                   <li><a class="dropdown-item" href="/logoutForm">로그아웃</a></li>           
                 </sec:authorize>               
                </ul>
            </li>

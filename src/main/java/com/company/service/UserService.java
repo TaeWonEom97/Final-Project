@@ -2,6 +2,7 @@ package com.company.service;
 
 import java.util.List;
 
+import com.company.domain.AuthDTO;
 import com.company.domain.ChangePwdDTO;
 import com.company.domain.CustomerDTO;
 
@@ -13,4 +14,5 @@ public interface UserService {
 	public CustomerDTO checkId(String userid);
 	public List<CustomerDTO> adminRead();
 	public boolean adminUpdate(String userid);
+	public List<AuthDTO> authRead(String userid);
 }

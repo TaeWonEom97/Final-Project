@@ -4,21 +4,23 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h4 class="mt-4">제품관리</h1>
-                        
+                        <h1 class="mt-4">제품관리</h1>
                         <div class="card mb-4">
                             <div class="card-body">
                                제품관리 탭입니다.
                             </div>
                         </div>
-                      
-                     
-                  <div class="card mb-4">
+               <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
                                 제품 관리
                             </div>
                             <div class="card-body">
+                        <div id="excel">
+					        <form action="/excel/download2" method="get">
+					            <button type="submit" class="btn btn-success">Excel Download</button>
+					        </form>
+					  	</div>
                                 <table id="datatablesSimple">
                                     <thead>
                                         <tr>
@@ -32,15 +34,11 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-<<<<<<< HEAD
-=======
-
->>>>>>> branch 'master' of https://github.com/TaeWonEom97/Final-Project.git
                            <c:forEach var="dto" items="${list}">
                               <tr class="get" style = "cursor:pointer;">
                                  <td>${dto.itemcode}</td>
                                  <td>${dto.itemtitle}</td>
-                                 <td>${dto.itemprice}</td>
+                                 <td><fmt:formatNumber type="number" value="${dto.itemprice}" /></td>
                                  <td>${dto.supplier}</td>
                                  <td>${dto.itemsize}</td>
                                  <td>${dto.color}</td>
@@ -52,7 +50,7 @@
                             </div>
                         </div>
                         <div>
-                         <button type="button" class="btn btn-secondary btn-sm" id="new">추가</button>
+                         	<button type="button" class="btn btn-secondary btn-sm" id="new">추가</button>
                         </div>
                     </div>
                 </main>

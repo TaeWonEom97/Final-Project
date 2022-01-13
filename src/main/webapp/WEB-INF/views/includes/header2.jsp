@@ -12,7 +12,7 @@
    content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>Dashboard - SB Admin</title>
+<title>재고관리 프로그램</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
 <link rel="stylesheet" href="/resources/css/styles.css" />
@@ -35,18 +35,17 @@
       <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-         <sec:authorize access="isAnonymous()" >                     
-                           <li><a class="dropdown-item" href="#!">Settings</a></li>
-                           <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+                        <sec:authorize access="isAnonymous()">              
+                           <li><a class="dropdown-item" href="/register">가입</a></li>
+                           <li><a class="dropdown-item" href="/forgotPwd">비밀번호 찾기</a></li>
                            <li><hr class="dropdown-divider" /></li>
-                           <li><a class="dropdown-item" href="/login">Login</a></li> 
+                           <li><a class="dropdown-item" href="/login">로그인</a></li>     
                          </sec:authorize>
-                        <sec:authorize access="isAuthenticated()" >
-	                       <li><a class="dropdown-item" href="/changePwd">ChangePassword</a></li>           
-	                       <li><a class="dropdown-item" href="/logoutForm">Logout</a></li>       
-	                    </sec:authorize>
-            </ul>
-          </li>
+                         <sec:authorize access="isAuthenticated()" >
+	                       <li><a class="dropdown-item" href="/changePwd">비밀번호 변경</a></li>           
+	                       <li><a class="dropdown-item" href="/logoutForm">로그아웃</a></li>           
+	                     </sec:authorize>    
+            </ul></li>
       </ul>
       <li class="text-white"><sec:authentication property="name" />님 안녕하세요</li>
    </nav>
@@ -56,13 +55,13 @@
             id="sidenavAccordion">
             <div class="sb-sidenav-menu">
                <div class="nav">
-                  <div class="sb-sidenav-menu-heading">Core</div>
+                  <div class="sb-sidenav-menu-heading">HOME</div>
                   <a class="nav-link" href="/">
                      <div class="sb-nav-link-icon">
                         <i class="fas fa-tachometer-alt"></i>
                      </div> 메인으로
                   </a>
-                  <div class="sb-sidenav-menu-heading">Interface</div>
+                  <div class="sb-sidenav-menu-heading">재고관리</div>
                   <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
                      data-bs-target="#collapseLayouts" aria-expanded="false"
                      aria-controls="collapseLayouts">
@@ -85,6 +84,7 @@
                      </nav>
                      
                   </div>
+                  <div class="sb-sidenav-menu-heading">Account</div>
                   <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
                      data-bs-target="#collapsePages" aria-expanded="false"
                      aria-controls="collapsePages">
@@ -118,22 +118,21 @@
 
                      </nav>
                   </div>
-                  <div class="sb-sidenav-menu-heading">Addons</div>
+                   <a class="nav-link" href="/board/list">
+                     <div class="sb-nav-link-icon">
+                        <i class="fas fa-table"></i>
+                     </div> 게시판                
+                  </a>
+                   <div class="sb-sidenav-menu-heading">관리자메뉴</div>
                   <a class="nav-link" href="charts.html">
                      <div class="sb-nav-link-icon">
                         <i class="fas fa-chart-area"></i>
                      </div> 보고서
-                  </a> <a class="nav-link" href="/board/list">
-                     <div class="sb-nav-link-icon">
-                        <i class="fas fa-table"></i>
-                     </div> 게시판
-                     
                   </a>
                </div>
             </div>
             <div class="sb-sidenav-footer">
-               <div class="small">Logged in as:</div>
-               Start Bootstrap
+               <div class="small">Welcome :)</div>
             </div>
          </nav>
       </div>      

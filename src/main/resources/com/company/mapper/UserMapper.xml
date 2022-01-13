@@ -86,5 +86,10 @@
 		update customer_auth set auth = 'ROLE_ADMIN' where
 		userid = #{userid}
 	</update>
+	
+
+	<select id="authRead" resultType="com.company.domain.AuthDTO">
+		select * from customer_auth where userid = #{userid}
+	</select>
 
 </mapper>

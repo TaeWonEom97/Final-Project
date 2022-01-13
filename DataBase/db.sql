@@ -140,9 +140,3 @@ from (select NVL(num,0) as stock, itemdate
 	from item left join (select code, NVL(i-s, 0) as num
     from (select code, NVL(sum(insertnum),0) as i, NVL(SUM(sellnum),0) as s
     from insertitem left join sellitem on code = sellcode group by code)) on itemcode = code) group by TO_CHAR(itemdate,'MM');
-
-select * from customer c left join CUSTOMER_AUTH a on c.userid = a.userid;
-select * from sellitem;
-alter table sellitem drop column selluser;
-insert into customer_auth values('user1', 'ROLE_USER');
-update customer_auth set auth = 'ROLE_ADMIN' where userid = #{userid}
