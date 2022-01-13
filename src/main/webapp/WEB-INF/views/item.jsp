@@ -4,8 +4,7 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h4 class="mt-4">제품관리</h1>
-                        
+                        <h1 class="mt-4">제품관리</h1>
                         <div class="card mb-4">
                             <div class="card-body">
                                제품관리 탭입니다.
@@ -16,8 +15,6 @@
                                 <i class="fas fa-table me-1"></i>
                                 제품 관리
                             </div>
-                            
-                            
                             <div class="card-body">
                         <div id="excel">
 					        <form action="/excel/download2" method="get">
@@ -53,8 +50,6 @@
                                 </table>
                             </div>
                         </div>
-
-                        
                         <div>
                          	<button type="button" class="btn btn-secondary btn-sm" id="new">추가</button>
                         </div>
