@@ -8,10 +8,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -19,6 +27,8 @@ import com.company.config.MailConfig;
 import com.company.domain.AuthDTO;
 import com.company.domain.ChangePwdDTO;
 import com.company.domain.CustomerDTO;
+import com.company.domain.SellItemDTO;
+import com.company.mapper.UserMapper;
 import com.company.service.UserService;
 
 import lombok.extern.log4j.Log4j2;
@@ -67,18 +77,6 @@ public class CustomerController {
 		return "/list";
 	}
 	
-	@GetMapping("/adminPage")
-	public void adminPage(Model model) {
-		log.info("관리자 폼 요청");
-		
-		List<CustomerDTO> list = service.adminRead();
-		List<AuthDTO> authList = service.authRead(list.get(0).getUserid());
-		
-		log.info(list);
-		log.info(authList);
-		
-		model.addAttribute("list", list);
-	}
 
 	// 중복아이디 검사
 	@ResponseBody // 리턴하는 값이 데이터임
@@ -126,6 +124,13 @@ public class CustomerController {
 	public String changePwdGet() {
 		log.info("비밀번호 변경 폼 요청");
 		return "/changePwd";
+	}
+	
+	@GetMapping("/adminPage")
+	public void admin(Model model) {
+		log.info("비밀번호 변경 폼 요청");
+		List<CustomerDTO> list = service.adminRead();
+		model.addAttribute("list",list);
 	}
 
 	@PostMapping("/changePwd")
@@ -182,4 +187,7 @@ public class CustomerController {
 		rttr.addFlashAttribute("msg", msg1);
 		return "redirect:/forgotPwd";
 	}
-}
+	
+	
+	}
+	

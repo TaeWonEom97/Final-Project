@@ -7,7 +7,7 @@
                         <h1 class="mt-4">재고현황 및 조회</h1>
                         <div class="card mb-4">
                             <div class="card-body">
-                                재고현황 페이지입니다. 현재 재고수량을 열람하실 수 있으며, 수정,삭제 및 조회가 가능합니다.
+                                재고현황 페이지입니다. 현재 재고수량을 열람하실 수 있으며, 조회가 가능합니다.
                             </div>
                         </div>
                         <div class="card mb-4">
@@ -15,7 +15,7 @@
                                 <i class="fas fa-table me-1"></i>
                                 현재 재고 수량
                             </div>
-                            <div class="card-body tbl_user_data">
+                            <div class="card-body ">
                                  <table id="datatablesSimple">
                                   <thead>
                                         <tr>
@@ -28,7 +28,7 @@
                                             <th>현재재고수량 </th>   
                                             <th>카테고리</th>                                   
                                         </tr>
-                                    </thead>    
+                                    </thead>  
                                      <tbody>
                                     <c:forEach var="dto" items="${list}">
                                         <tr>
@@ -40,17 +40,18 @@
                                   <td><fmt:formatNumber type="number" value="${dto.itemprice}" /></td>                                          
                                             <td>${dto.stock}</td>
                                             <td>${dto.goods_cate}</td>
-                                        </tr>
-                                        </c:forEach>
+                                        </tr>                                         
+                                        </c:forEach>       
                                         <div align="left">
-                  <form action="/excel/download" method="get">
-                     <button type="submit" class="btn btn-excel btn-sm">Excel</button>
-                  </form>
-                  </div>
-                                    </tbody>                           
-                                  </table>    
+                                    <form action="/excel/download" method="get">
+                                       <button type="submit" class="btn btn-success btn-sm">Excel</button>
+                                    </form>
+                                    </div>                                   
+                                    </tbody>                                                             
+                                  </table>                                        
+
                             </div>
                         </div>                        
                     </div>
                 </main>                              
-      <%@include file="includes/footer.jsp" %>
+        <%@include file="includes/footer.jsp" %>

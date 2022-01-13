@@ -3050,7 +3050,7 @@ textarea.form-control-lg {
   color: #fff;
   background-color: #0d6efd;
   border-color: #0d6efd;
-  padding: 1px 1px;
+  padding: 6px 12px;
   margin-left: 3px;
 }
 .btn-primary:hover {
@@ -3115,6 +3115,20 @@ textarea.form-control-lg {
   border-color: #198754;
   padding: 1px 1px;
   margin-left: 3px;
+  
+}
+
+.btn-excel {
+  color: #fff;
+  background-color: #198754;
+  border-color: #198754;
+  padding: 1px 1px;
+  margin-left: 3px;
+  position: absolute;
+    top: 72px;
+    left: 220px;
+   
+  
 }
 .btn-success:hover {
   color: #fff;
@@ -7787,7 +7801,7 @@ textarea.form-control-lg {
 .text-white {
   --bs-text-opacity: 1;
   color: rgba(var(--bs-white-rgb), var(--bs-text-opacity)) !important;
-}
+  }
 
 .text-body {
   --bs-text-opacity: 1;

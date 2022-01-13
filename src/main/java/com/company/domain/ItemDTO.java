@@ -16,8 +16,7 @@ import lombok.ToString;
 
 public class ItemDTO {
 
-   
-
+	
 	private String itemcode;
 	private String itemtitle;
 	private int itemprice;

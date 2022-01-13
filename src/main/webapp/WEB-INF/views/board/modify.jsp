@@ -5,42 +5,42 @@
 <%@include file="../includes/header2.jsp"%>
 <div class="row">
 	<div class="col-lg-12">
-		<h1 class="page-header">Board Modify</h1>
+		<h1 class="page-header">게시물 수정</h1>
 	</div>
 	<!-- /.col-lg-12 -->
 </div>
 <div class="row">
 	<div class="col-lg-12">
 		<div class="panel panel-default">
-			<div class="panel-heading">Board Modify Page</div>
+			<div class="panel-heading"></div>
 			<!-- /.panel-heading -->
 			<div class="panel-body">
 				<form action="" method="post" role="form">
 					<div class="form-group">
-						<label>Bno</label> <input class="form-control" name="bno"
+						<label>게시물 번호</label> <input class="form-control" name="bno"
 							readonly="readonly" value="${dto.bno}">
 					</div>
 					<div class="form-group">
-						<label>Title</label> <input class="form-control" name="title"
+						<label>제목</label> <input class="form-control" name="title"
 							value="${dto.title}">
 					</div>
 					<div class="form-group">
-						<label>Content</label>
+						<label>내용</label>
 						<textarea class="form-control" rows="3" name="content">${dto.content}</textarea>
 					</div>
 					<div class="form-group">
-						<label>Writer</label> <input class="form-control" name="writer"
+						<label>작성자</label> <input class="form-control" name="writer"
 							readonly="readonly" value="${dto.writer}">
 					</div>
 					<sec:authentication property="principal" var="info" />
                 					<sec:authorize access="isAuthenticated()">
                 						<c:if test="${info.username == dto.writer}">
-					<button type="submit" data-oper='modify' class="btn btn-default">Modify</button>
-					<button type="submit" data-oper='remove' class="btn btn-danger">Remove</button>
+					<button type="submit" data-oper='modify' class="btn btn-default">수정</button>
+					<button type="submit" data-oper='remove' class="btn btn-danger">삭제</button>
 								</c:if>
                 					</sec:authorize>
                 	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-					<button type="submit" data-oper='list' class="btn btn-info">List</button>
+					<button type="submit" data-oper='list' class="btn btn-info">목록</button>
 				</form>
 			</div>
 		</div>

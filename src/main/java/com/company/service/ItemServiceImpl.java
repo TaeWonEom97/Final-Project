@@ -39,4 +39,9 @@ public class ItemServiceImpl implements ItemService {
 		return mapper.itemget(itemcode);
 	}
 
+	@Override
+	public List<ItemDTO> itemDto() {
+		return mapper.itemlist();
+	}
+
 }

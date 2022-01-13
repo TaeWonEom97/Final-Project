@@ -1,59 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.company.mapper.UserMapper">
-   <!-- 회원가입 -->
-   <insert id="register">
-      insert into customer(userid,password,company) 
-      values(#{userid},#{password},#{company})
-   </insert>
-   
-   <!-- 아이디 중복 확인 -->
-   <select id="checkId" resultType="com.company.domain.CustomerDTO">
-      select * from customer where userid = #{userid}
-   </select>
-   
-   <!-- 회원가입 시 권한 정보 삽입 -->
-   <insert id="register_auth">
-      insert into customer_auth(userid,auth) values(#{userid},#{auth})
-   </insert>
-   
-   <resultMap type="com.company.domain.CustomerDTO" id="customer">
-      <id property="userid" column="userid"/>
-      <result property="password" column="password"/>
-      <result property="company" column="company"/>
-      <result property="enabled" column="enabled"/>
-      <collection property="authList" resultMap="authMap"/>
-   </resultMap>
-   
-   <resultMap type="com.company.domain.AuthDTO" id="authMap">
-      <result property="userid" column="userid"/>
-      <result property="auth" column="auth"/>
-   </resultMap>
-   
-   <select id="read" resultMap="customer">
-      select s1.userid,password,company,auth,enabled 
-      from customer s1
-      left outer join customer_auth s2 on s1.userid = s2.userid
-      where s1.userid=#{userid}
-   </select>
-   
-   <update id="forgotPwd">
-      update customer set password = #{password} where userid = #{userid}
-   </update>
-   
-   <select id="searchId" resultType="com.company.domain.CustomerDTO">
-      select * from customer where userid = #{userid} and company = #{company}
-   </select>
-   
-   <!-- 비밀번호 변경 : 아이디와 현재 비밀번호가 일치하면 변경 비밀번호로 바꾸기 -->
+	<!-- 회원가입 -->
+	<insert id="register">
+		insert into customer(userid,password,company)
+		values(#{userid},#{password},#{company})
+	</insert>
+
+	<!-- 아이디 중복 확인 -->
+	<select id="checkId" resultType="com.company.domain.CustomerDTO">
+		select * from customer where userid = #{userid}
+	</select>
+
+	<!-- 회원가입 시 권한 정보 삽입 -->
+	<insert id="register_auth">
+		insert into customer_auth(userid,auth) values(#{userid},#{auth})
+	</insert>
+
+	<resultMap type="com.company.domain.CustomerDTO"
+		id="customer">
+		<id property="userid" column="userid" />
+		<result property="password" column="password" />
+		<result property="company" column="company" />
+		<result property="enabled" column="enabled" />
+		<collection property="authList" resultMap="authMap" />
+	</resultMap>
+
+	<resultMap type="com.company.domain.AuthDTO" id="authMap">
+		<result property="userid" column="userid" />
+		<result property="auth" column="auth" />
+	</resultMap>
+
+	<select id="read" resultMap="customer">
+		select s1.userid,password,company,auth,enabled
+		from customer s1
+		left outer join customer_auth s2 on s1.userid = s2.userid
+		where s1.userid=#{userid}
+	</select>
+
+	<update id="forgotPwd">
+		update customer set password = #{password} where userid = #{userid}
+	</update>
+
+	<select id="searchId"
+		resultType="com.company.domain.CustomerDTO">
+		select * from customer where userid = #{userid} and company = #{company}
+	</select>
+
+	<!-- 비밀번호 변경 : 아이디와 현재 비밀번호가 일치하면 변경 비밀번호로 바꾸기 -->
 	<update id="changePwd">
-		update customer set password = #{new_password} where userid = #{userid} and password = #{password}
+		update customer set password = #{new_password} where
+		userid = #{userid} and password = #{password}
+	</update>
+
+
+
+
+	<!-- 사용자 목록 조회 -->
+	<resultMap type="com.company.domain.CustomerDTO"
+		id="adminMap">
+		<result property="userid" column="userid" />
+		<result property="password" column="password" />
+		<result property="company" column="company" />
+		<collection property="authDto" resultMap="Auth" />
+	</resultMap>
+
+	<resultMap type="com.company.domain.AuthDTO" id="Auth">
+		<result property="userid" column="userid" />
+		<result property="auth" column="auth" />
+	</resultMap>
+
+	<select id="adminRead" resultMap="adminMap">
+		select c.userid, password, company,
+		CASE a.auth
+		WHEN 'ROLE_USER' THEN '일반 사용자'
+		WHEN 'ROLE_ADMIN' THEN '관리자'
+		ELSE ''
+		END AS auth
+		from customer c left join CUSTOMER_AUTH a on c.userid = a.userid
+	</select>
+
+
+	<!-- 수정하기 -->
+	<update id="adminUpdate">
+		update customer_auth set auth = 'ROLE_ADMIN' where
+		userid = #{userid}
 	</update>
 	
-	<select id="adminRead" resultType="com.company.domain.CustomerDTO">
-		select * from customer
-	</select>
-	
+
 	<select id="authRead" resultType="com.company.domain.AuthDTO">
 		select * from customer_auth where userid = #{userid}
 	</select>

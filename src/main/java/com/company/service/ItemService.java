@@ -11,4 +11,6 @@ public interface ItemService {
 	public ItemDTO itemget(String itemcode);
 	public boolean itemRemove(String itemcode);
 	public boolean itemUpdate(ItemDTO updateDto);
+	
+	public List<ItemDTO> itemDto();
 }

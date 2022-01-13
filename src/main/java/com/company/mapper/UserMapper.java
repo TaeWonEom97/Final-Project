@@ -3,6 +3,8 @@ package com.company.mapper;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
+import org.springframework.security.core.userdetails.User;
 
 import com.company.domain.AuthDTO;
 import com.company.domain.ChangePwdDTO;
@@ -17,6 +19,9 @@ public interface UserMapper {
 	public int changePwd(ChangePwdDTO changeDto);
 	public CustomerDTO checkId(String userid);
 	public List<CustomerDTO> adminRead();
+	public int adminUpdate(String userid);
+	
+	
 	public List<AuthDTO> authRead(String userid);
 	
 }

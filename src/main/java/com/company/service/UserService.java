@@ -13,5 +13,6 @@ public interface UserService {
 	public boolean changePwd(ChangePwdDTO changeDto);
 	public CustomerDTO checkId(String userid);
 	public List<CustomerDTO> adminRead();
+	public boolean adminUpdate(String userid);
 	public List<AuthDTO> authRead(String userid);
 }

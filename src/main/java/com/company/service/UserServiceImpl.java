@@ -20,15 +20,17 @@ public class UserServiceImpl implements UserService {
 
 	@Autowired
 	private UserMapper mapper;
-	
+
 	@Autowired
 	private PasswordEncoder passwordEncoder;
-	
+
 	@Override
 	public boolean register(CustomerDTO customerDto) {
 		customerDto.setPassword(passwordEncoder.encode(customerDto.getPassword()));
+
 		boolean result = mapper.register(customerDto)==1 ;
 		// mapper.register_auth(customerDto.getUserid(), "ROLE_ADMIN");
+
 		mapper.register_auth(customerDto.getUserid(), "ROLE_USER");
 		return result;
 	}
@@ -46,16 +48,16 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public boolean changePwd(ChangePwdDTO changeDto) {
-		
+
 		CustomerDTO customerDto = mapper.read(changeDto.getUserid());
-		
+
 		log.info(customerDto);
-		
+
 		boolean matches = passwordEncoder.matches(changeDto.getPassword(), customerDto.getPassword());
-		
-		log.info(changeDto.getPassword()+" --비교-- "+customerDto.getPassword());
-		
-		if(matches) {
+
+		log.info(changeDto.getPassword() + " --비교-- " + customerDto.getPassword());
+
+		if (matches) {
 			changeDto.setPassword(customerDto.getPassword());
 			changeDto.setNew_password(passwordEncoder.encode(changeDto.getNew_password()));
 			return mapper.changePwd(changeDto) > 0 ? true : false;
@@ -75,6 +77,10 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
+	public boolean adminUpdate(String userid) {
+		return mapper.adminUpdate(userid) > 0 ? true : false;
+	}
+
 	public List<AuthDTO> authRead(String userid) {
 		return mapper.authRead(userid);
 	}

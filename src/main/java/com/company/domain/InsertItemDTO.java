@@ -19,4 +19,10 @@ public class InsertItemDTO {
 	private int insertnum;
 	private Date insertdate;
 	private int seqid;
+	
+	private String itemtitle;
+	private int itemprice;
+	private String supplier;
+	private String itemsize;
+	private String color;
 }
