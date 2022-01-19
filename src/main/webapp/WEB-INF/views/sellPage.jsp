@@ -32,9 +32,9 @@
                                     </thead>
                                     <tbody>
                            <c:forEach var="dto" items="${list}">
-							  <sec:authorize access="hasRole('ROLE_ADMIN')">
-							  	<tr class="get" style = "cursor:pointer;" href="${dto.sellid}">
-							  </sec:authorize>
+                       <sec:authorize access="hasRole('ROLE_ADMIN')">
+                          <tr class="get" style = "cursor:pointer;" href="${dto.sellid}">
+                       </sec:authorize>
                                  <td>${dto.sellcode}</td>
                                  <td>${dto.itemDto.itemtitle}</td>
                                  <td>${dto.itemDto.itemsize}</td>
@@ -47,17 +47,17 @@
                               </tr>
                            </c:forEach>
                           <div align="left">
-		                  <form action="/sell/exceldown" method="get">
-		                     <button type="submit" class="btn btn-excel btn-sm">Excel</button>
-		                  </form>
-		                  </div>
+                        <form action="/sell/exceldown" method="get">
+                           <button type="submit" class="btn btn-success">Excel Download</button>
+                        </form>
+                        </div>
                         </tbody>
                                 </table>
                             </div>
                         </div>
                         <div>
                            <sec:authorize access="hasRole('ROLE_ADMIN')">
-                           		<button type="button" class="btn btn-success" id="insertSell">추가</button>
+                                 <button type="button" class="btn btn-success" id="insertSell">추가</button>
                            </sec:authorize>
                         </div>
                     </div>

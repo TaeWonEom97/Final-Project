@@ -4,16 +4,15 @@
 
 $(function(){
    
-   let modal = $('#sellModal');
+   let modal = $('#clientModal');
    
    // 모달 창 영역 안의 요소 가져오기
-   let modalsellid = modal.find("input[name='sellid']");
-   let modalsellcode = modal.find("input[name='sellcode']");
-   let modalitemtitle = modal.find("input[name='itemtitle']");
-   let modalsellnum = modal.find("input[name='sellnum']");
-   let modalitemprice = modal.find("input[name='itemprice']");
-   let modalsupplier = modal.find("input[name='supplier']");
-   let modalselldate = modal.find("input[name='selldate']");
+   let modalclcode = modal.find("input[name='clcode']");
+   let modalclname = modal.find("input[name='clname']");
+   let modalclregnum = modal.find("input[name='clregnum']");
+   let modalclrepre = modal.find("input[name='clrepre']");
+   let modalclcellnum = modal.find("input[name='clcellnum']");
+   let modalclemp = modal.find("input[name='clemp']");
    
    let modaltitle = modal.find(".modal-title");
 
@@ -26,26 +25,26 @@ $(function(){
       xhr.setRequestHeader(csrfHeaderName, csrfTokenValue);
    });
    
-   $("#insertSell").click(function(){
+   $("#newcl").click(function(){
       
       // 타이틀 변경
-      modaltitle.text("판매 추가");
+      modaltitle.text("거래처 추가");
       
       // readonly 속성 제거
-      modalsellcode.attr("readonly", false);
-      modalitemtitle.attr("readonly", false);
-      modalitemprice.attr("readonly", false);
-      modalsupplier.attr("readonly", false);
-      modalselldate.attr("readonly", false);
+      modalclname.attr("readonly", false);
+      modalclregnum.attr("readonly", false);
+      modalclrepre.attr("readonly", false);
+      modalclcellnum.attr("readonly", false);
+      modalclemp.attr("readonly", false);
       
       // input 안에 들어있는 value 제거
       modal.find("input").val("");
       
       // 필요없는 요소 숨기기
-      modalitemtitle.closest("div").hide();
+      /*modalitemtitle.closest("div").hide();
       modalitemprice.closest("div").hide();
       modalsupplier.closest("div").hide();
-      modalselldate.closest("div").hide();
+      modalselldate.closest("div").hide();*/
       
       // 수정, 삭제 버튼 숨기기
       modal.find("button[id = 'modalModifyBtn']").hide();
@@ -63,16 +62,20 @@ $(function(){
    
    modalRegisterBtn.click(function(){
 
-      var sellinsert = {
-         sellcode:modalsellcode.val(),
-         sellnum:modalsellnum.val()
+      var clientinsert = {
+         clname:modalclname.val(),
+         clcode:modalclcode.val(),
+         clregnum:modalclregnum.val(),
+         clrepre:modalclrepre.val(),
+         clcellnum:modalclcellnum.val(),
+         clemp:modalclemp.val()
       };
       
-      sellService.add(sellinsert,
+      clientService.add(clientinsert,
          function(result){
             if(result) {
                if(result == 'success') {
-                  alert("판매 등록 성공");
+                  alert("거래처 등록 성공");
                }
                modal.find("input").val("");
                location.reload();
@@ -86,30 +89,24 @@ $(function(){
    
    $(".get").on("click", function(){
       
-      let sellid = $(this).attr('href');
+      let clcode = $(this).attr('href');
       
-      sellService.get(sellid, function(data){
+      clientService.get(clcode, function(data){
          
          // 타이틀 변경
-         modaltitle.text("판매 관리");
+         modaltitle.text("거래처 관리");
          
          // 요소 보여주기
-         modalsellcode.closest("div").show();
-         modalitemtitle.closest("div").show();
-         modalitemprice.closest("div").show();
-         modalsupplier.closest("div").show();
-         modalselldate.closest("div").show();
          modalModifyBtn.show();
          modalRemoveBtn.show();
          
          // 내용 보여주기
-         modalsellid.val(data.sellid);
-         modalsellcode.val(data.sellcode).attr("readonly", true);
-         modalitemtitle.val(data.itemDto.itemtitle).attr("readonly", true);
-         modalsellnum.val(data.sellnum);
-         modalitemprice.val(data.itemDto.itemprice).attr("readonly", true);
-         modalsupplier.val(data.itemDto.supplier).attr("readonly", true);
-         modalselldate.val(data.selldate).attr("readonly", true);
+         modalclname.val(data.clname);
+         modalclcode.val(data.clcode).attr("readonly", true);
+         modalclregnum.val(data.clregnum);
+         modalclrepre.val(data.clrepre);
+         modalclcellnum.val(data.clcellnum);
+         modalclemp.val(data.clemp);
          
          // 버튼 숨기기
          modal.find("button[id = 'modalRegisterBtn']").hide();
@@ -121,7 +118,7 @@ $(function(){
    
    modalRemoveBtn.click(function(){
       
-      sellService.remove(modalsellid.val(),
+      clientService.remove(modalclcode.val(),
          function(result){
             if(result == "success") {
                alert("삭제 성공");
@@ -137,12 +134,16 @@ $(function(){
    
    modalModifyBtn.click(function(){
       
-      var sellupdate = {
-         sellid:modalsellid.val(),
-         sellnum:modalsellnum.val()
+      var clupdate = {
+         clcode:modalclcode.val(),
+         clname:modalclname.val(),
+         clregnum:modalclregnum.val(),
+         clrepre:modalclrepre.val(),
+         clcellnum:modalclcellnum.val(),
+         clemp:modalclemp.val()
       };
             
-      sellService.update(sellupdate,
+      clientService.update(clupdate,
          function(data){
             if(data == "success") {
                alert("수정성공");

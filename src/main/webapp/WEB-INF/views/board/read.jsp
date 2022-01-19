@@ -5,9 +5,9 @@
  <%@include file="../includes/header2.jsp" %>
  
 <main>
-	<div class="container-fluid px-4">
-		<h1 class="mt-4">사내 게시판</h1>
-		<div class="panel panel-default">
+   <div class="container-fluid px-4">
+      <h1 class="mt-4">사내 게시판</h1>
+      <div class="panel panel-default">
          <div class="panel-heading"></div>
          <!-- /.panel-heading -->
          <div class="panel-body">
@@ -34,7 +34,7 @@
             </form>
          </div>
       </div>
-   	
+      
   <%-- 댓글 리스트 --%>            
 <div class="row">
    <div class="col-lg-12">
@@ -86,7 +86,8 @@
         </div>
         <div class="form-group">
            <label for="">작성자</label>
-           <input type="text" name="replyer" class="form-control" value="작성자"/>
+           <input type="text" name="replyer" class="form-control" value=""/>
+           <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         </div>
         <div class="form-group">
            <label for="">작성일</label>
@@ -110,6 +111,7 @@
       type="hidden" name="type" value="${cri.type}" /> <input type="hidden"
       name="keyword" value="${cri.keyword}" /> <input type="hidden"
       name="bno" value="${dto.bno}" />
+      <input type="hidden" id="name" value="<sec:authentication property="principal.username"/>" />
 </form>
 
 <script>
@@ -122,4 +124,4 @@
 </script>
 <script src="/resources/js/reply.js"></script>
 <script src="/resources/js/read.js"></script>
-<%@include file="../includes/footer2.jsp" %>			
+<%@include file="../includes/footer2.jsp" %>         

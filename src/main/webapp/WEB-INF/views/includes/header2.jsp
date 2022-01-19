@@ -2,7 +2,7 @@
    pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
+<%@taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,21 +33,24 @@
       <!-- Navbar-->
       <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
       <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <sec:authorize access="isAnonymous()">              
-                           <li><a class="dropdown-item" href="/register">가입</a></li>
-                           <li><a class="dropdown-item" href="/forgotPwd">비밀번호 찾기</a></li>
-                           <li><hr class="dropdown-divider" /></li>
-                           <li><a class="dropdown-item" href="/login">로그인</a></li>     
-                         </sec:authorize>
-                         <sec:authorize access="isAuthenticated()" >
-	                       <li><a class="dropdown-item" href="/changePwd">비밀번호 변경</a></li>           
-	                       <li><a class="dropdown-item" href="/logoutForm">로그아웃</a></li>           
-	                     </sec:authorize>    
-            </ul></li>
+               <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+               <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                   <sec:authorize access="isAnonymous()">              
+                      <li><a class="dropdown-item" href="/register">가입</a></li>
+                      <li><a class="dropdown-item" href="/forgotPwd">비밀번호 찾기</a></li>
+                      <li><hr class="dropdown-divider" /></li>
+                      <li><a class="dropdown-item" href="/login">로그인</a></li>     
+                    </sec:authorize>
+                    <sec:authorize access="isAuthenticated()" >
+                   <li><a class="dropdown-item" href="/changePwd">비밀번호 변경</a></li>           
+                   <li><a class="dropdown-item" href="/logoutForm">로그아웃</a></li>           
+                 </sec:authorize>    
+               </ul>
+            </li>
       </ul>
-      <li class="text-white"><sec:authentication property="name" />님 안녕하세요</li>
+      <sec:authorize access="isAuthenticated()" >
+         <li class="text-white"><sec:authentication property="name" />님 안녕하세요</li>
+      </sec:authorize>
    </nav>
    <div id="layoutSidenav">
       <div id="layoutSidenav_nav">
@@ -75,14 +78,11 @@
                   <div class="collapse" id="collapseLayouts"
                      aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                      <nav class="sb-sidenav-menu-nested nav">
-
-                     
                         <a class="nav-link" href="/item">제품관리</a>
                         <a class="nav-link" href="/putin">입고관리</a>
                         <a class="nav-link" href="/sellPage">판매관리</a>
                         <a class="nav-link" href="/stock">재고현황 및 조회</a>
                      </nav>
-                     
                   </div>
                   <div class="sb-sidenav-menu-heading">Account</div>
                   <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
@@ -95,27 +95,24 @@
                         <i class="fas fa-angle-down"></i>
                      </div>
                   </a>
-                  
-                  
                   <div class="collapse" id="collapsePages"
                      aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                      <nav class="sb-sidenav-menu-nested nav accordion"
                         id="sidenavAccordionPages">
                         
                        <div class="collapse" id="collapsePages" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <sec:authorize access="isAnonymous()" >   
-	                                    <a class="nav-link" href="/login">로그인</a>
-	                                    <a class="nav-link" href="/register">신규등록</a>
-	                                    <a class="nav-link" href="/forgotPwd">비밀번호 찾기</a>
-                                     </sec:authorize>
-			                         <sec:authorize access="isAuthenticated()" >
-			                         	<a class="nav-link" href="/changePwd">비밀번호 변경</a>
-			                         	<a class="nav-link" href="/logoutForm">로그아웃</a>
-			                         </sec:authorize>
+                              <nav class="sb-sidenav-menu-nested nav">
+                                  <sec:authorize access="isAnonymous()" >   
+                                   <a class="nav-link" href="/login">로그인</a>
+                                   <a class="nav-link" href="/register">신규등록</a>
+                                   <a class="nav-link" href="/forgotPwd">비밀번호 찾기</a>
+                                   </sec:authorize>
+                            <sec:authorize access="isAuthenticated()" >
+                               <a class="nav-link" href="/changePwd">비밀번호 변경</a>
+                               <a class="nav-link" href="/logoutForm">로그아웃</a>
+                            </sec:authorize>
                            </nav>
                         </div>
-
                      </nav>
                   </div>
                    <a class="nav-link" href="/board/list">
@@ -123,12 +120,14 @@
                         <i class="fas fa-table"></i>
                      </div> 게시판                
                   </a>
+                  <sec:authorize access="hasRole('ROLE_ADMIN')">
                    <div class="sb-sidenav-menu-heading">관리자메뉴</div>
-                  <a class="nav-link" href="charts.html">
+                  <a class="nav-link" href="/adminPage">
                      <div class="sb-nav-link-icon">
                         <i class="fas fa-chart-area"></i>
-                     </div> 보고서
+                     </div> 사용자 관리
                   </a>
+                  </sec:authorize>
                </div>
             </div>
             <div class="sb-sidenav-footer">
