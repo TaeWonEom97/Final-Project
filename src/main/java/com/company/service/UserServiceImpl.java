@@ -73,17 +73,23 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public List<CustomerDTO> adminRead() {
+		
 		return mapper.adminRead();
 	}
 
 	@Override
-	public boolean adminUpdate(String userid) {
-		return mapper.adminUpdate(userid) > 0 ? true : false;
+	public boolean adminInsert(String userid, String auth) {
+		return mapper.adminInsert(userid, auth) > 0 ? true : false;
 	}
 
-	public List<AuthDTO> authRead(String userid) {
-		return mapper.authRead(userid);
+	@Override
+	public boolean adminDelete(String userid, String role) {
+		return mapper.adminDelete(userid, role) > 0 ? true : false;
 	}
 
-	
+	@Override
+	public CustomerDTO read(String userid) {
+		return mapper.read(userid);
+	}
+
 }

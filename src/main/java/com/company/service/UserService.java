@@ -13,6 +13,7 @@ public interface UserService {
 	public boolean changePwd(ChangePwdDTO changeDto);
 	public CustomerDTO checkId(String userid);
 	public List<CustomerDTO> adminRead();
-	public boolean adminUpdate(String userid);
-	public List<AuthDTO> authRead(String userid);
+	public boolean adminInsert(String userid, String auth);
+	public boolean adminDelete(String userid, String role);
+	public CustomerDTO read(String userid);
 }

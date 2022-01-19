@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-
 	pageEncoding="UTF-8"%>
 <%@include file="includes/header.jsp"%>
 <div id="layoutSidenav_content">
@@ -28,11 +27,16 @@
 							<c:forEach var="dto" items="${list}">
 								<tr>
 									<td>${dto.company}</td>
-									<td>${dto.password}</td>
+									<td>팀장</td>
 									<td>${dto.userid}</td>
-									<td>${dto.authDto.auth}</td>
-									<td><button type="button" class="btn btn-success"
-											id="btn_edit">권한부여</button></td>
+									<c:choose>
+										<c:when test="${empty dto.authList}"><td></td></c:when>
+										<c:otherwise><td><c:forEach var="authority" items="${dto.authList}"> ${authority.auth} </c:forEach></td></c:otherwise>
+									</c:choose>
+									<td><c:url var="changeRoleUrl" value="/admin/${dto.userid}" />
+										<a href="${ changeRoleUrl }/admin" class="btn <c:if test="${dto.hasRole('ADMIN')}">btn-primary</c:if>">관리자</a>
+				                        <a href="${ changeRoleUrl }/user" class="btn <c:if test="${dto.hasRole('USER')}">btn-primary</c:if>">사용자</a>
+				                    </td>
 								</tr>
 							</c:forEach>
 						</tbody>
@@ -41,11 +45,8 @@
 			</div>
 		</div>
 	</main>
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-		crossorigin="anonymous"></script>
-	<script src="/resources/js/scripts.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest"
-		crossorigin="anonymous"></script>
-	<script src="/resources/js/datatables-simple-demo.js"></script>
-	<%@include file="includes/footer.jsp"%>
+<script>
+   let csrfHeaderName = "${_csrf.headerName}";
+   let csrfTokenValue = "${_csrf.token}";
+</script>
+<%@include file="includes/footer.jsp"%>

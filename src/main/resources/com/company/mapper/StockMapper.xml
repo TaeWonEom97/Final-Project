@@ -16,7 +16,6 @@
 		<result property="sellnum" column="sellnum" />
 		<result property="selldate" column="selldate" />
 		<result property="sellcode" column="sellcode" />
-		<result property="selluser" column="selluser" />
 		<!-- <collection property="itemDto" resultMap="ItemMap"/> <collection property="customerDto" 
 			resultMap="CustomerMap"/> -->
 	</resultMap>

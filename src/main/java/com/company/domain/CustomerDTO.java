@@ -24,4 +24,15 @@ public class CustomerDTO {
 
 	private List<AuthDTO> authList;
 	
+	public boolean hasRole(String role) {
+        for (AuthDTO auth : authList)
+        	try {
+        		if (auth.isRole(role))
+        			return true;
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+        return false;
+    }
+	
 }

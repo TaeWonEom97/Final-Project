@@ -8,8 +8,3 @@ window.addEventListener('DOMContentLoaded', event => {
     }
 });
 
-
-
-
-
-datatables-simple-demo.js

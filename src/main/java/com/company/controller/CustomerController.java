@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -126,12 +127,30 @@ public class CustomerController {
 		return "/changePwd";
 	}
 	
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@GetMapping("/adminPage")
 	public void admin(Model model) {
-		log.info("비밀번호 변경 폼 요청");
+		log.info("관리자페이지 폼 요청");
 		List<CustomerDTO> list = service.adminRead();
 		model.addAttribute("list",list);
 	}
+	
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
+	@GetMapping("/admin/{userid}/{role}")
+    public String changeRole(@PathVariable String userid, @PathVariable String role) {
+        toggleRole(userid, role);
+        return "redirect:/adminPage";
+    }
+    private void toggleRole(String userid, String role) {
+        CustomerDTO customerDto = service.read(userid);
+        if (! customerDto.hasRole(role)) {
+        	log.info("권한 부여 ", role);
+            service.adminInsert(customerDto.getUserid(), "ROLE_" + role.toUpperCase());
+        } else {
+        	log.info("권한 삭제 ", role);
+            service.adminDelete(customerDto.getUserid(), "ROLE_" + role.toUpperCase());
+        }
+    }
 
 	@PostMapping("/changePwd")
 	public String changePwdPost(ChangePwdDTO changeDto, Principal principal, HttpSession session,

@@ -18,4 +18,9 @@ import lombok.ToString;
 public class AuthDTO {
 	private String userid;
 	private String auth;
+	
+    public boolean isRole(String role) {
+    	return auth.equals("ROLE_" + role.toUpperCase());
+    }
+
 }

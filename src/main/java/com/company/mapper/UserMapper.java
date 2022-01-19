@@ -19,9 +19,8 @@ public interface UserMapper {
 	public int changePwd(ChangePwdDTO changeDto);
 	public CustomerDTO checkId(String userid);
 	public List<CustomerDTO> adminRead();
-	public int adminUpdate(String userid);
-	
-	
-	public List<AuthDTO> authRead(String userid);
+	public int adminInsert(@Param("userid") String userid, @Param("auth") String auth);
+	public int adminDelete(@Param("userid") String userid, @Param("role") String role);
+
 	
 }

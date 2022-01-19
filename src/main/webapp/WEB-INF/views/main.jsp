@@ -7,7 +7,7 @@
         <div class="container-fluid px-4">
                         <h1 class="mt-4">차트현황</h1>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">입고,판매, 재고의 차트를 보실 수 있습니다.</li>
+                            <li class="breadcrumb-item active">입고, 판매, 재고의 차트를 보실 수 있습니다.</li>
                         </ol>
                         <div class="row">
                             <div class="col-xl-3 col-md-6">

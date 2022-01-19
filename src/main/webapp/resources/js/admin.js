@@ -3,6 +3,21 @@
  */
 let adminService = (function(){
 	
+	function get(userid, callback) {
+			
+		$.ajax({
+			url:'/admin/'+userid,
+			type:'post',
+			contentType:'application/json',
+			data:JSON.stringify(userid),
+			success:function(data) {
+				if(callback) {
+					callback(data);
+				}	
+			}
+		})
+	} // get end
+	
 	function remove(userid, callback, error) {
 		
 		$.ajax({
@@ -21,63 +36,37 @@ let adminService = (function(){
 		})
 	} // remove end
 	
-	function update(userid, callback, error) {
+	function add(sellinsert, callback, error) {
+		console.log("add method 실행");
 		
 		$.ajax({
-			url:'/admin/'+userid,
-			type:'put',
+			url:'/sell/insertSell',
+			type:'post',
 			contentType:'application/json',
-			data:JSON.stringify(userid),
-			success:function(data){
+			data:JSON.stringify(sellinsert),
+			success:function(result) {
 				if(callback) {
-					callback(data);
+					callback(result);
 				}
 			},
 			error:function(xhr, status, error) {
-				if(error) {
-					error(xhr.responseText);
-				}
+				error(err);
 			}
 		})
-	} // update end
+	} // add end
 	
 	return {
 		remove:remove,
-		update:update
+		add:add,
+		get:get
 	};
 })();
 
 $(function(){
-	$(document).on('click', '.btn_edit', function(event) 
-	{
-		event.preventDefault();
-		var tbl_row = $(this).closest('tr');
-
-		var row_id = tbl_row.attr('row_id');
-
-		tbl_row.find('.btn_save').show();
-		tbl_row.find('.btn_cancel').show();
-
-		//hide edit button
-		tbl_row.find('.btn_edit').hide(); 
-
-		//make the whole row editable
-		tbl_row.find('row_data')
-		.attr('contenteditable', 'true')
-		.attr('edit_type', 'button')
-		.addClass('bg-warning')
-		.css('padding','3px')
-
-		//--->add the original entry > start
-		tbl_row.find('.row_data').each(function(i, val) 
-		{  
-			//this will help in case user decided to click on cancel button
-			$(this).attr('original_entry', $(this).html());
-		}); 		
-		//--->add the original entry > end
-
-	});
-	
+	$("#btn_admin").click(function(e){
+		e.preventDefault();
+		
+	})
 })
 	
 	

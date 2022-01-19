@@ -16,10 +16,15 @@
                                 제품 관리
                             </div>
                             <div class="card-body">
-                        <div id="excel">
+                        <div id="excel" class="d-flex">
 					        <form action="/excel/download2" method="get">
 					            <button type="submit" class="btn btn-success">Excel Download</button>
 					        </form>
+					        &emsp;
+					        엑셀로 추가 : &nbsp;
+							<form name="excelUpForm" id="excelUpForm" enctype="multipart/form-data" method="POST" action="/excelDown">
+							    <input type="file" id="excelFile" name="excelFile" value="엑셀 업로드" />
+							</form>
 					  	</div>
                                 <table id="datatablesSimple">
                                     <thead>
@@ -100,6 +105,24 @@
 <script>
    let csrfHeaderName = "${_csrf.headerName}";
    let csrfTokenValue = "${_csrf.token}";
+   
+   $("#excelUpForm").change(function(){
+       var form = $("#excelUpForm")[0];
+
+       var data = new FormData(form);
+       $.ajax({
+          enctype:"multipart/form-data",
+          method:"POST",
+          url: '/excelUp',
+          processData: false,   
+          contentType: false,
+          cache: false,
+          data: data,
+          success: function(result){  
+              alert("업로드 성공!!");
+          }
+       });
+   });
 </script>   
 <script src="/resources/js/item.js"></script>
 <script src="/resources/js/itemModal.js"></script>            

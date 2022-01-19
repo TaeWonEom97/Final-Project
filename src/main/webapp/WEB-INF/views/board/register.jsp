@@ -25,7 +25,7 @@
                             <div class="form-group">
                                <label>Writer</label>
                                <input class="form-control" name="writer" value='<sec:authentication property="principal.username"/>' readonly>                            
-                            </div>  
+                            </div>
                             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                             <button type="submit" class="btn btn-default">Submit</button>                       
                             <button type="reset" class="btn btn-default">reset</button>                       

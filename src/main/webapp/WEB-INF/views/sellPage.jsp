@@ -35,6 +35,7 @@
 							  <sec:authorize access="hasRole('ROLE_ADMIN')">
 							  	<tr class="get" style = "cursor:pointer;" href="${dto.sellid}">
 							  </sec:authorize>
+							  	 <input type="hidden" name="sellid" value="${dto.sellid}"/>
                                  <td>${dto.sellcode}</td>
                                  <td>${dto.itemDto.itemtitle}</td>
                                  <td>${dto.itemDto.itemsize}</td>
@@ -48,7 +49,7 @@
                            </c:forEach>
                           <div align="left">
 		                  <form action="/sell/exceldown" method="get">
-		                     <button type="submit" class="btn btn-excel btn-sm">Excel</button>
+		                     <button type="submit" class="btn btn-success">Excel Download</button>
 		                  </form>
 		                  </div>
                         </tbody>

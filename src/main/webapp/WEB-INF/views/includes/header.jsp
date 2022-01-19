@@ -16,7 +16,11 @@
         <link rel="stylesheet" href="/resources/css/styles.css" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
 </head>
-<<<<<<< HEAD
+<style>
+   .text-white{
+      margin-top: 10px;
+   }
+</style>
 <body class="sb-nav-fixed">
 	<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
 		<!-- Navbar Brand-->
@@ -46,9 +50,10 @@
 					</sec:authorize>
 					</ul>
 				</li>
-				<li class="text-white"><sec:authentication property="name" />님
-					안녕하세요</li>
-			</ul>
+		      <sec:authorize access="isAuthenticated()" >
+		      	<li class="text-white"><sec:authentication property="name" />님 안녕하세요</li>
+		      </sec:authorize>
+		</ul>
 	</nav>
 	<div id="layoutSidenav">
 		<div id="layoutSidenav_nav">
@@ -82,16 +87,17 @@
 								<a class="nav-link" href="/stock">재고현황 및 조회</a>
 							</nav>
 						</div>
-						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
-							data-bs-target="#collapsePages" aria-expanded="false"
-							aria-controls="collapsePages">
-							<div class="sb-nav-link-icon">
-								<i class="fas fa-book-open"></i>
-							</div> 계정관리
-							<div class="sb-sidenav-collapse-arrow">
-								<i class="fas fa-angle-down"></i>
-							</div>
-						</a>
+						<div class="sb-sidenav-menu-heading">Account</div>
+		                  <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+		                     data-bs-target="#collapsePages" aria-expanded="false"
+		                     aria-controls="collapsePages">
+		                     <div class="sb-nav-link-icon">
+		                        <i class="fas fa-book-open"></i>
+		                     </div> 계정관리
+		                     <div class="sb-sidenav-collapse-arrow">
+		                        <i class="fas fa-angle-down"></i>
+		                     </div>
+		                  </a>
 						<div class="collapse" id="collapsePages"
 							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
@@ -106,19 +112,21 @@
 								</sec:authorize>
 							</nav>
 						</div>
-						<div class="sb-sidenav-menu-heading">Addons</div>
-						<a class="nav-link" href="/charts">
-							<div class="sb-nav-link-icon">
-								<i class="fas fa-chart-area"></i>
-							</div> 보고서
-						</a> <a class="nav-link" href="/board/list">
-							<div class="sb-nav-link-icon">
-								<i class="fas fa-table"></i>
-							</div> 게시판
-						</a>
-					</div>
-				</div>
-	
+                   <a class="nav-link" href="/board/list">
+                     <div class="sb-nav-link-icon">
+                        <i class="fas fa-table"></i>
+                     </div> 게시판                
+                  </a>
+                  <sec:authorize access="hasRole('ROLE_ADMIN')">
+                   <div class="sb-sidenav-menu-heading">관리자메뉴</div>
+                  <a class="nav-link" href="/adminPage">
+                     <div class="sb-nav-link-icon">
+                        <i class="fas fa-chart-area"></i>
+                     </div> 사용자 관리
+                  </a>
+                  </sec:authorize>
+               </div>
+            </div>
                     <div class="sb-sidenav-footer">
                         <div class="text align">welcome :)</div>
                     </div>

@@ -13,4 +13,6 @@ public interface ItemService {
 	public boolean itemUpdate(ItemDTO updateDto);
 	
 	public List<ItemDTO> itemDto();
+	
+	public List<?> getExcelUpload(String excelFile);
 }

@@ -110,6 +110,7 @@
       type="hidden" name="type" value="${cri.type}" /> <input type="hidden"
       name="keyword" value="${cri.keyword}" /> <input type="hidden"
       name="bno" value="${dto.bno}" />
+      <input type="hidden" id="name" value="<sec:authentication property="principal.username"/>" />
 </form>
 
 <script>

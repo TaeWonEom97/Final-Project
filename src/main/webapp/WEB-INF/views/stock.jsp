@@ -44,7 +44,7 @@
                                         </c:forEach>       
                                         <div align="left">
                                     <form action="/excel/download" method="get">
-                                       <button type="submit" class="btn btn-success btn-sm">Excel</button>
+                                       <button type="submit" class="btn btn-success">Excel Download</button>
                                     </form>
                                     </div>                                   
                                     </tbody>                                                             
