@@ -45,11 +45,11 @@
                    <li><a class="dropdown-item" href="/changePwd">비밀번호 변경</a></li>           
                    <li><a class="dropdown-item" href="/logoutForm">로그아웃</a></li>           
                  </sec:authorize>    
-            	</ul>
+               </ul>
             </li>
       </ul>
       <sec:authorize access="isAuthenticated()" >
-      	<li class="text-white"><sec:authentication property="name" />님 안녕하세요</li>
+         <li class="text-white"><sec:authentication property="name" />님 안녕하세요</li>
       </sec:authorize>
    </nav>
    <div id="layoutSidenav">
@@ -107,10 +107,10 @@
                                    <a class="nav-link" href="/register">신규등록</a>
                                    <a class="nav-link" href="/forgotPwd">비밀번호 찾기</a>
                                    </sec:authorize>
-	                         <sec:authorize access="isAuthenticated()" >
-	                         	<a class="nav-link" href="/changePwd">비밀번호 변경</a>
-	                         	<a class="nav-link" href="/logoutForm">로그아웃</a>
-	                         </sec:authorize>
+                            <sec:authorize access="isAuthenticated()" >
+                               <a class="nav-link" href="/changePwd">비밀번호 변경</a>
+                               <a class="nav-link" href="/logoutForm">로그아웃</a>
+                            </sec:authorize>
                            </nav>
                         </div>
                      </nav>
@@ -126,6 +126,11 @@
                      <div class="sb-nav-link-icon">
                         <i class="fas fa-chart-area"></i>
                      </div> 사용자 관리
+                  </a>
+                  <a class="nav-link" href="/client">
+                     <div class="sb-nav-link-icon">
+                        <i class="fas fa-chart-area"></i>
+                     </div> 거래처 관리
                   </a>
                   </sec:authorize>
                </div>

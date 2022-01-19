@@ -3,12 +3,7 @@
  */
 
 $(function() {
-	
-	
-	
-	
-	
-	
+
    // 댓글 전체 가져오기 함수 호출(showList)
    showList(1);
    // 댓글 보여줄 영역 가져오기
@@ -63,7 +58,7 @@ $(function() {
    let modalRemoveBtn = modal.find("#modalRemoveBtn");
    let modalCloseBtn = modal.find("#modalCloseBtn");
    let name = form.find("#name").val();
-   
+
     // 종료 버튼 활성화
     modalCloseBtn.click(function(){
 	modal.modal("hide");
@@ -73,7 +68,7 @@ $(function() {
       // input 안에 들어있는 value 제거
       modal.find("input").val("");
 	  modalReplyer.val(name).attr("readonly","readonly");
-	  
+
       // 작성일 안보여주기 
       modalReplyDate.closest("div").hide();
             
@@ -274,22 +269,5 @@ $(function() {
       showList(pageNum);
       
    })// 이벤트 위임 방식 END
-   
-   
-   
-   
-	
+
 })
-
-
-
-
-
-
-
-
-
-
-
-
-

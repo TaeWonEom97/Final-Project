@@ -58,12 +58,11 @@
                         </div>
                         <div>
                            <sec:authorize access="hasRole('ROLE_ADMIN')">
-                           		<button type="button" class="btn btn-success" id="insertSell">추가</button>
+                                 <button type="button" class="btn btn-success" id="insertSell">추가</button>
                            </sec:authorize>
                         </div>
                     </div>
                 </main>
-                
 <%-- sell 추가 모달 --%>
 <div class="modal" tabindex="-1" id="sellModal">
   <div class="modal-dialog">

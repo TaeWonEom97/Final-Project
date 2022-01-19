@@ -9,6 +9,26 @@ create table item(
    color varchar2(10) not null
    
 );
+
+-- 거래처 코드(primary key), 거래처명, 사업자등록번호, 대표자, 전화번호, 담당자
+create table client(
+   clcode varchar2(200) constraint pk_clcode primary key,
+   clname varchar2(200) not null,
+   clregnum varchar2(20) not null,
+   clrepre varchar2(50) not null,
+   clcellnum varchar2(50) not null,
+   clemp varchar2(10) not null
+   
+);
+
+insert into client(clcode, clname, clregnum, clrepre, clcellnum, clemp) values('C001', 'A거래처', '123-45-67890', '김대표', '010-1234-5678', '김담당');
+
+
+select * from CLIENT;
+
+
+
+
 -- item 에 카테고리 테이블 추가
 ALTER TABLE item drop column goods_cate;
 ALTER TABLE item add goods_cate varchar2(50);

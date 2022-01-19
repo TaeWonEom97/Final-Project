@@ -13,6 +13,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ReplyDTO {
+	
 	private int rno;
 	private int bno;
 	private String reply;

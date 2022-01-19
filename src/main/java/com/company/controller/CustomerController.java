@@ -1,7 +1,9 @@
 package com.company.controller;
 
+import java.io.IOException;
 import java.security.Principal;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,24 +14,21 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.userdetails.User;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.company.config.MailConfig;
-import com.company.domain.AuthDTO;
 import com.company.domain.ChangePwdDTO;
 import com.company.domain.CustomerDTO;
-import com.company.domain.SellItemDTO;
-import com.company.mapper.UserMapper;
 import com.company.service.UserService;
 
 import lombok.extern.log4j.Log4j2;
@@ -40,6 +39,8 @@ public class CustomerController {
 
 	@Autowired
 	private UserService service;
+	
+	
 
 	@GetMapping("/login")
 	public String login() {
@@ -77,7 +78,6 @@ public class CustomerController {
 		log.info("게시판 폼 요청");
 		return "/list";
 	}
-	
 
 	// 중복아이디 검사
 	@ResponseBody // 리턴하는 값이 데이터임

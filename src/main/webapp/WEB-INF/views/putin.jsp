@@ -38,15 +38,12 @@
                               $("#putindate").datepicker({dateFormat:'yy-mm-dd'});
                           });
                       </script>
-
                     </div>
-                    
                     <div id="excel">
                     <form action="/excel/download3" method="get">
                         <button type="submit" class="btn btn-success">Excel Download</button>
                     </form>
                </div>
-                
              <div class="card mb-4">
                  <div class="card-header"><b> <i class="fas fa-table me-1"></i> 입고 관리 </b> 
                                
@@ -96,6 +93,5 @@
 </script>         
     <script src="/resources/js/putin.js"></script>
     <script src="/resources/js/newmodal.js"></script>
-
     <script src="/resources/js/module.js"></script>       
 <%@include file="includes/footer.jsp" %>
