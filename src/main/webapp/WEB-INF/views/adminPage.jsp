@@ -24,6 +24,7 @@
 							</tr>
 						</thead>
 						<tbody>
+							<sec:authentication property="principal.username" var="userid"/>
 							<c:forEach var="dto" items="${list}">
 								<tr>
 									<td>${dto.company}</td>
@@ -33,10 +34,21 @@
 										<c:when test="${empty dto.authList}"><td></td></c:when>
 										<c:otherwise><td><c:forEach var="authority" items="${dto.authList}"> ${authority.auth} </c:forEach></td></c:otherwise>
 									</c:choose>
-									<td><c:url var="changeRoleUrl" value="/admin/${dto.userid}" />
-										<a href="${ changeRoleUrl }/admin" class="btn <c:if test="${dto.hasRole('ADMIN')}">btn-primary</c:if>">관리자</a>
-				                        <a href="${ changeRoleUrl }/user" class="btn <c:if test="${dto.hasRole('USER')}">btn-primary</c:if>">사용자</a>
-				                    </td>
+									<c:choose>
+										<c:when test="${dto.userid eq userid}">
+											<td>
+												<a class="btn <c:if test="${dto.hasRole('ADMIN')}">btn-primary</c:if>">관리자</a>
+					                        	<a class="btn <c:if test="${dto.hasRole('USER')}">btn-primary</c:if>">사용자</a>
+				                        	</td>
+				                        </c:when>
+										<c:otherwise>
+											<td>
+												<c:url var="changeRoleUrl" value="/admin/${dto.userid}" />
+												<a href="${ changeRoleUrl }/admin" class="btn <c:if test="${dto.hasRole('ADMIN')}">btn-primary</c:if>">관리자</a>
+				                        		<a href="${ changeRoleUrl }/user" class="btn <c:if test="${dto.hasRole('USER')}">btn-primary</c:if>">사용자</a>
+				                    		</td>
+				                    	</c:otherwise>
+									</c:choose>
 								</tr>
 							</c:forEach>
 						</tbody>

@@ -37,15 +37,5 @@
 			update item set itemcode=#{itemcode},itemtitle=#{itemtitle},itemprice=#{itemprice},supplier=#{supplier},itemsize=#{itemsize},color=#{color}
 			where itemcode=#{itemcode}
 		</update>
-		
-		<!-- 데이터 삽입 -->
-	    <insert id="excelInsert" parameterType="java.util.Map">
-	        insert into item(itemcode,itemtitle,itemprice,supplier,itemsize,color) 
-			values(#{itemcode}, #{itemtitle}, #{itemprice}, #{supplier},#{itemsize},#{color})
-	    </insert>
-	    
-		<select id="testDbList" resultType="java.util.Map">
-	        SELECT * FROM item
-	    </select>
 
 </mapper>

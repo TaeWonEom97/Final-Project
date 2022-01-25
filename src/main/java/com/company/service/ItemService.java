@@ -1,5 +1,6 @@
 package com.company.service;
 
+import java.io.File;
 import java.util.List;
 
 import com.company.domain.ItemDTO;
@@ -14,5 +15,6 @@ public interface ItemService {
 	
 	public List<ItemDTO> itemDto();
 	
-	public List<?> getExcelUpload(String excelFile);
+	public void upload(File destFile);
+	
 }

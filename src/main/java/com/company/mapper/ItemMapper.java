@@ -12,6 +12,4 @@ public interface ItemMapper {
 	public int remove(String itemcode);
 	public int update(ItemDTO updateDto);
 	
-	public List<?> testDbList(Map<String, Object> map);
-	public int excelInsert(Map<String, Object> map);
 }
